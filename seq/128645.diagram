@@ -1,0 +1,243 @@
+format 75
+
+fragment 141061 "loop"
+  xyzwh 231.149 118.606 2000 466 401
+end
+note 141189 "Failed"
+  xyzwh 254.5 321.5 2010 55 41
+fragment 141317 "alt"
+  xyzwh 255 597 2000 404 198
+  separator 5000
+end
+note 141445 "Success"
+  xyzwh 255.5 231.5 2010 63 39
+note 141573 "=3 
+Break
+"
+  xyzwh 256 424 2010 55 49
+classinstancecanvas 141701 classinstance_ref 128389 // GUI
+  xyz 574.43 66 2005 life_line_z 2000
+end
+note 141829 "<3"
+  color white  xyzwh 253 140 2010 35 35
+fragment 141957 "alt"
+  xyzwh 253.363 194.943 2005 420 306
+  separator 3625
+  separator 7027
+end
+classinstancecanvas 142085 classinstance_ref 128261 // User
+  xyz 297.751 66 2005 life_line_z 2000
+end
+fragment 142213 "alt"
+  xyzwh 293 1231 2000 366 243
+  separator 5000
+end
+note 146693 "NotFound
+"
+  xyzwh 264.5 632.5 2010 51 49
+note 146821 "Found
+"
+  xyzwh 269 717 2010 51 49
+fragment 147717 ""
+  xyzwh 260 950 2000 409 227
+  separator 5000
+end
+note 149381 "Delete
+"
+  xyzwh 272.5 985.5 2010 47 45
+note 149509 "Cancel
+"
+  xyzwh 274 1089 2010 47 45
+durationcanvas 142341 classinstance_ref 142085 // User:Authen
+  xyzwh 328 148 2010 11 41
+end
+durationcanvas 142469 classinstance_ref 142085 // User:Authen
+  xyzwh 328 636 2010 11 25
+end
+durationcanvas 142597 classinstance_ref 142085 // User:Authen
+  xyzwh 328 743 2010 11 25
+end
+durationcanvas 142725 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 1316 2010 11 40
+end
+durationcanvas 142981 classinstance_ref 142085 // User:Authen
+  xyzwh 328 1276 2010 11 40
+end
+durationcanvas 143109 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 1431 2010 11 40
+end
+durationcanvas 143237 classinstance_ref 142085 // User:Authen
+  xyzwh 328 325 2010 11 25
+end
+durationcanvas 143365 classinstance_ref 142085 // User:Authen
+  xyzwh 328 1393 2010 11 49
+end
+durationcanvas 143493 classinstance_ref 142085 // User:Authen
+  xyzwh 328 251 2010 11 26
+end
+durationcanvas 143621 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 522 2010 11 51
+end
+durationcanvas 143749 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 148 2010 11 331
+end
+durationcanvas 143877 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 743 2010 11 40
+end
+durationcanvas 144005 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 1393 2010 11 25
+end
+durationcanvas 144261 classinstance_ref 142085 // User:Authen
+  xyzwh 328 1316 2010 11 25
+end
+durationcanvas 144517 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 1276 2010 11 25
+end
+durationcanvas 144645 classinstance_ref 142085 // User:Authen
+  xyzwh 328 447 2010 11 25
+end
+durationcanvas 144773 classinstance_ref 142085 // User:Authen
+  xyzwh 328 522 2010 11 66
+end
+durationcanvas 144901 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 636 2010 11 40
+end
+durationcanvas 146949 classinstance_ref 142085 // User:Authen
+  xyzwh 328 850 2010 11 40
+end
+durationcanvas 147077 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 850 2010 11 25
+end
+durationcanvas 147333 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 808 2010 11 203
+end
+durationcanvas 147461 classinstance_ref 142085 // User:Authen
+  xyzwh 328 808 2010 11 203
+end
+durationcanvas 147845 classinstance_ref 142085 // User:Authen
+  xyzwh 328 978 2010 11 40
+end
+durationcanvas 147973 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 978 2010 11 25
+end
+durationcanvas 148229 classinstance_ref 142085 // User:Authen
+  xyzwh 328 1086 2010 11 40
+end
+durationcanvas 148357 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 1086 2010 11 25
+end
+durationcanvas 148613 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 1019 2010 11 40
+end
+durationcanvas 148741 classinstance_ref 142085 // User:Authen
+  xyzwh 328 1019 2010 11 25
+end
+durationcanvas 148997 classinstance_ref 141701 // GUI:Bounry
+  xyzwh 602 1134 2010 11 40
+end
+durationcanvas 149125 classinstance_ref 142085 // User:Authen
+  xyzwh 328 1134 2010 11 25
+end
+msg 145029 return
+  from durationcanvas_ref 143749
+  to durationcanvas_ref 143237
+  yz 332 2015 explicitmsg "Login_Failed"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 410 318
+msg 145157 return
+  from durationcanvas_ref 142725
+  to durationcanvas_ref 144261
+  yz 1316 2015 explicitmsg "Deleted"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 452 1302
+msg 145413 synchronous
+  from durationcanvas_ref 143365
+  to durationcanvas_ref 144005
+  yz 1393 2015 explicitmsg "NO"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 463 1379
+msg 145541 synchronous
+  from durationcanvas_ref 144773
+  to durationcanvas_ref 143621
+  yz 538 2015 explicitmsg "search-data"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 411 524
+msg 145669 synchronous
+  from durationcanvas_ref 142981
+  to durationcanvas_ref 144517
+  yz 1276 2015 explicitmsg "Yes"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 437 1262
+msg 145925 return
+  from durationcanvas_ref 143877
+  to durationcanvas_ref 142597
+  yz 743 2015 explicitmsg "Contact Displayed"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 396 729
+msg 146053 return
+  from durationcanvas_ref 144901
+  to durationcanvas_ref 142469
+  yz 636 2015 explicitmsg "Contact Not Exist"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 398 622
+msg 146181 return
+  from durationcanvas_ref 143749
+  to durationcanvas_ref 143493
+  yz 251 2015 explicitmsg "Login_Passed"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 405 237
+msg 146309 synchronous
+  from durationcanvas_ref 142341
+  to durationcanvas_ref 143749
+  yz 148 2015 explicitmsg "Authenticate User"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 396 134
+msg 146437 return
+  from durationcanvas_ref 143749
+  to durationcanvas_ref 144645
+  yz 447 2015 explicitmsg "Auth_Not_Allowed"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 395 433
+msg 146565 return
+  from durationcanvas_ref 143109
+  to durationcanvas_ref 143365
+  yz 1431 2015 explicitmsg "Aborted"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 451 1417
+msg 147205 synchronous
+  from durationcanvas_ref 146949
+  to durationcanvas_ref 147077
+  yz 850 2015 explicitmsg "Delete"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 455 836
+msg 147589 return
+  from durationcanvas_ref 147333
+  to durationcanvas_ref 147461
+  yz 887 2015 explicitmsg "Confirm"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 452 873
+msg 148101 synchronous
+  from durationcanvas_ref 147845
+  to durationcanvas_ref 147973
+  yz 978 2015 explicitmsg "Yes"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 460 964
+msg 148485 synchronous
+  from durationcanvas_ref 148229
+  to durationcanvas_ref 148357
+  yz 1092 2015 explicitmsg "NO"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 463 1078
+msg 148869 return
+  from durationcanvas_ref 148613
+  to durationcanvas_ref 148741
+  yz 1019 2015 explicitmsg "Deleted"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 452 1005
+msg 149253 return
+  from durationcanvas_ref 148997
+  to durationcanvas_ref 149125
+  yz 1134 2015 explicitmsg "Aborted"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 451 1120
+end
