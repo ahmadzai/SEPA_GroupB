@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="default"
+    nsURI="http:///default.ecore" nsPrefix="default">
+  <eClassifiers xsi:type="ecore:EClass" name="String"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Int"/>
+  <eSubpackages name="package" nsURI="http:///default/package.ecore" nsPrefix="default.package">
+    <eClassifiers xsi:type="ecore:EClass" name="Person">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="First_Name" ordered="false"
+          lowerBound="1" eType="#//String" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Last_Name" ordered="false"
+          lowerBound="1" eType="#//String" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Phone" ordered="false"
+          lowerBound="1" eType="#//Int" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Fax" ordered="false"
+          lowerBound="1" eType="#//Int" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Mobile" ordered="false"
+          lowerBound="1" eType="#//Int" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Mail" ordered="false"
+          lowerBound="1" eType="#//String" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Additional_Information"
+          ordered="false" lowerBound="1" eType="#//String" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Address">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Street_Name" ordered="false"
+          lowerBound="1" eType="#//String" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Street_No" ordered="false"
+          lowerBound="1" eType="#//Int" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Zip_Code" ordered="false"
+          lowerBound="1" eType="#//Int" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="City" ordered="false"
+          lowerBound="1" eType="#//String" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Country" ordered="false"
+          lowerBound="1" eType="#//String" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Additional_Information"
+          ordered="false" lowerBound="1" eType="#//String" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Group">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Group_ID" ordered="false"
+          lowerBound="1" eType="#//Int" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Group_Name" ordered="false"
+          lowerBound="1" eType="#//String" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AddressBook"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AddressBookControler"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AuthenticationController"/>
+  </eSubpackages>
+</ecore:EPackage>
