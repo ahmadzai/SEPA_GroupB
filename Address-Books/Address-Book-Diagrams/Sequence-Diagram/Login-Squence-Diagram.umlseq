@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:uml2t.seqd.notation="http://www.eclipse.org/mdt/uml2tools/sequence-diagram/notation/2008" xmi:id="_l6_CMJVhEeGM-sijAsftBg" type="UMLSequence" name="Login-Squence-Diagram.umlseq" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_nPY-cJVjEeGM-sijAsftBg" type="2001" fontName="Lucida Grande">
+    <children xmi:type="notation:DecorationNode" xmi:id="_nPZlgJVjEeGM-sijAsftBg" type="5002"/>
+    <children xmi:type="notation:Shape" xmi:id="_oBOEAJVjEeGM-sijAsftBg" type="3001" fontName="Lucida Grande">
+      <children xmi:type="notation:DecorationNode" xmi:id="_oBOEApVjEeGM-sijAsftBg" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_oBOEA5VjEeGM-sijAsftBg" type="5005"/>
+      <children xmi:type="notation:Shape" xmi:id="_65KaYJVjEeGM-sijAsftBg" type="3004" fontName="Lucida Grande">
+        <element xmi:type="uml:BehaviorExecutionSpecification" href="Login-Squence-Diagram.uml#_65CekpVjEeGM-sijAsftBg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_65KaYZVjEeGM-sijAsftBg" x="10" y="80"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_9XO_UJVjEeGM-sijAsftBg" type="3004" fontName="Lucida Grande">
+        <element xmi:type="uml:BehaviorExecutionSpecification" href="Login-Squence-Diagram.uml#_9XHDgpVjEeGM-sijAsftBg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9XO_UZVjEeGM-sijAsftBg" x="10" y="76"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_sktdUJVjEeGM-sijAsftBg" type="3006">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_sktdUZVjEeGM-sijAsftBg"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_sktdUpVjEeGM-sijAsftBg" fontName="Lucida Grande"/>
+        <element xmi:type="uml:InteractionUse" href="Login-Squence-Diagram.uml#_sksPMJVjEeGM-sijAsftBg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sktdU5VjEeGM-sijAsftBg" x="20" y="114" width="20" height="154"/>
+      </children>
+      <element xmi:type="uml:Lifeline" href="Login-Squence-Diagram.uml#_oBGIMJVjEeGM-sijAsftBg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oBOEAZVjEeGM-sijAsftBg" x="94" y="28" width="60" height="430"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_ozufAJVjEeGM-sijAsftBg" type="3001" fontName="Lucida Grande">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ozufApVjEeGM-sijAsftBg" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_ozufA5VjEeGM-sijAsftBg" type="5005"/>
+      <children xmi:type="notation:Shape" xmi:id="_65KaYpVjEeGM-sijAsftBg" type="3004" fontName="Lucida Grande">
+        <element xmi:type="uml:BehaviorExecutionSpecification" href="Login-Squence-Diagram.uml#_65Cek5VjEeGM-sijAsftBg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_65KaY5VjEeGM-sijAsftBg" x="10" y="76"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_9XPmYJVjEeGM-sijAsftBg" type="3004" fontName="Lucida Grande">
+        <element xmi:type="uml:BehaviorExecutionSpecification" href="Login-Squence-Diagram.uml#_9XHDg5VjEeGM-sijAsftBg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9XPmYZVjEeGM-sijAsftBg" x="10" y="78"/>
+      </children>
+      <element xmi:type="uml:Lifeline" href="Login-Squence-Diagram.uml#_ozmjMJVjEeGM-sijAsftBg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ozufAZVjEeGM-sijAsftBg" x="391" y="28" width="60" height="430"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_sksPMZVjEeGM-sijAsftBg" type="3007">
+      <children xmi:type="notation:DecorationNode" xmi:id="_sks2QJVjEeGM-sijAsftBg" type="5007"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_sksPMpVjEeGM-sijAsftBg"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_sksPM5VjEeGM-sijAsftBg" fontName="Lucida Grande"/>
+      <element xmi:type="uml:InteractionUse" href="Login-Squence-Diagram.uml#_sksPMJVjEeGM-sijAsftBg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sksPNJVjEeGM-sijAsftBg" x="104" y="142" width="264" height="154"/>
+    </children>
+    <styles xmi:type="uml2t.seqd.notation:SDModelStorageStyle" xmi:id="_nPY-cZVjEeGM-sijAsftBg"/>
+    <element xmi:type="uml:Interaction" href="Login-Squence-Diagram.uml#_nPRpsJVjEeGM-sijAsftBg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nPY-cpVjEeGM-sijAsftBg" x="63" y="27" width="595" height="496"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_l6_CMZVhEeGM-sijAsftBg"/>
+  <element xmi:type="uml:Package" href="Login-Squence-Diagram.uml#_l67X0JVhEeGM-sijAsftBg"/>
+  <edges xmi:type="notation:Edge" xmi:id="_sktdVJVjEeGM-sijAsftBg" type="4002" source="_sktdUJVjEeGM-sijAsftBg" target="_sksPMZVjEeGM-sijAsftBg">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_skuEYJVjEeGM-sijAsftBg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_skuEYZVjEeGM-sijAsftBg" fontName="Lucida Grande"/>
+    <styles xmi:type="notation:IntListValueStyle" xmi:id="_52gqkZVjEeGM-sijAsftBg" name="SourceAnchor">
+      <intListValue>187</intListValue>
+      <intListValue>169</intListValue>
+    </styles>
+    <styles xmi:type="notation:IntListValueStyle" xmi:id="_52gqk5VjEeGM-sijAsftBg" name="TargetAnchor">
+      <intListValue>187</intListValue>
+      <intListValue>169</intListValue>
+    </styles>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_skuEYpVjEeGM-sijAsftBg" points="[10, 10, -90, -90]$[90, 90, -10, -10]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_52gqkJVjEeGM-sijAsftBg" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_52gqkpVjEeGM-sijAsftBg" id="(0.010067114,0.0)"/>
+  </edges>
+</notation:Diagram>

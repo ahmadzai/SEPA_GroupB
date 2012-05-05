@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cose="http:///schemas/cose/_HOYYAErQEeGh09XESokiHA/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/cose/_HOYYAErQEeGh09XESokiHA/3 cose.profile.uml#_HOYYAUrQEeGh09XESokiHA">
+  <uml:Package xmi:id="_lwOX8JVGEeGvjsDUceRsLA" name="default">
+    <elementImport xmi:id="_lws5EJVGEeGvjsDUceRsLA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_lws5EZVGEeGvjsDUceRsLA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <elementImport xmi:id="_lws5EpVGEeGvjsDUceRsLA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+    </elementImport>
+    <elementImport xmi:id="_lws5E5VGEeGvjsDUceRsLA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_1T46IJVGEeGvjsDUceRsLA" name="package">
+      <packagedElement xmi:type="uml:Class" xmi:id="_2LG2AJVGEeGvjsDUceRsLA" name="Person">
+        <ownedAttribute xmi:id="_8oUxEJVGEeGvjsDUceRsLA" name="First_Name" aggregation="composite"/>
+        <ownedAttribute xmi:id="_BNtn0JVHEeGvjsDUceRsLA" name="Last_Name" aggregation="composite"/>
+        <ownedAttribute xmi:id="_DZZcQJVHEeGvjsDUceRsLA" name="Phone" aggregation="composite"/>
+        <ownedAttribute xmi:id="_ajNQcJVHEeGvjsDUceRsLA" name="Fax" aggregation="composite"/>
+        <ownedAttribute xmi:id="_iPveUJVHEeGvjsDUceRsLA" name="Mobile" aggregation="composite"/>
+        <ownedAttribute xmi:id="_mUWjQJVHEeGvjsDUceRsLA" name="Mail" aggregation="composite"/>
+        <ownedAttribute xmi:id="_nzCHwJVHEeGvjsDUceRsLA" name="Additional_Information" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_xAnRoJVHEeGvjsDUceRsLA" name="Address">
+        <ownedAttribute xmi:id="_ywJ8oJVHEeGvjsDUceRsLA" name="Street_Name" aggregation="composite"/>
+        <ownedAttribute xmi:id="_4OBTgJVHEeGvjsDUceRsLA" name="Street_No" aggregation="composite"/>
+        <ownedAttribute xmi:id="_CFZoUJVIEeGvjsDUceRsLA" name="Zip_Code" aggregation="composite"/>
+        <ownedAttribute xmi:id="_G_p70JVIEeGvjsDUceRsLA" name="City" aggregation="composite"/>
+        <ownedAttribute xmi:id="_In320JVIEeGvjsDUceRsLA" name="Country" aggregation="composite"/>
+        <ownedAttribute xmi:id="_JyjhQJVIEeGvjsDUceRsLA" name="Additional_Information" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_OPgNsJVIEeGvjsDUceRsLA" name="Group">
+        <ownedAttribute xmi:id="_UPKqEJVIEeGvjsDUceRsLA" name="Group_ID" aggregation="composite"/>
+        <ownedAttribute xmi:id="_XzgTgJVIEeGvjsDUceRsLA" name="Group_Name" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_hYSccJVIEeGvjsDUceRsLA" name="has_a" memberEnd="_hYTDgJVIEeGvjsDUceRsLA _hYTqkJVIEeGvjsDUceRsLA">
+        <ownedEnd xmi:id="_hYTDgJVIEeGvjsDUceRsLA" name="src" type="_zz9EcJYiEeGOGuqEk1_jfg" association="_hYSccJVIEeGvjsDUceRsLA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LUJaYJVJEeGvjsDUceRsLA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LUKBcJVJEeGvjsDUceRsLA" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_hYTqkJVIEeGvjsDUceRsLA" name="dst" type="_xAnRoJVHEeGvjsDUceRsLA" aggregation="composite" association="_hYSccJVIEeGvjsDUceRsLA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hYTqkpVIEeGvjsDUceRsLA" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hYTqkZVIEeGvjsDUceRsLA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_ZS50QJVJEeGvjsDUceRsLA" name="member_of" memberEnd="_ZS6bUJVJEeGvjsDUceRsLA _ZS7CYZVJEeGvjsDUceRsLA">
+        <ownedEnd xmi:id="_ZS6bUJVJEeGvjsDUceRsLA" name="src" type="_OPgNsJVIEeGvjsDUceRsLA" association="_ZS50QJVJEeGvjsDUceRsLA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZS7CYJVJEeGvjsDUceRsLA" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZS6bUZVJEeGvjsDUceRsLA"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_ZS7CYZVJEeGvjsDUceRsLA" name="dst" type="_zz9EcJYiEeGOGuqEk1_jfg" association="_ZS50QJVJEeGvjsDUceRsLA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZS7CY5VJEeGvjsDUceRsLA" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZS7CYpVJEeGvjsDUceRsLA" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_v_kUMJYfEeGOGuqEk1_jfg" name="AddressBook"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zz9EcJYiEeGOGuqEk1_jfg" name="AddressBookControler"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_9P-S8JYiEeGOGuqEk1_jfg" memberEnd="_9P_hEJYiEeGOGuqEk1_jfg _9QAvMJYiEeGOGuqEk1_jfg">
+        <ownedEnd xmi:id="_9P_hEJYiEeGOGuqEk1_jfg" name="src" type="_2LG2AJVGEeGvjsDUceRsLA" association="_9P-S8JYiEeGOGuqEk1_jfg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9QAIIZYiEeGOGuqEk1_jfg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9QAIIJYiEeGOGuqEk1_jfg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_9QAvMJYiEeGOGuqEk1_jfg" name="dst" type="_zz9EcJYiEeGOGuqEk1_jfg" association="_9P-S8JYiEeGOGuqEk1_jfg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9QAvMpYiEeGOGuqEk1_jfg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9QAvMZYiEeGOGuqEk1_jfg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_GqKVcJYjEeGOGuqEk1_jfg" memberEnd="_GqK8gJYjEeGOGuqEk1_jfg _GqK8g5YjEeGOGuqEk1_jfg">
+        <ownedEnd xmi:id="_GqK8gJYjEeGOGuqEk1_jfg" name="src" type="_HI1U0JYrEeGOGuqEk1_jfg" association="_GqKVcJYjEeGOGuqEk1_jfg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GqK8gpYjEeGOGuqEk1_jfg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GqK8gZYjEeGOGuqEk1_jfg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_GqK8g5YjEeGOGuqEk1_jfg" name="dst" type="_v_kUMJYfEeGOGuqEk1_jfg" association="_GqKVcJYjEeGOGuqEk1_jfg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GqLjkZYjEeGOGuqEk1_jfg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GqLjkJYjEeGOGuqEk1_jfg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_HI1U0JYrEeGOGuqEk1_jfg" name="AuthenticationController"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_S3PcsJYrEeGOGuqEk1_jfg" memberEnd="_S3QDwJYrEeGOGuqEk1_jfg _S3Qq0JYrEeGOGuqEk1_jfg">
+        <ownedEnd xmi:id="_S3QDwJYrEeGOGuqEk1_jfg" name="src" type="_HI1U0JYrEeGOGuqEk1_jfg" association="_S3PcsJYrEeGOGuqEk1_jfg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S3QDwpYrEeGOGuqEk1_jfg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S3QDwZYrEeGOGuqEk1_jfg" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_S3Qq0JYrEeGOGuqEk1_jfg" name="dst" type="_zz9EcJYiEeGOGuqEk1_jfg" association="_S3PcsJYrEeGOGuqEk1_jfg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S3Qq0pYrEeGOGuqEk1_jfg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S3Qq0ZYrEeGOGuqEk1_jfg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_a-ltYJYiEeGOGuqEk1_jfg">
+      <eAnnotations xmi:id="_a-oJoJYiEeGOGuqEk1_jfg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_gmgYIJYiEeGOGuqEk1_jfg">
+      <eAnnotations xmi:id="_gmgYIZYiEeGOGuqEk1_jfg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="cose.profile.uml#_HOYYAUrQEeGh09XESokiHA"/>
+      </eAnnotations>
+      <appliedProfile href="cose.profile.uml#_xUi8cD_jEeG06MCSSEp9sA"/>
+    </profileApplication>
+  </uml:Package>
+  <cose:Entity xmi:id="_h-KHkJYiEeGOGuqEk1_jfg" base_Class="_2LG2AJVGEeGvjsDUceRsLA"/>
+  <cose:Entity xmi:id="_jvap0JYiEeGOGuqEk1_jfg" base_Class="_xAnRoJVHEeGvjsDUceRsLA"/>
+  <cose:Entity xmi:id="_kl60AJYiEeGOGuqEk1_jfg" base_Class="_OPgNsJVIEeGvjsDUceRsLA"/>
+  <cose:Controller xmi:id="_5h3CcJYiEeGOGuqEk1_jfg" base_Class="_zz9EcJYiEeGOGuqEk1_jfg"/>
+  <cose:Boundary xmi:id="_7KcJ0JYiEeGOGuqEk1_jfg" base_Class="_v_kUMJYfEeGOGuqEk1_jfg"/>
+  <cose:Controller xmi:id="_Px1yAJYrEeGOGuqEk1_jfg" base_Class="_HI1U0JYrEeGOGuqEk1_jfg"/>
+</xmi:XMI>
