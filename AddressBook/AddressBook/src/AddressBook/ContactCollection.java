@@ -54,18 +54,18 @@ public interface ContactCollection extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model personRequired="true" personOrdered="false"
+	 * @model required="true" ordered="false" personRequired="true" personOrdered="false"
 	 * @generated
 	 */
-	void deleteContact(Person person);
+	boolean deleteContact(Person person);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model personRequired="true" personOrdered="false"
+	 * @model required="true" ordered="false" personRequired="true" personOrdered="false"
 	 * @generated
 	 */
-	void saveContact(Person person);
+	boolean saveContact(Person person);
 
 	/**
 	 * <!-- begin-user-doc -->

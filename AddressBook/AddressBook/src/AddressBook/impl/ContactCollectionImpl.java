@@ -95,7 +95,7 @@ public class ContactCollectionImpl extends EObjectImpl implements ContactCollect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void deleteContact(Person person) {
+	public boolean deleteContact(Person person) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -106,7 +106,7 @@ public class ContactCollectionImpl extends EObjectImpl implements ContactCollect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void saveContact(Person person) {
+	public boolean saveContact(Person person) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

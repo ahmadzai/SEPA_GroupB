@@ -43,10 +43,10 @@
     <eOperations name="addContact" ordered="false" lowerBound="1">
       <eParameters name="person" ordered="false" lowerBound="1" eType="#//Person"/>
     </eOperations>
-    <eOperations name="deleteContact" ordered="false" lowerBound="1">
+    <eOperations name="deleteContact" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="person" ordered="false" lowerBound="1" eType="#//Person"/>
     </eOperations>
-    <eOperations name="saveContact" ordered="false" lowerBound="1">
+    <eOperations name="saveContact" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="person" ordered="false" lowerBound="1" eType="#//Person"/>
     </eOperations>
     <eOperations name="searchContact" ordered="false" upperBound="-1" eType="#//Person">

@@ -407,10 +407,10 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 		EOperation op = addEOperation(contactCollectionEClass, null, "addContact", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getPerson(), "person", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(contactCollectionEClass, null, "deleteContact", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = addEOperation(contactCollectionEClass, ecorePackage.getEBoolean(), "deleteContact", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getPerson(), "person", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(contactCollectionEClass, null, "saveContact", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = addEOperation(contactCollectionEClass, ecorePackage.getEBoolean(), "saveContact", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getPerson(), "person", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(contactCollectionEClass, this.getPerson(), "searchContact", 0, -1, IS_UNIQUE, !IS_ORDERED);

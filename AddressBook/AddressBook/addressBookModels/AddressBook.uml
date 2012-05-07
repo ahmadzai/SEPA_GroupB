@@ -70,16 +70,20 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6Km-BpeiEeGdocTu3_Rcyw"/>
     </ownedAttribute>
     <ownedOperation xmi:id="_ervmUJhsEeGG2LHxAqlBFg" name="addContact">
-      <ownedParameter xmi:id="_hLniEJhsEeGG2LHxAqlBFg" direction="return"/>
-      <ownedParameter xmi:id="_hLoJIJhsEeGG2LHxAqlBFg" name="person" type="_6KaJsJeiEeGdocTu3_Rcyw"/>
+      <ownedParameter xmi:id="__Lgm0Jh4EeGtneM3mNUWNQ" direction="return"/>
+      <ownedParameter xmi:id="__Lgm0Zh4EeGtneM3mNUWNQ" name="person" type="_6KaJsJeiEeGdocTu3_Rcyw"/>
     </ownedOperation>
     <ownedOperation xmi:id="_08r40JhsEeGG2LHxAqlBFg" name="deleteContact">
-      <ownedParameter xmi:id="_3P4qgJhsEeGG2LHxAqlBFg" direction="return"/>
-      <ownedParameter xmi:id="_3P4qgZhsEeGG2LHxAqlBFg" name="person" type="_6KaJsJeiEeGdocTu3_Rcyw"/>
+      <ownedParameter xmi:id="_4tmIMJh4EeGtneM3mNUWNQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4tn9YJh4EeGtneM3mNUWNQ" name="person" type="_6KaJsJeiEeGdocTu3_Rcyw"/>
     </ownedOperation>
     <ownedOperation xmi:id="_32ia0JhsEeGG2LHxAqlBFg" name="saveContact">
-      <ownedParameter xmi:id="_55OrUJhsEeGG2LHxAqlBFg" direction="return"/>
-      <ownedParameter xmi:id="_55OrUZhsEeGG2LHxAqlBFg" name="person" type="_6KaJsJeiEeGdocTu3_Rcyw"/>
+      <ownedParameter xmi:id="_AopTMJh5EeGtneM3mNUWNQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_AopTMZh5EeGtneM3mNUWNQ" name="person" type="_6KaJsJeiEeGdocTu3_Rcyw"/>
     </ownedOperation>
     <ownedOperation xmi:id="_6aQ70JhsEeGG2LHxAqlBFg" name="searchContact">
       <ownedParameter xmi:id="__u-WsJhsEeGG2LHxAqlBFg" type="_6KaJsJeiEeGdocTu3_Rcyw" direction="return">
