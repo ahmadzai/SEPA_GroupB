@@ -56,7 +56,7 @@
     <eOperations name="printContact" ordered="false" lowerBound="1">
       <eParameters name="person" ordered="false" lowerBound="1" eType="#//Person"/>
     </eOperations>
-    <eOperations name="editContact" ordered="false" lowerBound="1" eType="#//Person">
+    <eOperations name="editContact" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="person" ordered="false" lowerBound="1" eType="#//Person"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dst" ordered="false" upperBound="-1"

@@ -89,6 +89,6 @@ public interface ContactCollection extends EObject {
 	 * @model required="true" ordered="false" personRequired="true" personOrdered="false"
 	 * @generated
 	 */
-	Person editContact(Person person);
+	boolean editContact(Person person);
 
 } // ContactCollection

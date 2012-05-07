@@ -139,7 +139,7 @@ public class ContactCollectionImpl extends EObjectImpl implements ContactCollect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Person editContact(Person person) {
+	public boolean editContact(Person person) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

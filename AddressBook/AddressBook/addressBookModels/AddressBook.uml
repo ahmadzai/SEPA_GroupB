@@ -98,8 +98,10 @@
       <ownedParameter xmi:id="_IGXfcJhtEeGG2LHxAqlBFg" name="person" type="_6KaJsJeiEeGdocTu3_Rcyw"/>
     </ownedOperation>
     <ownedOperation xmi:id="_Ix6W0JhtEeGG2LHxAqlBFg" name="editContact">
-      <ownedParameter xmi:id="_MggIcJhtEeGG2LHxAqlBFg" type="_6KaJsJeiEeGdocTu3_Rcyw" direction="return"/>
-      <ownedParameter xmi:id="_MggvgJhtEeGG2LHxAqlBFg" name="person" type="_6KaJsJeiEeGdocTu3_Rcyw"/>
+      <ownedParameter xmi:id="_zEXrUJh3EeGDHZ-Ns0xhKQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_zEXrUZh3EeGDHZ-Ns0xhKQ" name="person" type="_6KaJsJeiEeGdocTu3_Rcyw"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_6KmW8JeiEeGdocTu3_Rcyw" name="personAddress" memberEnd="_6KmW8ZeiEeGdocTu3_Rcyw _6KmW9JeiEeGdocTu3_Rcyw">

@@ -45,7 +45,7 @@
     </children>
     <styles xmi:type="notation:CanonicalStyle" xmi:id="_6KY7rZeiEeGdocTu3_Rcyw"/>
     <element xmi:type="uml:Class" href="AddressBook.uml#_6KlI0JeiEeGdocTu3_Rcyw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6KY7rpeiEeGdocTu3_Rcyw" x="768" y="72"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6KY7rpeiEeGdocTu3_Rcyw" x="780" y="144"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_6KY7r5eiEeGdocTu3_Rcyw" type="2001" fontName="Ubuntu">
     <children xmi:type="notation:DecorationNode" xmi:id="_6KY7sJeiEeGdocTu3_Rcyw" type="5003">
@@ -76,7 +76,7 @@
     </children>
     <styles xmi:type="notation:CanonicalStyle" xmi:id="_6KY7xJeiEeGdocTu3_Rcyw"/>
     <element xmi:type="uml:Class" href="AddressBook.uml#_6Klv4JeiEeGdocTu3_Rcyw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6KY7xZeiEeGdocTu3_Rcyw" x="708" y="408"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6KY7xZeiEeGdocTu3_Rcyw" x="480" y="456"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_6KZioJeiEeGdocTu3_Rcyw" type="2001" fontName="Ubuntu">
     <children xmi:type="notation:DecorationNode" xmi:id="_6KZioZeiEeGdocTu3_Rcyw" type="5003">
@@ -127,7 +127,7 @@
     </children>
     <styles xmi:type="notation:CanonicalStyle" xmi:id="_6KZis5eiEeGdocTu3_Rcyw"/>
     <element xmi:type="uml:Class" href="AddressBook.uml#_6Klv4peiEeGdocTu3_Rcyw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6KZitJeiEeGdocTu3_Rcyw" x="48" y="144"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6KZitJeiEeGdocTu3_Rcyw" x="72" y="144"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Mtr4kJhcEeGe--o6rkHjcw" type="2014" fontName="Ubuntu">
     <children xmi:type="notation:DecorationNode" xmi:id="_MtsfoJhcEeGe--o6rkHjcw" type="5020"/>
@@ -165,7 +165,7 @@
     </children>
     <styles xmi:type="notation:CanonicalStyle" xmi:id="_09KNMZhcEeGe--o6rkHjcw"/>
     <element xmi:type="uml:Class" href="AddressBook.uml#_6KaJsJeiEeGdocTu3_Rcyw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_09KNMphcEeGe--o6rkHjcw" x="455" y="240"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_09KNMphcEeGe--o6rkHjcw" x="492" y="120"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_3n3UdJeiEeGdocTu3_Rcyw"/>
   <styles xmi:type="uml2tools.notation:U2TDiagramCanonicalStyle" xmi:id="_3n3UdZeiEeGdocTu3_Rcyw" syncNodes="false"/>
@@ -199,7 +199,7 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_094l8ZhcEeGe--o6rkHjcw"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_094l8phcEeGe--o6rkHjcw" fontName="Ubuntu"/>
     <element xmi:type="uml:Association" href="AddressBook.uml#_6KmW8JeiEeGdocTu3_Rcyw"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_094l85hcEeGe--o6rkHjcw" points="[0, 0, -839, -140]$[768, 128, -71, -12]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_094l85hcEeGe--o6rkHjcw" points="[70, -66, -147, 138]$[146, -138, -71, 66]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_096bIJhcEeGe--o6rkHjcw" type="4005" source="_09KNMJhcEeGe--o6rkHjcw" target="_6KY7r5eiEeGdocTu3_Rcyw">
     <children xmi:type="notation:DecorationNode" xmi:id="_097CMJhcEeGe--o6rkHjcw" type="6003">

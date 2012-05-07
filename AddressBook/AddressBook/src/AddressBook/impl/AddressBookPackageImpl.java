@@ -420,7 +420,7 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 		op = addEOperation(contactCollectionEClass, null, "printContact", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getPerson(), "person", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(contactCollectionEClass, this.getPerson(), "editContact", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = addEOperation(contactCollectionEClass, ecorePackage.getEBoolean(), "editContact", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getPerson(), "person", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		// Create resource
