@@ -1,0 +1,22 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package addressBookClassDia;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>int</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see addressBookClassDia.AddressBookClassDiaPackage#getint()
+ * @model
+ * @generated
+ */
+public interface int extends EObject {
+} // int

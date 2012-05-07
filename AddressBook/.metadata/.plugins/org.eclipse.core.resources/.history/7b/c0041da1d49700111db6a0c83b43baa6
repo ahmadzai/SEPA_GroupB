@@ -1,0 +1,56 @@
+package GUI;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Login {
+
+	private JFrame frame;
+	private JTextField txtTxtname;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login window = new Login();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Login() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new MigLayout("", "[][grow]", "[]"));
+		
+		JLabel lblName = new JLabel("Name:");
+		frame.getContentPane().add(lblName, "cell 0 0,alignx trailing");
+		
+		txtTxtname = new JTextField();
+		txtTxtname.setText("txtName");
+		frame.getContentPane().add(txtTxtname, "cell 1 0,growx");
+		txtTxtname.setColumns(10);
+	}
+
+}

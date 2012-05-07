@@ -1,0 +1,421 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package addressBookClassDia.impl;
+
+import addressBookClassDia.Address;
+import addressBookClassDia.AddressBookClassDiaPackage;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Address</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link addressBookClassDia.impl.AddressImpl#getCountry <em>Country</em>}</li>
+ *   <li>{@link addressBookClassDia.impl.AddressImpl#getCity <em>City</em>}</li>
+ *   <li>{@link addressBookClassDia.impl.AddressImpl#getStreet <em>Street</em>}</li>
+ *   <li>{@link addressBookClassDia.impl.AddressImpl#getApartNr <em>Apart Nr</em>}</li>
+ *   <li>{@link addressBookClassDia.impl.AddressImpl#getPostalCode <em>Postal Code</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class AddressImpl extends EObjectImpl implements Address {
+	/**
+	 * The default value of the '{@link #getCountry() <em>Country</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCountry()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COUNTRY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCountry() <em>Country</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCountry()
+	 * @generated
+	 * @ordered
+	 */
+	protected String country = COUNTRY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCity() <em>City</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CITY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCity() <em>City</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCity()
+	 * @generated
+	 * @ordered
+	 */
+	protected String city = CITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStreet() <em>Street</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStreet()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STREET_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStreet() <em>Street</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStreet()
+	 * @generated
+	 * @ordered
+	 */
+	protected String street = STREET_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getApartNr() <em>Apart Nr</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getApartNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected addressBookClassDia.int apartNr;
+
+	/**
+	 * The cached value of the '{@link #getPostalCode() <em>Postal Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPostalCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected addressBookClassDia.int postalCode;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AddressImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return AddressBookClassDiaPackage.Literals.ADDRESS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCountry() {
+		return country;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCountry(String newCountry) {
+		String oldCountry = country;
+		country = newCountry;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookClassDiaPackage.ADDRESS__COUNTRY, oldCountry, country));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCity(String newCity) {
+		String oldCity = city;
+		city = newCity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookClassDiaPackage.ADDRESS__CITY, oldCity, city));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getStreet() {
+		return street;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStreet(String newStreet) {
+		String oldStreet = street;
+		street = newStreet;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookClassDiaPackage.ADDRESS__STREET, oldStreet, street));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public addressBookClassDia.int getApartNr() {
+		return apartNr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetApartNr(addressBookClassDia.int newApartNr, NotificationChain msgs) {
+		addressBookClassDia.int oldApartNr = apartNr;
+		apartNr = newApartNr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AddressBookClassDiaPackage.ADDRESS__APART_NR, oldApartNr, newApartNr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setApartNr(addressBookClassDia.int newApartNr) {
+		if (newApartNr != apartNr) {
+			NotificationChain msgs = null;
+			if (apartNr != null)
+				msgs = ((InternalEObject)apartNr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AddressBookClassDiaPackage.ADDRESS__APART_NR, null, msgs);
+			if (newApartNr != null)
+				msgs = ((InternalEObject)newApartNr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AddressBookClassDiaPackage.ADDRESS__APART_NR, null, msgs);
+			msgs = basicSetApartNr(newApartNr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookClassDiaPackage.ADDRESS__APART_NR, newApartNr, newApartNr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public addressBookClassDia.int getPostalCode() {
+		return postalCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPostalCode(addressBookClassDia.int newPostalCode, NotificationChain msgs) {
+		addressBookClassDia.int oldPostalCode = postalCode;
+		postalCode = newPostalCode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AddressBookClassDiaPackage.ADDRESS__POSTAL_CODE, oldPostalCode, newPostalCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPostalCode(addressBookClassDia.int newPostalCode) {
+		if (newPostalCode != postalCode) {
+			NotificationChain msgs = null;
+			if (postalCode != null)
+				msgs = ((InternalEObject)postalCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AddressBookClassDiaPackage.ADDRESS__POSTAL_CODE, null, msgs);
+			if (newPostalCode != null)
+				msgs = ((InternalEObject)newPostalCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AddressBookClassDiaPackage.ADDRESS__POSTAL_CODE, null, msgs);
+			msgs = basicSetPostalCode(newPostalCode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookClassDiaPackage.ADDRESS__POSTAL_CODE, newPostalCode, newPostalCode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AddressBookClassDiaPackage.ADDRESS__APART_NR:
+				return basicSetApartNr(null, msgs);
+			case AddressBookClassDiaPackage.ADDRESS__POSTAL_CODE:
+				return basicSetPostalCode(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case AddressBookClassDiaPackage.ADDRESS__COUNTRY:
+				return getCountry();
+			case AddressBookClassDiaPackage.ADDRESS__CITY:
+				return getCity();
+			case AddressBookClassDiaPackage.ADDRESS__STREET:
+				return getStreet();
+			case AddressBookClassDiaPackage.ADDRESS__APART_NR:
+				return getApartNr();
+			case AddressBookClassDiaPackage.ADDRESS__POSTAL_CODE:
+				return getPostalCode();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case AddressBookClassDiaPackage.ADDRESS__COUNTRY:
+				setCountry((String)newValue);
+				return;
+			case AddressBookClassDiaPackage.ADDRESS__CITY:
+				setCity((String)newValue);
+				return;
+			case AddressBookClassDiaPackage.ADDRESS__STREET:
+				setStreet((String)newValue);
+				return;
+			case AddressBookClassDiaPackage.ADDRESS__APART_NR:
+				setApartNr((addressBookClassDia.int)newValue);
+				return;
+			case AddressBookClassDiaPackage.ADDRESS__POSTAL_CODE:
+				setPostalCode((addressBookClassDia.int)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case AddressBookClassDiaPackage.ADDRESS__COUNTRY:
+				setCountry(COUNTRY_EDEFAULT);
+				return;
+			case AddressBookClassDiaPackage.ADDRESS__CITY:
+				setCity(CITY_EDEFAULT);
+				return;
+			case AddressBookClassDiaPackage.ADDRESS__STREET:
+				setStreet(STREET_EDEFAULT);
+				return;
+			case AddressBookClassDiaPackage.ADDRESS__APART_NR:
+				setApartNr((addressBookClassDia.int)null);
+				return;
+			case AddressBookClassDiaPackage.ADDRESS__POSTAL_CODE:
+				setPostalCode((addressBookClassDia.int)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case AddressBookClassDiaPackage.ADDRESS__COUNTRY:
+				return COUNTRY_EDEFAULT == null ? country != null : !COUNTRY_EDEFAULT.equals(country);
+			case AddressBookClassDiaPackage.ADDRESS__CITY:
+				return CITY_EDEFAULT == null ? city != null : !CITY_EDEFAULT.equals(city);
+			case AddressBookClassDiaPackage.ADDRESS__STREET:
+				return STREET_EDEFAULT == null ? street != null : !STREET_EDEFAULT.equals(street);
+			case AddressBookClassDiaPackage.ADDRESS__APART_NR:
+				return apartNr != null;
+			case AddressBookClassDiaPackage.ADDRESS__POSTAL_CODE:
+				return postalCode != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (country: ");
+		result.append(country);
+		result.append(", city: ");
+		result.append(city);
+		result.append(", street: ");
+		result.append(street);
+		result.append(')');
+		return result.toString();
+	}
+
+} //AddressImpl

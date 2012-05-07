@@ -1,0 +1,57 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package AddressBook.impl;
+
+import AddressBook.AddressBookPackage;
+import AddressBook.CantactCollection;
+
+import AddressBook.Person;
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Cantact Collection</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * </p>
+ *
+ * @generated
+ */
+public class CantactCollectionImpl extends EObjectImpl implements CantactCollection {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CantactCollectionImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return AddressBookPackage.Literals.CANTACT_COLLECTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void addContact(Person person) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+} //CantactCollectionImpl

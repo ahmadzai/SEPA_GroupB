@@ -1,0 +1,44 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package addressBookClassDia.impl;
+
+import addressBookClassDia.AddressBookClassDiaPackage;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>int</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * </p>
+ *
+ * @generated
+ */
+public class intImpl extends EObjectImpl implements addressBookClassDia.int {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected intImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return AddressBookClassDiaPackage.Literals.INT;
+	}
+
+} //intImpl

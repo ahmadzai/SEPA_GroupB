@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_on6VkZedEeGdocTu3_Rcyw" name="addressBookClassDia">
+  <elementImport xmi:id="_oqDqoJedEeGdocTu3_Rcyw">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="_oqK_YJedEeGdocTu3_Rcyw">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+  </elementImport>
+  <elementImport xmi:id="_oqLmcJedEeGdocTu3_Rcyw">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+  </elementImport>
+  <elementImport xmi:id="_oqLmcZedEeGdocTu3_Rcyw">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_sjIN8JedEeGdocTu3_Rcyw" name="Person">
+    <ownedAttribute xmi:id="_yzlfYJedEeGdocTu3_Rcyw" name="firstName" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_1hnL4JedEeGdocTu3_Rcyw" name="lastName" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_3-on8JedEeGdocTu3_Rcyw" name="dateOfBirth" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_HVD_YJeeEeGdocTu3_Rcyw" name="phoneNr" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_LHXMUJeeEeGdocTu3_Rcyw" name="mobileNr" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_NAwW4JeeEeGdocTu3_Rcyw" name="fax" type="_cmYA4JeeEeGdocTu3_Rcyw" aggregation="composite"/>
+    <ownedAttribute xmi:id="_aB9jYJeeEeGdocTu3_Rcyw" name="email" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_hPikYJeeEeGdocTu3_Rcyw" name="image" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_5WJ_EJeeEeGdocTu3_Rcyw" name="addPerson">
+      <ownedParameter xmi:id="_EtzMwJefEeGdocTu3_Rcyw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_GEfS4JefEeGdocTu3_Rcyw" name="deletePerson">
+      <ownedParameter xmi:id="_PVjOkJefEeGdocTu3_Rcyw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vU9cYJedEeGdocTu3_Rcyw" name="Address">
+    <ownedAttribute xmi:id="_rmme0JeeEeGdocTu3_Rcyw" name="country" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_tUBC4JeeEeGdocTu3_Rcyw" name="city" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_ugAU4JeeEeGdocTu3_Rcyw" name="street" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_w4cL4JeeEeGdocTu3_Rcyw" name="apartNr" type="_cmYA4JeeEeGdocTu3_Rcyw" aggregation="composite"/>
+    <ownedAttribute xmi:id="_zuek4JeeEeGdocTu3_Rcyw" name="postalCode" type="_cmYA4JeeEeGdocTu3_Rcyw" aggregation="composite"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_w50hYJedEeGdocTu3_Rcyw" name="Group">
+    <ownedAttribute xmi:id="_1vkS4JeeEeGdocTu3_Rcyw" name="groupName" aggregation="composite">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_cmYA4JeeEeGdocTu3_Rcyw" name="int"/>
+</uml:Package>

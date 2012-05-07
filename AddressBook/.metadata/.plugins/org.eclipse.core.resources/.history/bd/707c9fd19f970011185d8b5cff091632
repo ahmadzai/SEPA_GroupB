@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:uml2tools.notation="http://www.eclipse.org/mdt/uml2tools/gmf/notation/ext/2008" xmi:id="_oq7NUJedEeGdocTu3_Rcyw" type="UMLClass" name="addressBookClassDia.umlclass" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_oq7NUZedEeGdocTu3_Rcyw"/>
+  <styles xmi:type="uml2tools.notation:U2TDiagramCanonicalStyle" xmi:id="_oq7NUpedEeGdocTu3_Rcyw"/>
+  <styles xmi:type="notation:FilteringStyle" xmi:id="_oq7NU5edEeGdocTu3_Rcyw"/>
+  <element xmi:type="uml:Package" href="addressBookClassDia.uml#_on6VkZedEeGdocTu3_Rcyw"/>
+</notation:Diagram>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="999" localization="plugin" name="%pluginName" project="AddressBook" provider="%providerName">
+		<library name="."/>
+		<library name="miglayout15-swing.jar"/>
+	</bundle>
+</map>
