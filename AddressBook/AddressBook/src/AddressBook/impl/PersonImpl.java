@@ -45,6 +45,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class PersonImpl extends EObjectImpl implements Person {
+	
+  public PersonImpl(String fName,String lName,String dob,String pNum,String mNum,int fax,String email,String img){
+	  firstName=fName;
+	  lastName=lName;
+	  dateOfBirth=dob;
+	  phoneNr=pNum;
+	  mobileNr=mNum;
+	  this.fax=fax;
+	  this.email=email;
+	 image=img;
+  }
+	
 	/**
 	 * The default value of the '{@link #getFirstName() <em>First Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
