@@ -233,7 +233,16 @@ public class PersonImpl extends EObjectImpl implements Person {
 	 * @generated
 	 */
 	protected PersonImpl() {
+		
 		super();
+		firstName="";
+		  lastName="";
+		  dateOfBirth="";
+		  phoneNr="";
+		  mobileNr="";
+		  this.fax=0;
+		  this.email="";
+		 image="";
 	}
 
 	/**
