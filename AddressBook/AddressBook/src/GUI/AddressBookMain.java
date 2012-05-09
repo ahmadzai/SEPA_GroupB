@@ -50,6 +50,7 @@ public class AddressBookMain extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.setResizable(false);
 
         pnlSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(" Search "));
 
