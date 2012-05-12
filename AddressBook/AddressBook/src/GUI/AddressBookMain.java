@@ -11,6 +11,10 @@ package GUI;
 public class AddressBookMain extends javax.swing.JFrame {
 
     /**
+	 * 
+	 */
+	
+	/**
      * Creates new form AddressBook
      */
     public AddressBookMain() {
@@ -119,7 +123,7 @@ public class AddressBookMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTable.setBorder(javax.swing.BorderFactory.createTitledBorder(" E-mail "));
+        pnlTable.setBorder(javax.swing.BorderFactory.createTitledBorder(" Contact List "));
 
         tblContacts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

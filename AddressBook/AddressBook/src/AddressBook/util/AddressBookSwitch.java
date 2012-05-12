@@ -76,12 +76,6 @@ public class AddressBookSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AddressBookPackage.ADDRESS: {
-				Address address = (Address)theEObject;
-				T result = caseAddress(address);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case AddressBookPackage.GROUP: {
 				Group group = (Group)theEObject;
 				T result = caseGroup(group);
@@ -110,21 +104,6 @@ public class AddressBookSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePerson(Person object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Address</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Address</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAddress(Address object) {
 		return null;
 	}
 

@@ -142,41 +142,13 @@ public interface AddressBookPackage extends EPackage {
 	int PERSON__IMAGE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Address</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Contry</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON__ADDRESS = 8;
-
-	/**
-	 * The number of structural features of the '<em>Person</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON_FEATURE_COUNT = 9;
-
-	/**
-	 * The meta object id for the '{@link AddressBook.impl.AddressImpl <em>Address</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see AddressBook.impl.AddressImpl
-	 * @see AddressBook.impl.AddressBookPackageImpl#getAddress()
-	 * @generated
-	 */
-	int ADDRESS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Country</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADDRESS__COUNTRY = 0;
+	int PERSON__CONTRY = 8;
 
 	/**
 	 * The feature id for the '<em><b>City</b></em>' attribute.
@@ -185,7 +157,7 @@ public interface AddressBookPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADDRESS__CITY = 1;
+	int PERSON__CITY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Street</b></em>' attribute.
@@ -194,16 +166,16 @@ public interface AddressBookPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADDRESS__STREET = 2;
+	int PERSON__STREET = 10;
 
 	/**
-	 * The feature id for the '<em><b>Apart Nr</b></em>' attribute.
+	 * The feature id for the '<em><b>Apart No</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADDRESS__APART_NR = 3;
+	int PERSON__APART_NO = 11;
 
 	/**
 	 * The feature id for the '<em><b>Postal Code</b></em>' attribute.
@@ -212,16 +184,16 @@ public interface AddressBookPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADDRESS__POSTAL_CODE = 4;
+	int PERSON__POSTAL_CODE = 12;
 
 	/**
-	 * The number of structural features of the '<em>Address</em>' class.
+	 * The number of structural features of the '<em>Person</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADDRESS_FEATURE_COUNT = 5;
+	int PERSON_FEATURE_COUNT = 13;
 
 	/**
 	 * The meta object id for the '{@link AddressBook.impl.GroupImpl <em>Group</em>}' class.
@@ -231,7 +203,7 @@ public interface AddressBookPackage extends EPackage {
 	 * @see AddressBook.impl.AddressBookPackageImpl#getGroup()
 	 * @generated
 	 */
-	int GROUP = 2;
+	int GROUP = 1;
 
 	/**
 	 * The feature id for the '<em><b>Group Name</b></em>' attribute.
@@ -259,7 +231,7 @@ public interface AddressBookPackage extends EPackage {
 	 * @see AddressBook.impl.AddressBookPackageImpl#getContactCollection()
 	 * @generated
 	 */
-	int CONTACT_COLLECTION = 3;
+	int CONTACT_COLLECTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Dst</b></em>' containment reference list.
@@ -378,80 +350,59 @@ public interface AddressBookPackage extends EPackage {
 	EAttribute getPerson_Image();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link AddressBook.Person#getAddress <em>Address</em>}'.
+	 * Returns the meta object for the attribute '{@link AddressBook.Person#getContry <em>Contry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Address</em>'.
-	 * @see AddressBook.Person#getAddress()
+	 * @return the meta object for the attribute '<em>Contry</em>'.
+	 * @see AddressBook.Person#getContry()
 	 * @see #getPerson()
 	 * @generated
 	 */
-	EReference getPerson_Address();
+	EAttribute getPerson_Contry();
 
 	/**
-	 * Returns the meta object for class '{@link AddressBook.Address <em>Address</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Address</em>'.
-	 * @see AddressBook.Address
-	 * @generated
-	 */
-	EClass getAddress();
-
-	/**
-	 * Returns the meta object for the attribute '{@link AddressBook.Address#getCountry <em>Country</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Country</em>'.
-	 * @see AddressBook.Address#getCountry()
-	 * @see #getAddress()
-	 * @generated
-	 */
-	EAttribute getAddress_Country();
-
-	/**
-	 * Returns the meta object for the attribute '{@link AddressBook.Address#getCity <em>City</em>}'.
+	 * Returns the meta object for the attribute '{@link AddressBook.Person#getCity <em>City</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>City</em>'.
-	 * @see AddressBook.Address#getCity()
-	 * @see #getAddress()
+	 * @see AddressBook.Person#getCity()
+	 * @see #getPerson()
 	 * @generated
 	 */
-	EAttribute getAddress_City();
+	EAttribute getPerson_City();
 
 	/**
-	 * Returns the meta object for the attribute '{@link AddressBook.Address#getStreet <em>Street</em>}'.
+	 * Returns the meta object for the attribute '{@link AddressBook.Person#getStreet <em>Street</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Street</em>'.
-	 * @see AddressBook.Address#getStreet()
-	 * @see #getAddress()
+	 * @see AddressBook.Person#getStreet()
+	 * @see #getPerson()
 	 * @generated
 	 */
-	EAttribute getAddress_Street();
+	EAttribute getPerson_Street();
 
 	/**
-	 * Returns the meta object for the attribute '{@link AddressBook.Address#getApartNr <em>Apart Nr</em>}'.
+	 * Returns the meta object for the attribute '{@link AddressBook.Person#getApartNo <em>Apart No</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Apart Nr</em>'.
-	 * @see AddressBook.Address#getApartNr()
-	 * @see #getAddress()
+	 * @return the meta object for the attribute '<em>Apart No</em>'.
+	 * @see AddressBook.Person#getApartNo()
+	 * @see #getPerson()
 	 * @generated
 	 */
-	EAttribute getAddress_ApartNr();
+	EAttribute getPerson_ApartNo();
 
 	/**
-	 * Returns the meta object for the attribute '{@link AddressBook.Address#getPostalCode <em>Postal Code</em>}'.
+	 * Returns the meta object for the attribute '{@link AddressBook.Person#getPostalCode <em>Postal Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Postal Code</em>'.
-	 * @see AddressBook.Address#getPostalCode()
-	 * @see #getAddress()
+	 * @see AddressBook.Person#getPostalCode()
+	 * @see #getPerson()
 	 * @generated
 	 */
-	EAttribute getAddress_PostalCode();
+	EAttribute getPerson_PostalCode();
 
 	/**
 	 * Returns the meta object for class '{@link AddressBook.Group <em>Group</em>}'.
@@ -592,30 +543,12 @@ public interface AddressBookPackage extends EPackage {
 		EAttribute PERSON__IMAGE = eINSTANCE.getPerson_Image();
 
 		/**
-		 * The meta object literal for the '<em><b>Address</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Contry</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PERSON__ADDRESS = eINSTANCE.getPerson_Address();
-
-		/**
-		 * The meta object literal for the '{@link AddressBook.impl.AddressImpl <em>Address</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see AddressBook.impl.AddressImpl
-		 * @see AddressBook.impl.AddressBookPackageImpl#getAddress()
-		 * @generated
-		 */
-		EClass ADDRESS = eINSTANCE.getAddress();
-
-		/**
-		 * The meta object literal for the '<em><b>Country</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ADDRESS__COUNTRY = eINSTANCE.getAddress_Country();
+		EAttribute PERSON__CONTRY = eINSTANCE.getPerson_Contry();
 
 		/**
 		 * The meta object literal for the '<em><b>City</b></em>' attribute feature.
@@ -623,7 +556,7 @@ public interface AddressBookPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ADDRESS__CITY = eINSTANCE.getAddress_City();
+		EAttribute PERSON__CITY = eINSTANCE.getPerson_City();
 
 		/**
 		 * The meta object literal for the '<em><b>Street</b></em>' attribute feature.
@@ -631,15 +564,15 @@ public interface AddressBookPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ADDRESS__STREET = eINSTANCE.getAddress_Street();
+		EAttribute PERSON__STREET = eINSTANCE.getPerson_Street();
 
 		/**
-		 * The meta object literal for the '<em><b>Apart Nr</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Apart No</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ADDRESS__APART_NR = eINSTANCE.getAddress_ApartNr();
+		EAttribute PERSON__APART_NO = eINSTANCE.getPerson_ApartNo();
 
 		/**
 		 * The meta object literal for the '<em><b>Postal Code</b></em>' attribute feature.
@@ -647,7 +580,7 @@ public interface AddressBookPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ADDRESS__POSTAL_CODE = eINSTANCE.getAddress_PostalCode();
+		EAttribute PERSON__POSTAL_CODE = eINSTANCE.getPerson_PostalCode();
 
 		/**
 		 * The meta object literal for the '{@link AddressBook.impl.GroupImpl <em>Group</em>}' class.

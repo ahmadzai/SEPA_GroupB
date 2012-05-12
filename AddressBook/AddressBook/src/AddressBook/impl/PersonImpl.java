@@ -38,7 +38,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link AddressBook.impl.PersonImpl#getFax <em>Fax</em>}</li>
  *   <li>{@link AddressBook.impl.PersonImpl#getEmail <em>Email</em>}</li>
  *   <li>{@link AddressBook.impl.PersonImpl#getImage <em>Image</em>}</li>
- *   <li>{@link AddressBook.impl.PersonImpl#getAddress <em>Address</em>}</li>
+ *   <li>{@link AddressBook.impl.PersonImpl#getContry <em>Contry</em>}</li>
+ *   <li>{@link AddressBook.impl.PersonImpl#getCity <em>City</em>}</li>
+ *   <li>{@link AddressBook.impl.PersonImpl#getStreet <em>Street</em>}</li>
+ *   <li>{@link AddressBook.impl.PersonImpl#getApartNo <em>Apart No</em>}</li>
+ *   <li>{@link AddressBook.impl.PersonImpl#getPostalCode <em>Postal Code</em>}</li>
  * </ul>
  * </p>
  *
@@ -218,14 +222,104 @@ public class PersonImpl extends EObjectImpl implements Person {
 	protected String image = IMAGE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAddress() <em>Address</em>}' containment reference list.
+	 * The default value of the '{@link #getContry() <em>Contry</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAddress()
+	 * @see #getContry()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Address> address;
+	protected static final String CONTRY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getContry() <em>Contry</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContry()
+	 * @generated
+	 * @ordered
+	 */
+	protected String contry = CONTRY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCity() <em>City</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CITY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCity() <em>City</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCity()
+	 * @generated
+	 * @ordered
+	 */
+	protected String city = CITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStreet() <em>Street</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStreet()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STREET_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStreet() <em>Street</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStreet()
+	 * @generated
+	 * @ordered
+	 */
+	protected String street = STREET_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getApartNo() <em>Apart No</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getApartNo()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int APART_NO_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getApartNo() <em>Apart No</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getApartNo()
+	 * @generated
+	 * @ordered
+	 */
+	protected int apartNo = APART_NO_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPostalCode() <em>Postal Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPostalCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int POSTAL_CODE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getPostalCode() <em>Postal Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPostalCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected int postalCode = POSTAL_CODE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -233,16 +327,7 @@ public class PersonImpl extends EObjectImpl implements Person {
 	 * @generated
 	 */
 	protected PersonImpl() {
-		
 		super();
-		firstName="";
-		  lastName="";
-		  dateOfBirth="";
-		  phoneNr="";
-		  mobileNr="";
-		  this.fax=0;
-		  this.email="";
-		 image="";
 	}
 
 	/**
@@ -428,11 +513,8 @@ public class PersonImpl extends EObjectImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Address> getAddress() {
-		if (address == null) {
-			address = new EObjectContainmentEList<Address>(Address.class, this, AddressBookPackage.PERSON__ADDRESS);
-		}
-		return address;
+	public String getContry() {
+		return contry;
 	}
 
 	/**
@@ -440,13 +522,95 @@ public class PersonImpl extends EObjectImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case AddressBookPackage.PERSON__ADDRESS:
-				return ((InternalEList<?>)getAddress()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setContry(String newContry) {
+		String oldContry = contry;
+		contry = newContry;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__CONTRY, oldContry, contry));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCity(String newCity) {
+		String oldCity = city;
+		city = newCity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__CITY, oldCity, city));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getStreet() {
+		return street;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStreet(String newStreet) {
+		String oldStreet = street;
+		street = newStreet;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__STREET, oldStreet, street));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getApartNo() {
+		return apartNo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setApartNo(int newApartNo) {
+		int oldApartNo = apartNo;
+		apartNo = newApartNo;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__APART_NO, oldApartNo, apartNo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getPostalCode() {
+		return postalCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPostalCode(int newPostalCode) {
+		int oldPostalCode = postalCode;
+		postalCode = newPostalCode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__POSTAL_CODE, oldPostalCode, postalCode));
 	}
 
 	/**
@@ -473,8 +637,16 @@ public class PersonImpl extends EObjectImpl implements Person {
 				return getEmail();
 			case AddressBookPackage.PERSON__IMAGE:
 				return getImage();
-			case AddressBookPackage.PERSON__ADDRESS:
-				return getAddress();
+			case AddressBookPackage.PERSON__CONTRY:
+				return getContry();
+			case AddressBookPackage.PERSON__CITY:
+				return getCity();
+			case AddressBookPackage.PERSON__STREET:
+				return getStreet();
+			case AddressBookPackage.PERSON__APART_NO:
+				return getApartNo();
+			case AddressBookPackage.PERSON__POSTAL_CODE:
+				return getPostalCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -512,9 +684,20 @@ public class PersonImpl extends EObjectImpl implements Person {
 			case AddressBookPackage.PERSON__IMAGE:
 				setImage((String)newValue);
 				return;
-			case AddressBookPackage.PERSON__ADDRESS:
-				getAddress().clear();
-				getAddress().addAll((Collection<? extends Address>)newValue);
+			case AddressBookPackage.PERSON__CONTRY:
+				setContry((String)newValue);
+				return;
+			case AddressBookPackage.PERSON__CITY:
+				setCity((String)newValue);
+				return;
+			case AddressBookPackage.PERSON__STREET:
+				setStreet((String)newValue);
+				return;
+			case AddressBookPackage.PERSON__APART_NO:
+				setApartNo((Integer)newValue);
+				return;
+			case AddressBookPackage.PERSON__POSTAL_CODE:
+				setPostalCode((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -552,8 +735,20 @@ public class PersonImpl extends EObjectImpl implements Person {
 			case AddressBookPackage.PERSON__IMAGE:
 				setImage(IMAGE_EDEFAULT);
 				return;
-			case AddressBookPackage.PERSON__ADDRESS:
-				getAddress().clear();
+			case AddressBookPackage.PERSON__CONTRY:
+				setContry(CONTRY_EDEFAULT);
+				return;
+			case AddressBookPackage.PERSON__CITY:
+				setCity(CITY_EDEFAULT);
+				return;
+			case AddressBookPackage.PERSON__STREET:
+				setStreet(STREET_EDEFAULT);
+				return;
+			case AddressBookPackage.PERSON__APART_NO:
+				setApartNo(APART_NO_EDEFAULT);
+				return;
+			case AddressBookPackage.PERSON__POSTAL_CODE:
+				setPostalCode(POSTAL_CODE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -583,8 +778,16 @@ public class PersonImpl extends EObjectImpl implements Person {
 				return EMAIL_EDEFAULT == null ? email != null : !EMAIL_EDEFAULT.equals(email);
 			case AddressBookPackage.PERSON__IMAGE:
 				return IMAGE_EDEFAULT == null ? image != null : !IMAGE_EDEFAULT.equals(image);
-			case AddressBookPackage.PERSON__ADDRESS:
-				return address != null && !address.isEmpty();
+			case AddressBookPackage.PERSON__CONTRY:
+				return CONTRY_EDEFAULT == null ? contry != null : !CONTRY_EDEFAULT.equals(contry);
+			case AddressBookPackage.PERSON__CITY:
+				return CITY_EDEFAULT == null ? city != null : !CITY_EDEFAULT.equals(city);
+			case AddressBookPackage.PERSON__STREET:
+				return STREET_EDEFAULT == null ? street != null : !STREET_EDEFAULT.equals(street);
+			case AddressBookPackage.PERSON__APART_NO:
+				return apartNo != APART_NO_EDEFAULT;
+			case AddressBookPackage.PERSON__POSTAL_CODE:
+				return postalCode != POSTAL_CODE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -615,6 +818,16 @@ public class PersonImpl extends EObjectImpl implements Person {
 		result.append(email);
 		result.append(", image: ");
 		result.append(image);
+		result.append(", contry: ");
+		result.append(contry);
+		result.append(", city: ");
+		result.append(city);
+		result.append(", street: ");
+		result.append(street);
+		result.append(", apartNo: ");
+		result.append(apartNo);
+		result.append(", PostalCode: ");
+		result.append(postalCode);
 		result.append(')');
 		return result.toString();
 	}

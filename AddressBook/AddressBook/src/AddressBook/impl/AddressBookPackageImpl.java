@@ -40,13 +40,6 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass addressEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass groupEClass = null;
 
 	/**
@@ -203,8 +196,8 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPerson_Address() {
-		return (EReference)personEClass.getEStructuralFeatures().get(8);
+	public EAttribute getPerson_Contry() {
+		return (EAttribute)personEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -212,8 +205,8 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAddress() {
-		return addressEClass;
+	public EAttribute getPerson_City() {
+		return (EAttribute)personEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -221,8 +214,8 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAddress_Country() {
-		return (EAttribute)addressEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPerson_Street() {
+		return (EAttribute)personEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -230,8 +223,8 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAddress_City() {
-		return (EAttribute)addressEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPerson_ApartNo() {
+		return (EAttribute)personEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -239,26 +232,8 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAddress_Street() {
-		return (EAttribute)addressEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddress_ApartNr() {
-		return (EAttribute)addressEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAddress_PostalCode() {
-		return (EAttribute)addressEClass.getEStructuralFeatures().get(4);
+	public EAttribute getPerson_PostalCode() {
+		return (EAttribute)personEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -334,14 +309,11 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 		createEAttribute(personEClass, PERSON__FAX);
 		createEAttribute(personEClass, PERSON__EMAIL);
 		createEAttribute(personEClass, PERSON__IMAGE);
-		createEReference(personEClass, PERSON__ADDRESS);
-
-		addressEClass = createEClass(ADDRESS);
-		createEAttribute(addressEClass, ADDRESS__COUNTRY);
-		createEAttribute(addressEClass, ADDRESS__CITY);
-		createEAttribute(addressEClass, ADDRESS__STREET);
-		createEAttribute(addressEClass, ADDRESS__APART_NR);
-		createEAttribute(addressEClass, ADDRESS__POSTAL_CODE);
+		createEAttribute(personEClass, PERSON__CONTRY);
+		createEAttribute(personEClass, PERSON__CITY);
+		createEAttribute(personEClass, PERSON__STREET);
+		createEAttribute(personEClass, PERSON__APART_NO);
+		createEAttribute(personEClass, PERSON__POSTAL_CODE);
 
 		groupEClass = createEClass(GROUP);
 		createEAttribute(groupEClass, GROUP__GROUP_NAME);
@@ -389,14 +361,11 @@ public class AddressBookPackageImpl extends EPackageImpl implements AddressBookP
 		initEAttribute(getPerson_Fax(), ecorePackage.getEInt(), "fax", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getPerson_Email(), ecorePackage.getEString(), "email", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getPerson_Image(), ecorePackage.getEString(), "image", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPerson_Address(), this.getAddress(), null, "address", null, 1, 3, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(addressEClass, Address.class, "Address", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAddress_Country(), ecorePackage.getEString(), "country", null, 1, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getAddress_City(), ecorePackage.getEString(), "city", null, 1, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getAddress_Street(), ecorePackage.getEString(), "street", null, 1, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getAddress_ApartNr(), ecorePackage.getEInt(), "apartNr", null, 1, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getAddress_PostalCode(), ecorePackage.getEInt(), "postalCode", null, 1, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPerson_Contry(), ecorePackage.getEString(), "contry", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPerson_City(), ecorePackage.getEString(), "city", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPerson_Street(), ecorePackage.getEString(), "street", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPerson_ApartNo(), ecorePackage.getEInt(), "apartNo", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPerson_PostalCode(), ecorePackage.getEInt(), "PostalCode", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_GroupName(), ecorePackage.getEString(), "groupName", null, 1, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

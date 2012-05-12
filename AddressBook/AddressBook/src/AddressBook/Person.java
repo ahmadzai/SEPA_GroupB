@@ -25,7 +25,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link AddressBook.Person#getFax <em>Fax</em>}</li>
  *   <li>{@link AddressBook.Person#getEmail <em>Email</em>}</li>
  *   <li>{@link AddressBook.Person#getImage <em>Image</em>}</li>
- *   <li>{@link AddressBook.Person#getAddress <em>Address</em>}</li>
+ *   <li>{@link AddressBook.Person#getContry <em>Contry</em>}</li>
+ *   <li>{@link AddressBook.Person#getCity <em>City</em>}</li>
+ *   <li>{@link AddressBook.Person#getStreet <em>Street</em>}</li>
+ *   <li>{@link AddressBook.Person#getApartNo <em>Apart No</em>}</li>
+ *   <li>{@link AddressBook.Person#getPostalCode <em>Postal Code</em>}</li>
  * </ul>
  * </p>
  *
@@ -243,19 +247,133 @@ public interface Person extends EObject {
 	void setImage(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Address</b></em>' containment reference list.
-	 * The list contents are of type {@link AddressBook.Address}.
+	 * Returns the value of the '<em><b>Contry</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Address</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Contry</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Address</em>' containment reference list.
-	 * @see AddressBook.AddressBookPackage#getPerson_Address()
-	 * @model containment="true" required="true" upper="3" ordered="false"
+	 * @return the value of the '<em>Contry</em>' attribute.
+	 * @see #setContry(String)
+	 * @see AddressBook.AddressBookPackage#getPerson_Contry()
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	EList<Address> getAddress();
+	String getContry();
+
+	/**
+	 * Sets the value of the '{@link AddressBook.Person#getContry <em>Contry</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contry</em>' attribute.
+	 * @see #getContry()
+	 * @generated
+	 */
+	void setContry(String value);
+
+	/**
+	 * Returns the value of the '<em><b>City</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>City</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>City</em>' attribute.
+	 * @see #setCity(String)
+	 * @see AddressBook.AddressBookPackage#getPerson_City()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	String getCity();
+
+	/**
+	 * Sets the value of the '{@link AddressBook.Person#getCity <em>City</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>City</em>' attribute.
+	 * @see #getCity()
+	 * @generated
+	 */
+	void setCity(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Street</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Street</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Street</em>' attribute.
+	 * @see #setStreet(String)
+	 * @see AddressBook.AddressBookPackage#getPerson_Street()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	String getStreet();
+
+	/**
+	 * Sets the value of the '{@link AddressBook.Person#getStreet <em>Street</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Street</em>' attribute.
+	 * @see #getStreet()
+	 * @generated
+	 */
+	void setStreet(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Apart No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Apart No</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Apart No</em>' attribute.
+	 * @see #setApartNo(int)
+	 * @see AddressBook.AddressBookPackage#getPerson_ApartNo()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	int getApartNo();
+
+	/**
+	 * Sets the value of the '{@link AddressBook.Person#getApartNo <em>Apart No</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Apart No</em>' attribute.
+	 * @see #getApartNo()
+	 * @generated
+	 */
+	void setApartNo(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Postal Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Postal Code</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Postal Code</em>' attribute.
+	 * @see #setPostalCode(int)
+	 * @see AddressBook.AddressBookPackage#getPerson_PostalCode()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	int getPostalCode();
+
+	/**
+	 * Sets the value of the '{@link AddressBook.Person#getPostalCode <em>Postal Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Postal Code</em>' attribute.
+	 * @see #getPostalCode()
+	 * @generated
+	 */
+	void setPostalCode(int value);
 
 } // Person

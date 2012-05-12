@@ -76,10 +76,6 @@ public class AddressBookAdapterFactory extends AdapterFactoryImpl {
 				return createPersonAdapter();
 			}
 			@Override
-			public Adapter caseAddress(Address object) {
-				return createAddressAdapter();
-			}
-			@Override
 			public Adapter caseGroup(Group object) {
 				return createGroupAdapter();
 			}
@@ -118,20 +114,6 @@ public class AddressBookAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPersonAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link AddressBook.Address <em>Address</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see AddressBook.Address
-	 * @generated
-	 */
-	public Adapter createAddressAdapter() {
 		return null;
 	}
 

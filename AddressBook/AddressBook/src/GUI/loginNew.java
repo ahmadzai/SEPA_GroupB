@@ -3,6 +3,7 @@ import javax.swing.BorderFactory;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -52,18 +53,26 @@ public class loginNew extends javax.swing.JFrame {
         pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         btnLogin.setText(" Login ");
+        
+        JLabel lblUserName = new JLabel("User Name");
+        
+        JLabel lblPasword = new JLabel("Password");
 
         javax.swing.GroupLayout gl_pnlLogin = new javax.swing.GroupLayout(pnlLogin);
         gl_pnlLogin.setHorizontalGroup(
         	gl_pnlLogin.createParallelGroup(Alignment.TRAILING)
         		.addGroup(gl_pnlLogin.createSequentialGroup()
-        			.addContainerGap(148, Short.MAX_VALUE)
+        			.addContainerGap(66, Short.MAX_VALUE)
+        			.addGroup(gl_pnlLogin.createParallelGroup(Alignment.LEADING)
+        				.addComponent(lblUserName)
+        				.addComponent(lblPasword))
+        			.addPreferredGap(ComponentPlacement.RELATED)
         			.addGroup(gl_pnlLogin.createParallelGroup(Alignment.LEADING)
         				.addGroup(gl_pnlLogin.createSequentialGroup()
         					.addGap(28)
         					.addComponent(btnLogin))
         				.addGroup(gl_pnlLogin.createParallelGroup(Alignment.TRAILING)
-        					.addComponent(txtPassword)
+        					.addComponent(txtPassword, 138, 138, 138)
         					.addComponent(txtUserName, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))
         			.addGap(133))
         );
@@ -71,9 +80,13 @@ public class loginNew extends javax.swing.JFrame {
         	gl_pnlLogin.createParallelGroup(Alignment.TRAILING)
         		.addGroup(gl_pnlLogin.createSequentialGroup()
         			.addContainerGap(77, Short.MAX_VALUE)
-        			.addComponent(txtUserName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addGroup(gl_pnlLogin.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(txtUserName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(lblUserName))
         			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addComponent(txtPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addGroup(gl_pnlLogin.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(txtPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(lblPasword))
         			.addPreferredGap(ComponentPlacement.UNRELATED)
         			.addComponent(btnLogin)
         			.addGap(56))
@@ -153,5 +166,4 @@ public class loginNew extends javax.swing.JFrame {
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
-    // End of variables declaration//GEN-END:variables
 }

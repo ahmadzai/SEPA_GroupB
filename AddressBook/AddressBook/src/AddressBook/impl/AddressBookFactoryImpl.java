@@ -61,7 +61,6 @@ public class AddressBookFactoryImpl extends EFactoryImpl implements AddressBookF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case AddressBookPackage.PERSON: return createPerson();
-			case AddressBookPackage.ADDRESS: return createAddress();
 			case AddressBookPackage.GROUP: return createGroup();
 			case AddressBookPackage.CONTACT_COLLECTION: return createContactCollection();
 			default:
@@ -77,16 +76,6 @@ public class AddressBookFactoryImpl extends EFactoryImpl implements AddressBookF
 	public Person createPerson() {
 		PersonImpl person = new PersonImpl();
 		return person;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Address createAddress() {
-		AddressImpl address = new AddressImpl();
-		return address;
 	}
 
 	/**

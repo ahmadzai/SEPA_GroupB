@@ -35,15 +35,6 @@ public interface AddressBookFactory extends EFactory {
 	Person createPerson();
 
 	/**
-	 * Returns a new object of class '<em>Address</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Address</em>'.
-	 * @generated
-	 */
-	Address createAddress();
-
-	/**
 	 * Returns a new object of class '<em>Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
