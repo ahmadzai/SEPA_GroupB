@@ -35,17 +35,11 @@
           createChild="true" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Person/fax"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Person/email"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Person/image"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference AddressBook.ecore#//Person/address"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="AddressBook.ecore#//Address">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Address/country"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Address/city"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Address/street"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Address/apartNr"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Address/postalCode"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Person/contry"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Person/city"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Person/street"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Person/apartNo"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Person/PostalCode"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="AddressBook.ecore#//Group">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute AddressBook.ecore#//Group/groupName"/>

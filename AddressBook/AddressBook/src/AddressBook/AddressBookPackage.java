@@ -251,6 +251,7 @@ public interface AddressBookPackage extends EPackage {
 	 */
 	int CONTACT_COLLECTION_FEATURE_COUNT = 1;
 
+
 	/**
 	 * Returns the meta object for class '{@link AddressBook.Person <em>Person</em>}'.
 	 * <!-- begin-user-doc -->
