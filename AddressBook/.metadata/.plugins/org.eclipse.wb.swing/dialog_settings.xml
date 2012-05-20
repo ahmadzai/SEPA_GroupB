@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<section name="Workbench">
-	<section name="org.eclipse.wb.internal.swing.model.property.editor.font.FontDialog">
-		<item value="542" key="height"/>
-		<item value="493" key="width"/>
-		<item value="139" key="y"/>
-		<item value="470" key="x"/>
-	</section>
-</section>
