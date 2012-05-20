@@ -9,8 +9,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+
+import Helper.ContactImage;
+import Helper.Menu;
+
 import java.awt.Dimension;
 import java.awt.Color;
+import java.io.File;
 
 
 public class LoginForm {
@@ -25,6 +30,7 @@ public class LoginForm {
 	private JLabel lblForgetPassword;
 	private JMenuBar menuBar;
 	private Menu menu;
+	private File imgFile;
 
 	/**
 	 * Launch the application.
@@ -58,9 +64,10 @@ public class LoginForm {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[][40.00][][202.00][grow]", "[][][26.00][26.00][26.00][][][][]"));
 		
-		icon = new ContactImage(LoginForm.class.getResource("/Resources/login.png"));
+		imgFile = new File("images/login.png");
+		icon = new ContactImage();
 		lblIcon = new JLabel("");
-		lblIcon.setIcon(icon.loadImage());
+		lblIcon.setIcon(icon.convertToIcon(imgFile));
 		frame.getContentPane().add(lblIcon, "cell 3 1,aligny bottom");
 		
 		JLabel lblUserName = new JLabel("User Name:");

@@ -18,12 +18,13 @@ public class ContactImage {
 	private ImageIcon icon;
 	private File imgFile;
 	
+	public ContactImage() {}
 	
 	/***
 	 * @author wazir
 	 * @param imagePath
 	 */
-	public ContactImage(File imgFile) {
+	public Boolean loadImageFile(File imgFile) {
 		
 		img = null;
 		//imgFile = new File(path);
@@ -31,16 +32,19 @@ public class ContactImage {
 			img = ImageIO.read(imgFile);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			img = null;
 		}
-		
+		if(img != null)
+			return true;
+		else
+			return false;
 	}
 	
 	/***
 	 * @author wazir
 	 * @return ImageIcon
 	 */
-	public ImageIcon loadImage() {
+	public ImageIcon convertToIcon() {
 		
 		if(img != null) {
 			int width = 150;
@@ -68,7 +72,18 @@ public class ContactImage {
 	
 	}
 	
-	
+	public ImageIcon convertToIcon(File file) {
+		img = null;
+		try {
+			img = ImageIO.read(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		icon = new ImageIcon(img);
+		return icon;
+		
+	}
 	
 	/***
 	 * @author wazir khan

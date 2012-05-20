@@ -25,16 +25,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/Resources/defaultUser.png</name>
-			<type>1</type>
-			<location>/home/wazir/Downloads/defaultUser.png</location>
-		</link>
-		<link>
-			<name>src/Resources/login.png</name>
-			<type>1</type>
-			<location>/home/wazir/Downloads/login.png</location>
-		</link>
-	</linkedResources>
 </projectDescription>
