@@ -1,29 +1,16 @@
 package GUI;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
-
-import javax.swing.JFileChooser.*;
-import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
-
-import Helper.ContactImage;
-import Helper.Menu;
-import Helper.MyImageFilter;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.image.ImageFilter;
-import java.awt.Cursor;
-import java.io.File;
 
 public class AddEditContactForm {
 
@@ -62,8 +49,6 @@ public class AddEditContactForm {
 	private JMenuBar menuBar;
 	private Menu myMenu;
 	private ContactImage image;
-	private JFileChooser fileChooser;
-	private File imgFile ;
 	
 	
 	/**
@@ -107,41 +92,10 @@ public class AddEditContactForm {
 		frame.getContentPane().add(txtFirstName, "cell 1 1,growx");
 		txtFirstName.setColumns(6);
 		
-		
 		lblImage = new JLabel("");
-		lblImage.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		// if there were no image we will change it later
-		imgFile = new File("images/defaultUser.png");
-		image = new ContactImage(imgFile);
-		lblImage.setIcon(image.loadImage());
-		lblImage.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				fileChooser = new JFileChooser();
-				FileFilter filter = new MyImageFilter("Images only png, jpg, gif, jpeg", new String[] {"png", "jpeg", "jpg", "gif"});
-				fileChooser.setFileFilter(filter);
-				fileChooser.setAcceptAllFileFilterUsed(false);
-				int status = fileChooser.showDialog(frame, "Attach");
-				if(status == JFileChooser.APPROVE_OPTION) {
-					File selectedFile = fileChooser.getSelectedFile();
-					//System.out.println(selectedFile.getParent());
-					//System.out.println(selectedFile.getName());
-					image = new ContactImage(selectedFile);
-					lblImage.setIcon(image.loadImage());
-					
-				}
-				
-				if(status == JFileChooser.CANCEL_OPTION) {
-					System.out.println("Cancel button pressed");
-				}
-				
-				//System.out.print("Mouse Clicked");
-			}
-		});
-		
-		lblImage.setToolTipText("Click to load Contact Image");
-		//java.net.URL url = AddEditContactForm.class.getResource("/Resources/defaultUser.png");
-		
+		java.net.URL url = AddEditContactForm.class.getResource("/Resources/defaultUser.png");
+		image = new ContactImage(url);
+		lblImage.setIcon(image.loadImage(130, 140));
 		
 		frame.getContentPane().add(lblImage, "cell 3 1 1 6,growx,aligny center");
 		
