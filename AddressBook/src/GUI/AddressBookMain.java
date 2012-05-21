@@ -3,13 +3,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
+import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JMenuItem;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -44,6 +45,10 @@ public class AddressBookMain extends javax.swing.JFrame {
    // @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
+    	
+    	Menu menue=new Menu(this);
+    	JMenuBar menubar=menue.createAppMenu();
+    	this.setJMenuBar(menubar);
 
         pnlSearch = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
@@ -108,11 +113,7 @@ public class AddressBookMain extends javax.swing.JFrame {
         	public void actionPerformed(ActionEvent e) {
         	}
         });
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-
+       
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(" Search "));
@@ -235,20 +236,8 @@ public class AddressBookMain extends javax.swing.JFrame {
 
         btnPrint.setText("Print");
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-        
-        menuItem = new JMenuItem("New menu item");
-        jMenuBar1.add(menuItem);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Help");
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
-
+       
+       
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
@@ -343,16 +332,13 @@ public class AddressBookMain extends javax.swing.JFrame {
     private javax.swing.JButton btnAddContact;
     private javax.swing.JComboBox cmbSearch;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
+   
     private javax.swing.JPanel pnlSearch;
     private javax.swing.JPanel pnlTable;
     private javax.swing.JPanel pnlFunction;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblContacts;
     private javax.swing.JTextField txtSearch;
-    private JMenuItem menuItem;
+   
     // End of variables declaration
 }
