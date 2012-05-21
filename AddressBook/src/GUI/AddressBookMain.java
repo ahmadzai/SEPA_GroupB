@@ -118,11 +118,11 @@ public class AddressBookMain extends javax.swing.JFrame {
 
         pnlSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(" Search "));
 
-        txtSearch.setText("John");
+       
 
         jLabel5.setText("Search By");
 
-        cmbSearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Name" }));
+        cmbSearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "First Name","Last Name","Moblile Number","Email Address" }));
 
         btnSearch.setText("Search");
 
