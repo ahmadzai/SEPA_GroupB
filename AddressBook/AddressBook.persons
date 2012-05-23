@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="ASCII"?>
-<DataModel:StudentCollection xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:DataModel="http:///DataModel.ecore">
-  <students name="jan" lastName="khan"/>
-  <students name="karim" lastName="kamil"/>
-  <students name="karim" lastName="kamil"/>
-</DataModel:StudentCollection>
+<AddressBook:ContactCollection xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:AddressBook="http:///AddressBook.ecore"/>

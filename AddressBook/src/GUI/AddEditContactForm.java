@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.Dialog;
 import java.awt.EventQueue;
+import Controller.*;
 
 import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
@@ -18,6 +19,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 
+import Controller.MainController;
 import Helper.ContactImage;
 import Helper.Menu;
 import Helper.MyImageFilter;
@@ -461,7 +463,8 @@ public class AddEditContactForm {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(btnSave.getText().equals("Save")) {
-					
+					MainController mn=new MainController();
+					mn.save();
 					clearErrorMessages(); // just to clear the error messages
 					
 					// here we will validate the whole data
@@ -534,6 +537,7 @@ public class AddEditContactForm {
 					System.out.print("Edit button Clicked");
 				}
 			}
+			
 		});
 		
 		btnCancel = new JButton("Cancel");
