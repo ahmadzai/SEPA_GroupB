@@ -2,7 +2,6 @@ package GUI;
 
 import java.awt.Dialog;
 import java.awt.EventQueue;
-import Controller.*;
 
 import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
@@ -19,6 +18,8 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 
+import AddressBook.AddressBookFactory;
+import AddressBook.Person;
 import Controller.MainController;
 import Helper.ContactImage;
 import Helper.Menu;
@@ -32,6 +33,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.ImageFilter;
 import java.awt.Cursor;
 import java.io.File;
+import java.util.ArrayList;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.Color;
@@ -70,7 +72,7 @@ public class AddEditContactForm {
 	
 	private JButton btnSave;
 	private String btnSaveText = "Save";
-	private Boolean btnSaveFlag = false;
+	private Boolean btnSaveFlag = true;
 	
 	private JButton btnCancel;
 	
@@ -82,7 +84,7 @@ public class AddEditContactForm {
 	private ContactImage image;
 	private JFileChooser fileChooser;
 	private File imgFile ;
-	private String imgPath = null;
+	private String imgPath = "";
 	private JLabel lblFirstNameError;
 	private JLabel lblLastNameError;
 	private JLabel lblDateError;
@@ -96,6 +98,7 @@ public class AddEditContactForm {
 	private JLabel lblApNrError;
 	private JLabel lblZipError;
 	
+	private MainController controller;
 	
 	
 	
@@ -121,6 +124,7 @@ public class AddEditContactForm {
 	public AddEditContactForm() {
 		initialize();
 		image = new ContactImage();
+		controller = new MainController();
 	}
 
 	/**
@@ -130,7 +134,7 @@ public class AddEditContactForm {
 		frame = new JFrame("Add Contact");
 		frame.getContentPane().setVisible(true);
 		frame.setBounds(100, 100, 550, 550);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[118.00][179.00,grow][69.00,grow][152.00,center][18.00]", "[][][][][][][][][9.00][][][][][][][][40.00]"));
 		
 		// helper classes
@@ -147,7 +151,7 @@ public class AddEditContactForm {
 		txtFirstName = new JTextField();
 		frame.getContentPane().add(txtFirstName, "cell 1 1,growx");
 		txtFirstName.setColumns(6);
-		txtFirstName.addFocusListener(new FocusAdapter() {
+		/*txtFirstName.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if(Validation.checkName(txtFirstName.getText())) {
@@ -157,7 +161,7 @@ public class AddEditContactForm {
 				
 			}
 		});
-		
+		*/
 		
 		
 		lblImage = new JLabel("");
@@ -171,18 +175,18 @@ public class AddEditContactForm {
 		 * the path of image from Person class getImage() method and if it was
 		 * null than again it will show the defaultUser image
 		 */
-		if(frame.getTitle().equals("Add Contact") && imgPath == null) {
+		if(frame.getTitle().equals("Add Contact") && imgPath.isEmpty()) {
 			
 			imgFile = new File("images/defaultUser.png");
 			lblImage.setIcon(image.convertToIcon(imgFile));
 			
 		}
-		else if(frame.getTitle().equals("Edit Contact") && imgPath != null) {
+		else if(frame.getTitle().equals("Edit Contact") && imgPath.isEmpty()) {
 			
 			btnPrintFlag = true; // when frame called with Edit button
 			
 		}
-		else if(frame.getTitle().equals("Print Contact") && imgPath != null) {
+		else if(frame.getTitle().equals("Print Contact") && imgPath.isEmpty()) {
 			
 			btnSaveText = "Edit";
 			btnSaveFlag = true;
@@ -204,14 +208,13 @@ public class AddEditContactForm {
 						File selectedFile = fileChooser.getSelectedFile();
 						//System.out.println(selectedFile.getParent());
 						//System.out.println(selectedFile.getName());
-						
-						if(image.loadImageFile(selectedFile))
-							lblImage.setIcon(image.convertToIcon());
-						
-					}
-					
-					if(status == JFileChooser.CANCEL_OPTION) {
-						System.out.println("Cancel button pressed");
+						// OldPath should take from Person property image
+						//String oldPath = "";
+						//imgPath = "images/wazir_jan.png";
+						if(image.loadImageFile(selectedFile)) {
+							lblImage.setIcon(image.convertToIcon(imgPath,txtFirstName.getText().trim().toLowerCase()+"_"+txtLastName.getText().trim().toLowerCase()));
+							imgPath = image.getImagePath();
+						}
 					}
 				}
 				
@@ -230,7 +233,7 @@ public class AddEditContactForm {
 		txtLastName = new JTextField();
 		frame.getContentPane().add(txtLastName, "cell 1 2,growx");
 		txtLastName.setColumns(6);
-		txtLastName.addFocusListener(new FocusAdapter() {
+		/*txtLastName.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if(Validation.checkName(txtLastName.getText())) {
@@ -238,7 +241,7 @@ public class AddEditContactForm {
 				}
 			}
 		});
-		
+		*/
 		
 		lblDateOfBirth = new JLabel("Date Of Birth:");
 		frame.getContentPane().add(lblDateOfBirth, "cell 0 3");
@@ -439,8 +442,8 @@ public class AddEditContactForm {
 		
 		lblGroup = new JLabel("Group:");
 		frame.getContentPane().add(lblGroup, "cell 0 14,alignx trailing");
-		
-		comboBox = new JComboBox();
+		String[] items = {"Employee", "Engineers", "Drivers", "Sellers"};
+		comboBox = new JComboBox(items);
 		frame.getContentPane().add(comboBox, "cell 1 14,growx,aligny bottom");
 		
 		lblComents = new JLabel("Coments:");
@@ -463,73 +466,8 @@ public class AddEditContactForm {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(btnSave.getText().equals("Save")) {
-					MainController mn=new MainController();
-					mn.save();
-					clearErrorMessages(); // just to clear the error messages
 					
-					// here we will validate the whole data
-					String message ="<html> The following enteries are not correct: <br>";
-					if(!Validation.checkName(txtFirstName.getText())) {
-						
-						
-						message +="<font color=\"red\">*</font> First Name: required (Alphabets)</<br>";
-						lblFirstNameError.setText("*");
-						
-					}
-					if(!Validation.checkName(txtLastName.getText())) {
-						message +="<font color=\"red\">*</font> Last Name: required (Alphabets)<br>";
-						lblLastNameError.setText("*");
-					}
-					if(!Validation.checkDate(txtDateOfBirth.getText())) {
-						message +="<font color=\"red\">*</font> Date of birth required (dd/mm/yyyy) <br>";
-						lblDateError.setText("*");
-					}
-					if(txtMobileNr.getText().isEmpty() && txtPhoneNr.getText().isEmpty()) {
-						message +="<font color=\"red\">*</font> Mobile # or phone # requiered <br>";
-						lblMobileError.setText("*");
-						lblPhoneError.setText("*");
-					}
-					if(!Validation.checkMobileNr(txtMobileNr.getText()) && !txtMobileNr.getText().isEmpty()){
-						
-						message +="<font color=\"red\">*</font> Mobile # is wrong (12 or 15 digit) <br>";
-						lblMobileError.setText("*");
-					}
-					if(!Validation.checkPhoneNr(txtPhoneNr.getText()) && !txtPhoneNr.getText().isEmpty()) {
-						message +="<font color=\"red\">*</font> Phone # is not correct (8 or 12 digit) <br>";
-						lblPhoneError.setText("*");
-					}
-					if(!Validation.checkFax(txtFax.getText()) && !txtFax.getText().isEmpty()) {
-						message +="<font color=\"red\">*</font> Fax number is incorrect (12 digit) <br>";
-						lblFaxError.setText("*");
-						
-					}
-					if(!Validation.checkEmail(txtEmail.getText())) {
-						message +="<font color=\"red\">*</font> Invalid Email address <br>";
-						lblEmailError.setText("*");
-					}
-					if(!Validation.checkCountryCity(txtCountry.getText())) {
-						message +="<font color=\"red\">*</font> Country field required <br>";
-						lblCountryError.setText("*");
-					}
-					if(!Validation.checkCountryCity(txtCity.getText())) {
-						message +="<font color=\"red\">*</font> City name required <br>";
-						lblCityError.setText("*");
-					}
-					if(!Validation.checkStreet(txtStreet.getText())) {
-						message +="<font color=\"red\">*</font> Street name should be string <br>";
-						lblStreetError.setText("*");
-					}
-					if(!Validation.checkApNr(txtApnr.getText()) && !txtApnr.getText().isEmpty()) {
-						message +="<font color=\"red\">*</font> Apartement number (3 digit) <br>";
-						lblApNrError.setText("*");
-					}
-					if(!Validation.checkZipCode(txtZipcode.getText())) {
-						message +="<font color=\"red\">*</font> Zip code is rquired (number) <br>";
-						lblZipError.setText("*");
-					}
-					message +="</html>";
-					if(message != null)
-					JOptionPane.showMessageDialog(null, message, "Entry Error", JOptionPane.ERROR_MESSAGE);
+					save();
 					
 					
 				}
@@ -537,7 +475,6 @@ public class AddEditContactForm {
 					System.out.print("Edit button Clicked");
 				}
 			}
-			
 		});
 		
 		btnCancel = new JButton("Cancel");
@@ -548,7 +485,9 @@ public class AddEditContactForm {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// here we close this form and will setFocus of the main form
-				
+				controller.saveModel();
+				frame.dispose();
+				MainWindow.getMainWindow().setFocusableWindowState(true);
 			}
 		});
 		
@@ -572,6 +511,14 @@ public class AddEditContactForm {
 		
 		menuBar = myMenu.createAppMenu();
 		frame.setJMenuBar(menuBar);
+		myMenu.getSave().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				save();
+			}
+		});
 		
 		
 		
@@ -595,4 +542,131 @@ public class AddEditContactForm {
 		lblZipError.setText("");
 	}
 	
+	public void save() {
+		clearErrorMessages(); // just to clear the error messages
+		
+		// here we will validate the whole data
+		Boolean error = false;
+		String message ="<html> The following enteries are not correct: <br>";
+		if(!Validation.checkName(txtFirstName.getText())) {
+			
+			error = true;
+			message +="<font color=\"red\">*</font> First Name: required (Alphabets)<br>";
+			lblFirstNameError.setText("*");
+			
+		}
+		if(!Validation.checkName(txtLastName.getText())) {
+			message +="<font color=\"red\">*</font> Last Name: required (Alphabets)<br>";
+			lblLastNameError.setText("*");
+			error = true;
+		}
+		if(!Validation.checkDate(txtDateOfBirth.getText())) {
+			message +="<font color=\"red\">*</font> Date of birth required (dd/mm/yyyy) <br>";
+			lblDateError.setText("*");
+			error = true;
+		}
+		if(txtMobileNr.getText().isEmpty() && txtPhoneNr.getText().isEmpty()) {
+			message +="<font color=\"red\">*</font> Mobile # or phone # requiered <br>";
+			lblMobileError.setText("*");
+			lblPhoneError.setText("*");
+			error = true;
+		}
+		if(!Validation.checkMobileNr(txtMobileNr.getText()) && !txtMobileNr.getText().isEmpty()){
+			
+			message +="<font color=\"red\">*</font> Mobile # is wrong (12 or 15 digit) <br>";
+			lblMobileError.setText("*");
+			error = true;
+		}
+		if(!Validation.checkPhoneNr(txtPhoneNr.getText()) && !txtPhoneNr.getText().isEmpty()) {
+			message +="<font color=\"red\">*</font> Phone # is not correct (8 or 12 digit) <br>";
+			lblPhoneError.setText("*");
+			error = true;
+		}
+		if(!Validation.checkFax(txtFax.getText()) && !txtFax.getText().isEmpty()) {
+			message +="<font color=\"red\">*</font> Fax number is incorrect (12 digit) <br>";
+			lblFaxError.setText("*");
+			error = true;
+			
+		}
+		if(!Validation.checkEmail(txtEmail.getText())) {
+			message +="<font color=\"red\">*</font> Invalid Email address <br>";
+			lblEmailError.setText("*");
+			error = true;
+		}
+		if(!Validation.checkCountryCity(txtCountry.getText())) {
+			message +="<font color=\"red\">*</font> Country field required <br>";
+			lblCountryError.setText("*");
+			error = true;
+		}
+		if(!Validation.checkCountryCity(txtCity.getText())) {
+			message +="<font color=\"red\">*</font> City name required <br>";
+			lblCityError.setText("*");
+			error = true;
+		}
+		if(!Validation.checkStreet(txtStreet.getText())) {
+			message +="<font color=\"red\">*</font> Street name should be string <br>";
+			lblStreetError.setText("*");
+			error = true;
+		}
+		if(!Validation.checkApNr(txtApnr.getText()) && !txtApnr.getText().isEmpty()) {
+			message +="<font color=\"red\">*</font> Apartement number (3 digit) <br>";
+			lblApNrError.setText("*");
+			error = true;
+		}
+		if(!Validation.checkZipCode(txtZipcode.getText())) {
+			message +="<font color=\"red\">*</font> Zip code is rquired (number) <br>";
+			lblZipError.setText("*");
+			error = true;
+		}
+		message +="</html>";
+		if(error)
+		JOptionPane.showMessageDialog(null, message, "Entry Error", JOptionPane.ERROR_MESSAGE);
+		
+		// now collecting all data in an ArrayList
+		if(!error) {
+			int conf = JOptionPane.showConfirmDialog(null, "Do you want to save!");
+			if(conf == JOptionPane.OK_OPTION) {
+				Person person = AddressBookFactory.eINSTANCE.createPerson();
+				person.setFirstName(txtFirstName.getText());
+				person.setLastName(txtLastName.getText());
+				person.setDateOfBirth(txtDateOfBirth.getText());
+				person.setMobileNr(txtMobileNr.getText());
+				person.setPhoneNr(txtPhoneNr.getText());
+				person.setFax(txtFax.getText());
+				person.setEmail(txtEmail.getText());
+				person.setCountry(txtCountry.getText());
+				person.setCity(txtCity.getText());
+				person.setStreet(txtStreet.getText());
+				person.setApartNr(txtApnr.getText());
+				person.setPostalCode(txtZipcode.getText());
+				person.setGroup(comboBox.getSelectedItem().toString());
+				person.setComents(txtrComents.getText());
+				person.setImage(imgPath);
+				controller.createPerson(person); // sending data to the controller
+				//clear(); // clear the form
+			}
+		}
+		
+	}
+	
+	/**
+	 * to Clear all form
+	 */
+	private void clear() {
+		txtFirstName.setText("");
+		txtLastName.setText("");
+		txtDateOfBirth.setText("");
+		txtMobileNr.setText("");
+		txtPhoneNr.setText("");
+		txtFax.setText("");
+		txtEmail.setText("");
+		txtCountry.setText("");
+		txtCity.setText("");
+		txtStreet.setText("");
+		txtApnr.setText("");
+		txtZipcode.setText("");
+		comboBox.setSelectedIndex(0);
+		txtrComents.setText("");
+		imgPath = "";
+	}
 }
