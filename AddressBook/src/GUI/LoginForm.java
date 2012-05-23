@@ -10,12 +10,17 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 
+import Controller.LoginController;
 import Helper.ContactImage;
 import Helper.Menu;
 
 import java.awt.Dimension;
 import java.awt.Color;
 import java.io.File;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 
 public class LoginForm {
@@ -28,8 +33,7 @@ public class LoginForm {
 	private JLabel lblIcon;
 	private ContactImage icon;
 	private JLabel lblForgetPassword;
-	private JMenuBar menuBar;
-	private Menu menu;
+	
 	private File imgFile;
 
 	/**
@@ -47,7 +51,6 @@ public class LoginForm {
 			}
 		});
 	}
-
 	/**
 	 * Create the application.
 	 */
@@ -74,9 +77,15 @@ public class LoginForm {
 		frame.getContentPane().add(lblUserName, "cell 2 2,alignx trailing,growy");
 		
 		txtUserName = new JTextField();
+		txtUserName.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblForgetPassword.setVisible(false);
+			}
+		});
 		txtUserName.setPreferredSize(new Dimension(4, 20));
 		txtUserName.setMinimumSize(new Dimension(4, 20));
-		txtUserName.setText("User Name");
+		
 		frame.getContentPane().add(txtUserName, "cell 3 2,grow");
 		txtUserName.setColumns(10);
 		
@@ -86,10 +95,25 @@ public class LoginForm {
 		pwdPassword = new JPasswordField();
 		pwdPassword.setMinimumSize(new Dimension(4, 20));
 		pwdPassword.setPreferredSize(new Dimension(4, 20));
-		pwdPassword.setText("Password");
+		
 		frame.getContentPane().add(pwdPassword, "cell 3 3,grow");
 		
 		btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				LoginController logCont=new LoginController();
+				if(logCont.checkLogin(txtUserName.getText(), pwdPassword.getText())==true){
+					AddressBookMain adMain=new AddressBookMain();
+					adMain.setVisible(true);
+					frame.dispose();
+					
+				}
+				else
+					lblForgetPassword.setVisible(true);
+				
+				
+			}
+		});
 		frame.getContentPane().add(btnLogin, "flowx,cell 3 4,alignx left,growy");
 		
 		lblErrorMessage = new JLabel("Error Message");
@@ -102,8 +126,6 @@ public class LoginForm {
 		frame.getContentPane().add(lblForgetPassword, "cell 3 4,alignx right,aligny bottom");
 		
 		//-------------------- just adding the menu bar
-		menu = new Menu(frame);
-		menuBar = menu.createAppMenu();
-		frame.setJMenuBar(menuBar);
+		
 	}
 }

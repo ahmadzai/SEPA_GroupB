@@ -89,7 +89,7 @@ public class MainWindow {
 		frame.getContentPane().add(panel, "cell 1 3 7 1,grow");
 		
 		table = new JTable();
-		table.setModel(controller.getTableModel());
+	//	table.setModel(controller.getTableModel());
 		panel.add(table);
 		
 		JButton btnPrevious = new JButton("Previous");

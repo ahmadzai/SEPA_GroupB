@@ -6,8 +6,12 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import Controller.LoginController;
 //import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -43,6 +47,12 @@ public class LoginSE extends javax.swing.JFrame {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         pnlLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
+        btnLogin.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		LoginController logCont=new LoginController();
+				if(logCont.checkLogin(txtUserName.getText(), txtPassowrd.getText()));
+        	}
+        });
         txtPassowrd = new javax.swing.JPasswordField();
         txtUserName = new javax.swing.JTextField();
 
