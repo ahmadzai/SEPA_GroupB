@@ -28,6 +28,7 @@ import javax.swing.JTable;
 
 import Controller.MainController;
 import Helper.ContactDataModel;
+import Helper.ContactListModel;
 import Helper.Menu;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Rectangle;
@@ -80,7 +81,7 @@ public class MainWindow {
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				controller.saveModel();
+				controller.save();
 			}
 		});
 		frame.setBounds(100, 100, 800, 550);
@@ -124,8 +125,9 @@ public class MainWindow {
 		JPanel panel = new JPanel( new BorderLayout());
 		panel.setBorder(new TitledBorder(null, "Contacts", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		frame.getContentPane().add(panel, "cell 1 3 7 1,grow");
-		
-		ContactDataModel model = controller.getTableModel();
+		/*
+		ContactListModel model = controller.getTableModel();
+	
 		table = new JTable(model);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setAutoCreateColumnsFromModel(true);
@@ -141,7 +143,7 @@ public class MainWindow {
 		table.setShowVerticalLines(true);
 		table.setSelectionBackground(Color.blue);
 		
-		
+		*/
 		//TableColumnModel tc = table.getColumnModel();
 		//TableColumn col = tc.getColumn(model.getColumnCount()-1);
 		table.setShowGrid(true);

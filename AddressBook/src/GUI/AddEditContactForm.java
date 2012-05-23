@@ -57,7 +57,7 @@ public class AddEditContactForm {
 	private JTextField txtCountry;
 	private JLabel lblCity;
 	private JTextField txtCity;
-	private JLabel lblAddress;
+	//private JLabel lblAddress;
 	private JLabel lblStreet;
 	private JTextField txtStreet;
 	private JLabel lblApnr;
@@ -65,7 +65,7 @@ public class AddEditContactForm {
 	private JLabel lblZipcode;
 	private JTextField txtZipcode;
 	private JLabel lblGroup;
-	private JComboBox comboBox;
+	private JComboBox cmbGroup;
 	private JLabel lblComents;
 	private JTextArea txtrComents;
 	private JLabel lblImage;
@@ -212,7 +212,7 @@ public class AddEditContactForm {
 						//String oldPath = "";
 						//imgPath = "images/wazir_jan.png";
 						if(image.loadImageFile(selectedFile)) {
-							lblImage.setIcon(image.convertToIcon(imgPath,txtFirstName.getText().trim().toLowerCase()+"_"+txtLastName.getText().trim().toLowerCase()));
+							lblImage.setIcon(image.convertToIcon(imgPath,txtFirstName.getText().trim().toLowerCase()+"_"+txtMobileNr.getText().trim().toLowerCase()));
 							imgPath = image.getImagePath();
 						}
 					}
@@ -411,8 +411,8 @@ public class AddEditContactForm {
 		lblApnr = new JLabel("Ap.Nr");
 		frame.getContentPane().add(lblApnr, "cell 2 11,aligny bottom");
 		
-		lblAddress = new JLabel("Address:");
-		frame.getContentPane().add(lblAddress, "cell 0 12,alignx right");
+		//lblAddress = new JLabel("Address:");
+		//frame.getContentPane().add(lblAddress, "cell 0 12,alignx right");
 		
 		txtStreet = new JTextField();
 		txtStreet.setText("");
@@ -443,8 +443,8 @@ public class AddEditContactForm {
 		lblGroup = new JLabel("Group:");
 		frame.getContentPane().add(lblGroup, "cell 0 14,alignx trailing");
 		String[] items = {"Employee", "Engineers", "Drivers", "Sellers"};
-		comboBox = new JComboBox(items);
-		frame.getContentPane().add(comboBox, "cell 1 14,growx,aligny bottom");
+		cmbGroup = new JComboBox(items);
+		frame.getContentPane().add(cmbGroup, "cell 1 14,growx,aligny bottom");
 		
 		lblComents = new JLabel("Coments:");
 		frame.getContentPane().add(lblComents, "cell 0 15,alignx right,aligny top");
@@ -466,9 +466,7 @@ public class AddEditContactForm {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(btnSave.getText().equals("Save")) {
-					controller.createPerson(txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), txtCountry.getText(), txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(), "", "", "");
-					controller.save();
-					
+					save();
 					
 				}
 				else if(btnSave.getText().equals("Edit")) {
@@ -603,11 +601,11 @@ public class AddEditContactForm {
 			lblCityError.setText("*");
 			error = true;
 		}
-		if(!Validation.checkStreet(txtStreet.getText())) {
+		/*if(!Validation.checkStreet(txtStreet.getText())) {
 			message +="<font color=\"red\">*</font> Street name should be string <br>";
 			lblStreetError.setText("*");
 			error = true;
-		}
+		}*/
 		if(!Validation.checkApNr(txtApnr.getText()) && !txtApnr.getText().isEmpty()) {
 			message +="<font color=\"red\">*</font> Apartement number (3 digit) <br>";
 			lblApNrError.setText("*");
@@ -626,22 +624,9 @@ public class AddEditContactForm {
 		if(!error) {
 			int conf = JOptionPane.showConfirmDialog(null, "Do you want to save!");
 			if(conf == JOptionPane.OK_OPTION) {
-				Person person = AddressBookFactory.eINSTANCE.createPerson();
-				person.setFirstName(txtFirstName.getText());
-				person.setLastName(txtLastName.getText());
-				person.setDateOfBirth(txtDateOfBirth.getText());
-				person.setMobileNr(txtMobileNr.getText());
-				person.setPhoneNr(txtPhoneNr.getText());
-				person.setFax(txtFax.getText());
-				person.setEmail(txtEmail.getText());
-				person.setCountry(txtCountry.getText());
-				person.setCity(txtCity.getText());
-				person.setStreet(txtStreet.getText());
-				person.setApartNr(txtApnr.getText());
-				person.setPostalCode(txtZipcode.getText());
-				person.setGroup(comboBox.getSelectedItem().toString());
-				person.setComents(txtrComents.getText());
-				person.setImage(imgPath);
+				controller.createPerson(txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), txtCountry.getText(), txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(),txtZipcode.getText(), imgPath, cmbGroup.getSelectedItem().toString(), txtrComents.getText());
+				controller.save();
+				
 			//controller.createPerson(, lastName) // sending data to the controller
 				//clear(); // clear the form
 			}
@@ -665,7 +650,7 @@ public class AddEditContactForm {
 		txtStreet.setText("");
 		txtApnr.setText("");
 		txtZipcode.setText("");
-		comboBox.setSelectedIndex(0);
+		cmbGroup.setSelectedIndex(0);
 		txtrComents.setText("");
 		imgPath = "";
 	}

@@ -5,13 +5,20 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JMenuItem;
+import javax.swing.table.TableModel;
 
+import org.eclipse.emf.common.util.EList;
+
+import AddressBook.Person;
+import Controller.MainController;
+import Helper.ContactListModel;
 import Helper.Menu;
 /*
  * To change this template, choose Tools | Templates
@@ -24,6 +31,10 @@ import Helper.Menu;
  */
 public class AddressBookMain extends javax.swing.JFrame {
 
+	MainController controller=null;
+	
+	
+	
     /**
 	 * 
 	 */
@@ -32,13 +43,14 @@ public class AddressBookMain extends javax.swing.JFrame {
      * Creates new form AddressBookMain
      */
     public AddressBookMain() {
+    	
+    	
     	setTitle("Address Book");
     	setResizable(false);
         initComponents();
+        FillTableContacts();
     }
-    public void fillTableContact(){
-    
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,6 +72,7 @@ public class AddressBookMain extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         btnSearch.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
+        		
         		int x=JOptionPane.showConfirmDialog(getParent(), "Search Button");
         		System.out.println(x);
         	}
@@ -219,7 +232,7 @@ public class AddressBookMain extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Frist Name", "Last Name", "Fax","Mobile Nummber", "Email Address","Details"
+                "Frist Name", "Last Name", "Fax","Mobile Nummber", "Email Address"
             }
         ));
         jScrollPane1.setViewportView(tblContacts);
@@ -301,6 +314,34 @@ public class AddressBookMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
+    
+public void FillTableContacts(){
+		
+		System.out.print("hi i am here");
+		//controller=new MainController();
+		Person person=null;
+		//EList<Person> person=controller.getAllPerson();
+		//System.out.print(person.size());
+		//JOptionPane.showConfirmDialog(getParent(), person.size(), "khan", ERROR);
+		
+		
+		  ContactListModel list=controller.getTableModel();
+		  System.out.print(list.getSize());
+		  /*
+		for(int i=0; i<list.getSize(); i++){
+			
+			 person=list.getElementAt(i);
+			 System.out.print(person.getLastName()+"hie how are you");
+			tblContacts.setValueAt(person.getFirstName(), i, 0);
+			tblContacts.setValueAt(person.getLastName(), i, i);
+			tblContacts.setValueAt(person.getFax(), i, i);
+			tblContacts.setValueAt(person.getPhoneNr(), i, i);
+			tblContacts.setValueAt(person.getEmail(), i, i);
+			
+			
+		}*/
+	}
+	
 
     /**
      * @param args the command line arguments

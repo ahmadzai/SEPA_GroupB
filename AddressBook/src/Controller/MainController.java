@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -51,7 +52,7 @@ public class MainController {
 	
 		// add the root node to the resource
 		if(resource.getContents().add(contactCollection)) {
-			System.out.println("collection added to the file size; " + contactCollection.getPersons().size());
+			//System.out.println("collection added to the file size; " + contactCollection.getPersons().size());
 		}
 		else 
 			System.out.println("collection doesn't add to the file");
@@ -88,7 +89,7 @@ public class MainController {
 	 * @param name
 	 * @param lastName
 	 */
-	public void createPerson(String firstname, String lastName,String fax,String email,String mobileNr,String aprtNr,String phoneNr,String country,String city,String street,String dateOfBirth,String postalCode,String imgPath,String group) {
+	public void createPerson(String firstname, String lastName,String fax,String email,String mobileNr,String aprtNr,String phoneNr,String country,String city,String street,String dateOfBirth,String postalCode,String imgPath,String group,String comments) {
 		Person person = AddressBookFactory.eINSTANCE.createPerson();
 		person.setFirstName(firstname);
 		person.setLastName(lastName);
@@ -103,6 +104,7 @@ public class MainController {
 		person.setMobileNr(mobileNr);
 		person.setStreet(street);
 		person.setDateOfBirth(dateOfBirth);
+		person.setComents(comments);
 	
 		contactCollection.getPersons().add(person);
 		int index = contactCollection.getPersons().indexOf(person);
@@ -115,35 +117,60 @@ public class MainController {
 	 * @param index
 	 * @param name
 	 * @param lastName
-	 *
-	public void editStudent(int index, String name, String lastName) {
+	 */
+	public void editPerson(int index,String firstname, String lastName,String fax,String email,String mobileNr,String aprtNr,String phoneNr,String country,String city,String street,String dateOfBirth,String postalCode,String imgPath,String group,String comments) {
 		if(index != -1) {
-			Student student = getStudent(index);
-			student.setName(name);
-			student.setLastName(lastName);
-			contactDataModel.studentChanged(index);
+			Person person = getPerson(index);
+			person.setFirstName(firstname);
+			person.setLastName(lastName);
+			person.setApartNr(aprtNr);
+			person.setCountry(country);
+			person.setCity(city);
+			person.setEmail(email);
+			person.setPhoneNr(phoneNr);
+			person.setFax(fax);
+			person.setImage(imgPath);
+			person.setGroup(group);
+			person.setMobileNr(mobileNr);
+			person.setStreet(street);
+			person.setDateOfBirth(dateOfBirth);
+			person.setComents(comments);
+			contactListModel.personChanged(index);
 		}
+	}
+	
+	
+	/**
+	 * Get the student at the given index
+	 * 
+	 * @param index
+	 * @return
+	 */
+	public Person getPerson(int index) {
+		return contactCollection.getPersons().get(index);
+	}
+	
+	/**
+	 * return List of all students
+	 * @return List of students
+	 */
+	
+	public EList<Person> getAllPerson(){
+		return contactCollection.getPersons();
 	}
 
 	/**
 	 * Delete the student at the specified index
 	 * 
 	 * @param index
-	 *
+	 */
 	public void deleteStudent(int index) {
-		contactCollection.getStudents().remove(index);
-		contactDataModel.studentDeleted(index);
+		contactCollection.getPersons().remove(index);
+		contactListModel.PersonDeleted(index);
 	}
 
-	/**
-	 * Get the student at the given index
-	 * 
-	 * @param index
-	 * @return
-	 *
-	public Student getStudent(int index) {
-		return contactCollection.getStudents().get(index);
-	}
+	
+	
 	
 	/**
 	 * Load all students from the given file
@@ -172,6 +199,7 @@ public class MainController {
 	 * 
 	 * @return
 	 */
+	
 	public ContactListModel getTableModel() {
 		return contactListModel;
 	}
