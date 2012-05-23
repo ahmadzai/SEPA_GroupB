@@ -467,7 +467,7 @@ public class AddEditContactForm {
 			public void actionPerformed(ActionEvent arg0) {
 				if(btnSave.getText().equals("Save")) {
 					
-					save();
+					controller.saveModel();
 					
 					
 				}
