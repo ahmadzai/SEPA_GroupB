@@ -15,16 +15,18 @@ import AddressBook.AddressBookFactory;
 import AddressBook.AddressBookPackage;
 import AddressBook.ContactCollection;
 import AddressBook.Person;
-import Helper.ContactDataModel;
+
+import Helper.ContactListModel;
+
 
 public class MainController {
 	private ContactCollection contactCollection;
-	private ContactDataModel contactDataModel;
-	private String modelfile = "addressBook.address";
+	private  ContactListModel contactListModel;
+	private String modelfile = "AddressBook.persons";
 	
 	public MainController() {
 		contactCollection = load();
-		contactDataModel = new ContactDataModel(contactCollection.getPersons());
+		contactListModel = new ContactListModel(contactCollection.getPersons());
 	}
 
 	private ResourceSet getRecourceSet() {
@@ -34,13 +36,13 @@ public class MainController {
 		// Register the XMI resource factory for the .students extension
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("address", new XMIResourceFactoryImpl());
+		m.put("persons", new XMIResourceFactoryImpl());
 
 		// Obtain a new resource set
 		return new ResourceSetImpl();
 	} 
 	
-	public void saveModel() {
+	public void save() {
 		ResourceSet resSet = getRecourceSet();
 
 		// Create a resource
@@ -86,10 +88,25 @@ public class MainController {
 	 * @param name
 	 * @param lastName
 	 */
-	public void createPerson(Person person) {
+	public void createPerson(String firstname, String lastName,String fax,String email,String mobileNr,String aprtNr,String phoneNr,String country,String city,String street,String dateOfBirth,String postalCode,String imgPath,String group) {
+		Person person = AddressBookFactory.eINSTANCE.createPerson();
+		person.setFirstName(firstname);
+		person.setLastName(lastName);
+		person.setApartNr(aprtNr);
+		person.setCountry(country);
+		person.setCity(city);
+		person.setEmail(email);
+		person.setPhoneNr(phoneNr);
+		person.setFax(fax);
+		person.setImage(imgPath);
+		person.setGroup(group);
+		person.setMobileNr(mobileNr);
+		person.setStreet(street);
+		person.setDateOfBirth(dateOfBirth);
+	
 		contactCollection.getPersons().add(person);
 		int index = contactCollection.getPersons().indexOf(person);
-		contactDataModel.personAdded(index);
+		contactListModel.PersonAdded(index);
 	}
 
 	/**
@@ -136,7 +153,7 @@ public class MainController {
 	public void loadFromFile(String modelFile) {
 		this.setModelfile(modelFile);
 		contactCollection = load();
-		contactDataModel.setData(contactCollection.getPersons());
+		contactListModel.setPerson(contactCollection.getPersons());
 	}
 	
 	/**
@@ -155,8 +172,8 @@ public class MainController {
 	 * 
 	 * @return
 	 */
-	public ContactDataModel getTableModel() {
-		return contactDataModel;
+	public ContactListModel getTableModel() {
+		return contactListModel;
 	}
 }
 

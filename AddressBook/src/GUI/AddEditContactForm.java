@@ -466,8 +466,8 @@ public class AddEditContactForm {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(btnSave.getText().equals("Save")) {
-					
-					controller.saveModel();
+					controller.createPerson(txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), txtCountry.getText(), txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(), "", "", "");
+					controller.save();
 					
 					
 				}
@@ -485,7 +485,7 @@ public class AddEditContactForm {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// here we close this form and will setFocus of the main form
-				controller.saveModel();
+			//	controller.saveModel();
 				frame.dispose();
 				MainWindow.getMainWindow().setFocusableWindowState(true);
 			}
@@ -642,7 +642,7 @@ public class AddEditContactForm {
 				person.setGroup(comboBox.getSelectedItem().toString());
 				person.setComents(txtrComents.getText());
 				person.setImage(imgPath);
-				controller.createPerson(person); // sending data to the controller
+			//controller.createPerson(, lastName) // sending data to the controller
 				//clear(); // clear the form
 			}
 		}
