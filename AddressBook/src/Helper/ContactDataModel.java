@@ -36,7 +36,7 @@ public class ContactDataModel extends AbstractTableModel{
 			dataCol = new ArrayList<String>();
 			//data[row][0] = ++no;											// Seting Number
 			//dataRow.add(row, dataCol.add(""+no));
-			dataCol.add(0, ""+row+1);
+			dataCol.add(0, ""+(((int)this.persons.indexOf(person))+1));
 			//data[row][1] = person.getFirstName()+" "+person.getLastName();  // seting name
 			dataCol.add(1, person.getFirstName()+" "+person.getLastName());
 			//data[row][2] = person.getMobileNr();
@@ -48,7 +48,7 @@ public class ContactDataModel extends AbstractTableModel{
 			
 			dataRow.add(row, dataCol);
 			
-			row++;
+		row++;	
 			
 		}
 		
@@ -108,6 +108,13 @@ public class ContactDataModel extends AbstractTableModel{
 	public void personAdded(int index) {
 		this.fireTableRowsInserted(0,0);
 	}
+	
+	public void DeletePerson(int index){
+		persons.remove(index);
+	}
+	
+	
+	
 
 
 }

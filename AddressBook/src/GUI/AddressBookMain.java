@@ -1,24 +1,20 @@
 package GUI;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JMenuItem;
-import javax.swing.table.TableModel;
 
-import org.eclipse.emf.common.util.EList;
-
-import AddressBook.Person;
 import Controller.MainController;
-import Helper.ContactListModel;
+import Helper.ContactDataModel;
 import Helper.Menu;
 /*
  * To change this template, choose Tools | Templates
@@ -31,10 +27,6 @@ import Helper.Menu;
  */
 public class AddressBookMain extends javax.swing.JFrame {
 
-	MainController controller=null;
-	
-	
-	
     /**
 	 * 
 	 */
@@ -43,14 +35,31 @@ public class AddressBookMain extends javax.swing.JFrame {
      * Creates new form AddressBookMain
      */
     public AddressBookMain() {
-    	
-    	
+    	controller = new MainController();
     	setTitle("Address Book");
     	setResizable(false);
         initComponents();
-        FillTableContacts();
+        fillTableContact();
     }
-   
+    public void fillTableContact(){
+        pnlTable.setBorder(javax.swing.BorderFactory.createTitledBorder("Contacts List"));
+        ContactDataModel model = controller.getTableModel();
+        tblContacts.setModel(model);
+        tblContacts.setAutoCreateColumnsFromModel(true);
+        tblContacts.getColumnModel().getColumn(0).setPreferredWidth(10);
+        tblContacts.getColumnModel().getColumn(1).setPreferredWidth(165);
+        tblContacts.getColumnModel().getColumn(2).setPreferredWidth(160);
+        tblContacts.getColumnModel().getColumn(3).setPreferredWidth(250);
+        tblContacts.getColumnModel().getColumn(4).setMinWidth(70);
+		
+        tblContacts.setRowSelectionAllowed(true);
+        tblContacts.setShowGrid(true);
+        tblContacts.setShowHorizontalLines(true);
+        tblContacts.setShowVerticalLines(true);
+        tblContacts.setSelectionBackground(Color.blue);
+ 
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,7 +81,6 @@ public class AddressBookMain extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         btnSearch.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		
         		int x=JOptionPane.showConfirmDialog(getParent(), "Search Button");
         		System.out.println(x);
         	}
@@ -93,11 +101,22 @@ public class AddressBookMain extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnDelete.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		
+        		int choice=JOptionPane.showConfirmDialog(getParent(), "Are you sure you want to delete this record?", "Delete",1);
+        			if(JOptionPane.YES_OPTION==choice){
+        				Object objIndex= tblContacts.getModel().getValueAt(tblContacts.getSelectedRow(), 0);
+        				int index=Integer.parseInt(objIndex.toString());
+        				controller.deletePerson(index-1);
+        				fillTableContact();
+        			}
+        			
+        			
         	}
         });
         pnlTable = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblContacts = new javax.swing.JTable();
+        
       
         tblContacts.addMouseListener(new MouseAdapter() {
         	@Override
@@ -114,6 +133,9 @@ public class AddressBookMain extends javax.swing.JFrame {
         tblContacts.setRowHeight(22);
         tblContacts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tblContacts.setAutoCreateRowSorter(true);
+        tblContacts.setRowMargin(5);
+       
+        
         
         btnPrevious = new javax.swing.JButton();
         btnPrevious.addActionListener(new ActionListener() {
@@ -204,37 +226,7 @@ public class AddressBookMain extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTable.setBorder(javax.swing.BorderFactory.createTitledBorder(" Contact List "));
-
-        tblContacts.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Frist Name", "Last Name", "Fax","Mobile Nummber", "Email Address"
-            }
-        ));
+      
         jScrollPane1.setViewportView(tblContacts);
 
         javax.swing.GroupLayout gl_pnlTable = new javax.swing.GroupLayout(pnlTable);
@@ -314,34 +306,6 @@ public class AddressBookMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
-    
-public void FillTableContacts(){
-		
-		System.out.print("hi i am here");
-		//controller=new MainController();
-		Person person=null;
-		//EList<Person> person=controller.getAllPerson();
-		//System.out.print(person.size());
-		//JOptionPane.showConfirmDialog(getParent(), person.size(), "khan", ERROR);
-		
-		
-		  ContactListModel list=controller.getTableModel();
-		  System.out.print(list.getSize());
-		  /*
-		for(int i=0; i<list.getSize(); i++){
-			
-			 person=list.getElementAt(i);
-			 System.out.print(person.getLastName()+"hie how are you");
-			tblContacts.setValueAt(person.getFirstName(), i, 0);
-			tblContacts.setValueAt(person.getLastName(), i, i);
-			tblContacts.setValueAt(person.getFax(), i, i);
-			tblContacts.setValueAt(person.getPhoneNr(), i, i);
-			tblContacts.setValueAt(person.getEmail(), i, i);
-			
-			
-		}*/
-	}
-	
 
     /**
      * @param args the command line arguments
@@ -403,6 +367,7 @@ public void FillTableContacts(){
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblContacts;
     private javax.swing.JTextField txtSearch;
-    private JMenuItem menuItem;
+    private MainController controller;
+   
     // End of variables declaration
 }

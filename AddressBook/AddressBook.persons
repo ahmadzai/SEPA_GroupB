@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <AddressBook:ContactCollection xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:AddressBook="http:///AddressBook.ecore">
   <persons firstName="khan" lastName="jan" dateOfBirth="13/12/1333" phoneNr="23423423423" mobileNr="0133232323" fax="1322342" email="khan@jan.com" image="" country="Afghanistan" city="kabul" apartNr="132" street="Ghazy" group=""/>
-  <persons firstName="khan" lastName="jan" dateOfBirth="13/12/1333" phoneNr="23423423423" mobileNr="0133232323" fax="1322342" email="khan@jan.com" image="" country="Afghanistan" city="kabul" apartNr="132" street="Ghazy" group=""/>
-  <persons firstName="ali" lastName="kabir" dateOfBirth="" phoneNr="" mobileNr="" fax="" email="" image="" country="" city="" apartNr="" street="" group=""/>
-  <persons firstName="khan" lastName="jan" dateOfBirth="" phoneNr="" mobileNr="" fax="" email="" image="" country="" city="" apartNr="" street="" group="Employee"/>
-  <persons firstName="khan" lastName="jan" dateOfBirth="" phoneNr="" mobileNr="" fax="" email="" image="" country="" city="" apartNr="" street="" group="Employee"/>
+  <persons firstName="wazirkhan" lastName="dkjajkajk" dateOfBirth="" phoneNr="" mobileNr="" fax="" email="" image="" country="" city="" apartNr="" street="" group=""/>
 </AddressBook:ContactCollection>

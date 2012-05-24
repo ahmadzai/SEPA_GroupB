@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -17,17 +16,19 @@ import AddressBook.AddressBookPackage;
 import AddressBook.ContactCollection;
 import AddressBook.Person;
 
+import Helper.ContactDataModel;
 import Helper.ContactListModel;
 
 
 public class MainController {
 	private ContactCollection contactCollection;
-	private  ContactListModel contactListModel;
+	private  ContactDataModel contactListModel;
 	private String modelfile = "AddressBook.persons";
+	private ContactListModel contactlst;
 	
 	public MainController() {
 		contactCollection = load();
-		contactListModel = new ContactListModel(contactCollection.getPersons());
+		contactListModel = new ContactDataModel(contactCollection.getPersons());
 	}
 
 	private ResourceSet getRecourceSet() {
@@ -108,7 +109,7 @@ public class MainController {
 	
 		contactCollection.getPersons().add(person);
 		int index = contactCollection.getPersons().indexOf(person);
-		contactListModel.PersonAdded(index);
+		contactListModel.personAdded(index);
 	}
 
 	/**
@@ -135,11 +136,23 @@ public class MainController {
 			person.setStreet(street);
 			person.setDateOfBirth(dateOfBirth);
 			person.setComents(comments);
-			contactListModel.personChanged(index);
+		
+			contactlst.personChanged(index);
 		}
 	}
-	
-	
+
+	/**
+	 * Delete the person at the specified index
+	 * 
+	 * @param index
+	 */
+	public void deletePerson(int index) {
+		contactCollection.getPersons().remove(index);
+		//contactListModel.DeletePerson(index);
+		
+		save();
+	}
+
 	/**
 	 * Get the student at the given index
 	 * 
@@ -147,30 +160,10 @@ public class MainController {
 	 * @return
 	 */
 	public Person getPerson(int index) {
+		
+		
 		return contactCollection.getPersons().get(index);
 	}
-	
-	/**
-	 * return List of all students
-	 * @return List of students
-	 */
-	
-	public EList<Person> getAllPerson(){
-		return contactCollection.getPersons();
-	}
-
-	/**
-	 * Delete the student at the specified index
-	 * 
-	 * @param index
-	 */
-	public void deleteStudent(int index) {
-		contactCollection.getPersons().remove(index);
-		contactListModel.PersonDeleted(index);
-	}
-
-	
-	
 	
 	/**
 	 * Load all students from the given file
@@ -180,7 +173,8 @@ public class MainController {
 	public void loadFromFile(String modelFile) {
 		this.setModelfile(modelFile);
 		contactCollection = load();
-		contactListModel.setPerson(contactCollection.getPersons());
+		contactListModel.setData(contactCollection.getPersons());
+		
 	}
 	
 	/**
@@ -199,8 +193,7 @@ public class MainController {
 	 * 
 	 * @return
 	 */
-	
-	public ContactListModel getTableModel() {
+	public ContactDataModel getTableModel() {
 		return contactListModel;
 	}
 }
