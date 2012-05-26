@@ -103,7 +103,7 @@ public class AddEditContactForm {
 	public AddEditContactForm(Person person,int index){
 		this.person=person;
 		this.index=index;
-		System.out.print(">>>>>"+index);
+		
 		initialize();
 		image = new ContactImage();
 		controller = new MainController();

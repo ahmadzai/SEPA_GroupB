@@ -11,14 +11,19 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+
+
 import AddressBook.AddressBookFactory;
 import AddressBook.AddressBookPackage;
 import AddressBook.ContactCollection;
 import AddressBook.Person;
+import AddressBook.impl.AddressBookPackageImpl;
 
 import GUI.AddEditContactForm;
+import GUI.AddressBookMain;
 import Helper.ContactDataModel;
 import Helper.ContactListModel;
+import Helper.FactoryImpl;
 
 
 public class MainController {
@@ -40,14 +45,17 @@ public class MainController {
 		// Register the XMI resource factory for the .students extension
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("persons", new XMIResourceFactoryImpl());
+		m.put("persons", new FactoryImpl());
 
 		// Obtain a new resource set
 		return new ResourceSetImpl();
 	} 
 	
 	public void save() {
+		AddressBookPackageImpl.init();
+		AddressBookFactory fact=AddressBookFactory.eINSTANCE;
 		ResourceSet resSet = getRecourceSet();
+		
 
 		// Create a resource
 		Resource resource = resSet.createResource(URI
@@ -70,6 +78,7 @@ public class MainController {
 	}
 
 	private ContactCollection load() {
+		AddressBookPackageImpl.init();
 		ResourceSet resSet = getRecourceSet();
 
 		// Get the resource

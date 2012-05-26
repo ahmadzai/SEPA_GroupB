@@ -1,5 +1,6 @@
 package GUI;
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout.Alignment;
@@ -139,7 +140,10 @@ public class AddressBookMain extends javax.swing.JFrame {
         		if(tblContacts.getSelectedRow()>-1){
         		Object objIndex=tblContacts.getModel().getValueAt(tblContacts.getSelectedRow(), 0);
         		controller.editContact(Integer.parseInt(objIndex.toString())-1);
+        		
         		}
+        		else
+        			JOptionPane.showMessageDialog(getParent(), "Please chose a record then press Edit!");
         	}
         });
         btnDelete = new javax.swing.JButton();
@@ -170,7 +174,13 @@ public class AddressBookMain extends javax.swing.JFrame {
         	
         	public void mouseClicked(MouseEvent e) {
         		if(e.getClickCount()==2)
+        		 
         		System.out.println(tblContacts.getSelectedRow());
+        		Point pt=e.getPoint();
+        		int x=tblContacts.columnAtPoint(pt);
+        		
+        		
+        	System.out.println(x);
         		
         	}
         	
