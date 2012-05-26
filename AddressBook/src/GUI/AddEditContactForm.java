@@ -97,15 +97,48 @@ public class AddEditContactForm {
 	private JLabel lblStreetError;
 	private JLabel lblApNrError;
 	private JLabel lblZipError;
-	
+	private Person person=null;
 	private MainController controller;
+	private int index=0;
+	public AddEditContactForm(Person person,int index){
+		this.person=person;
+		this.index=index;
+		System.out.print(">>>>>"+index);
+		initialize();
+		image = new ContactImage();
+		controller = new MainController();
+		frame.setVisible(true);
+		frame.setTitle("Edit Contact");
+		btnSave.setText("Edit");
+		FillFormComponent();
+		
+		
+	}
 	
+	public void FillFormComponent(){
+		txtFirstName.setText(person.getFirstName());
+		txtLastName.setText(person.getLastName());
+		txtEmail.setText(person.getEmail());
+		txtFax.setText(person.getFax());
+		txtApnr.setText(person.getApartNr());
+		txtMobileNr.setText(person.getMobileNr());
+		txtPhoneNr.setText(person.getPhoneNr());
+		txtCountry.setText(person.getCountry());
+		txtCity.setText(person.getCity());
+		txtrComents.setText(person.getComents());
+		comboBox.getModel().setSelectedItem(person.getGroup());
+		txtZipcode.setText(person.getPostalCode());
+		imgPath=person.getImage();
+		txtStreet.setText(person.getStreet());
+		txtDateOfBirth.setText(person.getDateOfBirth());
+	}
 	
 	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -117,7 +150,7 @@ public class AddEditContactForm {
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the application.
 	 */
@@ -466,13 +499,13 @@ public class AddEditContactForm {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(btnSave.getText().equals("Save")) {
-					controller.createPerson(txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), txtCountry.getText(), txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(), txtZipcode.getText(), imgPath, txtrComents.getText(), txtrComents.getText());
-					controller.save();
+					save();
 					
 					
 				}
 				else if(btnSave.getText().equals("Edit")) {
-					System.out.print("Edit button Clicked");
+					controller.editPerson(index,txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), txtCountry.getText(), txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(), txtZipcode.getText(), imgPath, comboBox.getSelectedItem().toString(), txtrComents.getText());
+					controller.save();
 				}
 			}
 		});
@@ -626,6 +659,10 @@ public class AddEditContactForm {
 		if(!error) {
 			int conf = JOptionPane.showConfirmDialog(null, "Do you want to save!");
 			if(conf == JOptionPane.OK_OPTION) {
+				
+				controller.createPerson(txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), txtCountry.getText(), txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(), txtZipcode.getText(), imgPath, comboBox.getSelectedItem().toString(), txtrComents.getText());
+				controller.save();
+				/*
 				Person person = AddressBookFactory.eINSTANCE.createPerson();
 				person.setFirstName(txtFirstName.getText());
 				person.setLastName(txtLastName.getText());
@@ -642,6 +679,7 @@ public class AddEditContactForm {
 				person.setGroup(comboBox.getSelectedItem().toString());
 				person.setComents(txtrComents.getText());
 				person.setImage(imgPath);
+				*/
 			//controller.createPerson(, lastName) // sending data to the controller
 				//clear(); // clear the form
 			}

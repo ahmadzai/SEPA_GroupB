@@ -16,6 +16,7 @@ import AddressBook.AddressBookPackage;
 import AddressBook.ContactCollection;
 import AddressBook.Person;
 
+import GUI.AddEditContactForm;
 import Helper.ContactDataModel;
 import Helper.ContactListModel;
 
@@ -29,6 +30,7 @@ public class MainController {
 	public MainController() {
 		contactCollection = load();
 		contactListModel = new ContactDataModel(contactCollection.getPersons());
+	
 	}
 
 	private ResourceSet getRecourceSet() {
@@ -106,7 +108,7 @@ public class MainController {
 		person.setStreet(street);
 		person.setDateOfBirth(dateOfBirth);
 		person.setComents(comments);
-	
+		person.setPostalCode(postalCode);
 		contactCollection.getPersons().add(person);
 		int index = contactCollection.getPersons().indexOf(person);
 		contactListModel.personAdded(index);
@@ -136,8 +138,8 @@ public class MainController {
 			person.setStreet(street);
 			person.setDateOfBirth(dateOfBirth);
 			person.setComents(comments);
-		
-			contactlst.personChanged(index);
+			person.setPostalCode(postalCode);
+			contactListModel.personChanged(index);
 		}
 	}
 
@@ -147,9 +149,9 @@ public class MainController {
 	 * @param index
 	 */
 	public void deletePerson(int index) {
-		contactCollection.getPersons().remove(index);
-		//contactListModel.DeletePerson(index);
 		
+		contactCollection.getPersons().remove(index);
+		contactListModel.DeletePerson(index);
 		save();
 	}
 
@@ -195,6 +197,13 @@ public class MainController {
 	 */
 	public ContactDataModel getTableModel() {
 		return contactListModel;
+	}
+	
+	public void editContact(int index){
+		if(index>-1){
+			AddEditContactForm aded=new AddEditContactForm(getPerson(index), index);
+		}
+		
 	}
 }
 

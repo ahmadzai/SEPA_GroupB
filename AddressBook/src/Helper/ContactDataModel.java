@@ -110,8 +110,17 @@ public class ContactDataModel extends AbstractTableModel{
 	}
 	
 	public void DeletePerson(int index){
-		persons.remove(index);
+		
+		this.fireTableRowsDeleted(index, index);
+		this.fireTableDataChanged();
+		
 	}
+	
+	public void personChanged(int index){
+		this.fireTableRowsUpdated(index, index);
+	}
+	
+	
 	
 	
 	

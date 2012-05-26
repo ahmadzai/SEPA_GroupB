@@ -6,16 +6,21 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JMenuItem;
+
 
 import Controller.MainController;
 import Helper.ContactDataModel;
 import Helper.Menu;
+import Helper.MyImageFilter;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -39,12 +44,27 @@ public class AddressBookMain extends javax.swing.JFrame {
     	setTitle("Address Book");
     	setResizable(false);
         initComponents();
+        TableContact();
         fillTableContact();
     }
+    public void TableContact(){
+    	
+    	     	
+    }
     public void fillTableContact(){
+    	
+    	
         pnlTable.setBorder(javax.swing.BorderFactory.createTitledBorder("Contacts List"));
         ContactDataModel model = controller.getTableModel();
+       model.fireTableDataChanged();
+       
+   //   ((DefaultTableModel) tblContacts.getModel()).removeRow(2);
         tblContacts.setModel(model);
+        
+       tblContacts.revalidate();
+       
+     
+       
         tblContacts.setAutoCreateColumnsFromModel(true);
         tblContacts.getColumnModel().getColumn(0).setPreferredWidth(10);
         tblContacts.getColumnModel().getColumn(1).setPreferredWidth(165);
@@ -57,6 +77,26 @@ public class AddressBookMain extends javax.swing.JFrame {
         tblContacts.setShowHorizontalLines(true);
         tblContacts.setShowVerticalLines(true);
         tblContacts.setSelectionBackground(Color.blue);
+        jScrollPane1.setViewportView(tblContacts);
+
+        javax.swing.GroupLayout gl_pnlTable = new javax.swing.GroupLayout(pnlTable);
+        gl_pnlTable.setHorizontalGroup(
+        	gl_pnlTable.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+        );
+        gl_pnlTable.setVerticalGroup(
+        	gl_pnlTable.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(gl_pnlTable.createSequentialGroup()
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 416, GroupLayout.PREFERRED_SIZE)
+        			.addGap(19))
+        );
+        pnlTable.setLayout(gl_pnlTable);
+   	 tblContacts.setRowHeight(22);
+        tblContacts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tblContacts.setAutoCreateRowSorter(true);
+        tblContacts.setRowMargin(5);
+
  
     
     }
@@ -96,6 +136,10 @@ public class AddressBookMain extends javax.swing.JFrame {
         btnEdite = new javax.swing.JButton();
         btnEdite.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		if(tblContacts.getSelectedRow()>-1){
+        		Object objIndex=tblContacts.getModel().getValueAt(tblContacts.getSelectedRow(), 0);
+        		controller.editContact(Integer.parseInt(objIndex.toString())-1);
+        		}
         	}
         });
         btnDelete = new javax.swing.JButton();
@@ -105,9 +149,12 @@ public class AddressBookMain extends javax.swing.JFrame {
         		int choice=JOptionPane.showConfirmDialog(getParent(), "Are you sure you want to delete this record?", "Delete",1);
         			if(JOptionPane.YES_OPTION==choice){
         				Object objIndex= tblContacts.getModel().getValueAt(tblContacts.getSelectedRow(), 0);
-        				int index=Integer.parseInt(objIndex.toString());
-        				controller.deletePerson(index-1);
-        				fillTableContact();
+        				
+        				 int index=Integer.parseInt(objIndex.toString());
+          				controller.deletePerson(index-1);
+        				
+        				
+        				//fillTableContact();
         			}
         			
         			
@@ -130,10 +177,7 @@ public class AddressBookMain extends javax.swing.JFrame {
        
         	
         });
-        tblContacts.setRowHeight(22);
-        tblContacts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        tblContacts.setAutoCreateRowSorter(true);
-        tblContacts.setRowMargin(5);
+       
        
         
         
@@ -227,21 +271,7 @@ public class AddressBookMain extends javax.swing.JFrame {
         );
 
       
-        jScrollPane1.setViewportView(tblContacts);
-
-        javax.swing.GroupLayout gl_pnlTable = new javax.swing.GroupLayout(pnlTable);
-        gl_pnlTable.setHorizontalGroup(
-        	gl_pnlTable.createParallelGroup(Alignment.LEADING)
-        		.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
-        );
-        gl_pnlTable.setVerticalGroup(
-        	gl_pnlTable.createParallelGroup(Alignment.TRAILING)
-        		.addGroup(gl_pnlTable.createSequentialGroup()
-        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 416, GroupLayout.PREFERRED_SIZE)
-        			.addGap(19))
-        );
-        pnlTable.setLayout(gl_pnlTable);
+       
 
         btnPrevious.setText("Previous");
 
