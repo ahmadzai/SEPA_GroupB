@@ -30,6 +30,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.ImageFilter;
 import java.awt.Cursor;
 import java.io.File;
@@ -170,6 +172,15 @@ public class AddEditContactForm {
 		image = new ContactImage();
 		controller = new MainController();
 	}
+	
+	public void exit(){
+		addmain=new AddressBookMain();
+		addmain.setVisible(true);
+		
+		frame.dispose();
+		
+		
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -178,7 +189,8 @@ public class AddEditContactForm {
 		frame = new JFrame("Add Contact");
 		frame.getContentPane().setVisible(true);
 		frame.setBounds(100, 100, 550, 550);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	
+	
 		frame.getContentPane().setLayout(new MigLayout("", "[118.00][179.00,grow][69.00,grow][152.00,center][18.00]", "[][][][][][][][][9.00][][][][][][][][40.00]"));
 		frame.setResizable(false);
 		// helper classes
@@ -510,7 +522,9 @@ public class AddEditContactForm {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(btnSave.getText().equals("Save")) {
-					save();
+					
+					if(save())
+					clear();
 					
 					
 				}
@@ -534,11 +548,19 @@ public class AddEditContactForm {
 			public void actionPerformed(ActionEvent e) {
 				// here we close this form and will setFocus of the main form
 				controller.save();
-				frame.dispose();
-				MainWindow.getMainWindow().setFocusableWindowState(true);
+				exit();
+				
+				
 			}
 		});
 		
+		frame.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent we){
+				exit();
+				
+				
+			}
+		});
 		btnPrint = new JButton("Print");
 		btnPrint.setEnabled(btnPrintFlag);
 		
@@ -590,7 +612,7 @@ public class AddEditContactForm {
 		lblZipError.setText("");
 	}
 	
-	public void save() {
+	public boolean save() {
 		clearErrorMessages(); // just to clear the error messages
 		
 		// here we will validate the whole data
@@ -677,6 +699,7 @@ public class AddEditContactForm {
 				
 				controller.createPerson(txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), txtCountry.getText(), txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(), txtZipcode.getText(), imgPath, comboBox.getSelectedItem().toString(), txtrComents.getText());
 				controller.save();
+				return true;
 				/*
 				Person person = AddressBookFactory.eINSTANCE.createPerson();
 				person.setFirstName(txtFirstName.getText());
@@ -698,7 +721,12 @@ public class AddEditContactForm {
 			//controller.createPerson(, lastName) // sending data to the controller
 				//clear(); // clear the form
 			}
+			
 		}
+		else
+			return false;
+		
+		return false;
 		
 	}
 	

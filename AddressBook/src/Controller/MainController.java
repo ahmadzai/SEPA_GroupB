@@ -218,5 +218,8 @@ public class MainController {
 		Person person=getPerson(index);
 		AddEditContactForm details=new AddEditContactForm(person,-1);
 	}
+	public void AddContact(){
+		AddEditContactForm.main(null);
+	}
 }
 

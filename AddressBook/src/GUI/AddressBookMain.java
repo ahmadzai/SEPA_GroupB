@@ -56,7 +56,11 @@ public class AddressBookMain extends javax.swing.JFrame {
         
     }
     
- 
+    public void Refresh(){
+    	AddressBookMain add =new AddressBookMain();
+    	add.setVisible(true);
+   
+    }
     public void exit(){
     	this.dispose();
         
@@ -94,7 +98,8 @@ public class AddressBookMain extends javax.swing.JFrame {
         btnAddContact = new javax.swing.JButton();
         btnAddContact.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		AddEditContactForm.main(null);
+        		controller.AddContact();
+        		exit();
         	
         	}
         });
@@ -117,16 +122,11 @@ public class AddressBookMain extends javax.swing.JFrame {
         		int choice=JOptionPane.showConfirmDialog(getParent(), "Are you sure you want to delete this record?", "Delete",1);
         			if(JOptionPane.YES_OPTION==choice){
         				Object objIndex= tblContacts.getModel().getValueAt(tblContacts.getSelectedRow(), 0);
-        				
+        					
         				 int index=Integer.parseInt(objIndex.toString());
           				controller.deletePerson(index-1);
-          				
-          				
-          			
-          				
-          				
-          				
-        				//fillTableContact();
+          				exit();
+          				Refresh();
         			}
         			
         			

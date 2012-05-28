@@ -11,7 +11,7 @@ public class Validation {
 	 * @param name
 	 * @return Boolean
 	 */
-	public  Boolean checkName(String name) {
+	public static  Boolean checkName(String name) {
 		if(name.matches("^[a-zA-Z]+$"))
 			return true;
 		return false;
@@ -23,7 +23,7 @@ public class Validation {
 	 * @param date
 	 * @return Boolean
 	 */
-	public  Boolean checkDate(String date) {
+	public static  Boolean checkDate(String date) {
 		// dd/mm/yyyy
 		String DatePattren = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";
 		Pattern pat = Pattern.compile(DatePattren);
@@ -37,7 +37,7 @@ public class Validation {
 	 * @param email
 	 * @return Boolean
 	 */
-	public  Boolean checkEmail(String email) {
+	public static  Boolean checkEmail(String email) {
 		String emailPattren = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 		Pattern patren = Pattern.compile(emailPattren);
 		Matcher match = patren.matcher(email);
@@ -55,7 +55,7 @@ public class Validation {
 	 * @return Boolean
 	 * one number eaither mobile or phone is mandatory
 	 */
-	public  Boolean checkMobileNr(String mobileNr) {
+	public static  Boolean checkMobileNr(String mobileNr) {
 		
 		if((mobileNr.matches("^[0-9]{10}") || mobileNr.matches("^[0-9]{15}")))
 			return true;
@@ -63,7 +63,7 @@ public class Validation {
 		
 	}
 	
-	public  Boolean checkPhoneNr(String phoneNr) {
+	public static  Boolean checkPhoneNr(String phoneNr) {
 		
 		if((phoneNr.matches("^[0-9]{12}") || phoneNr.matches("^[0-9]{8}")))
 			return true;
@@ -76,7 +76,7 @@ public class Validation {
 	 * @return Boolean
 	 * Fax number is optional so if fax was empty it wil also return true;
 	 */
-	public  Boolean checkFax(String fax) {
+	public static  Boolean checkFax(String fax) {
 		if(fax.isEmpty())
 			return true;
 		else if(fax.matches("^[0-9]{12}") && fax.length() > 6)  
@@ -88,13 +88,13 @@ public class Validation {
 	 * @param country
 	 * @return Boolean
 	 */
-	public  Boolean checkCountryCity(String country) {
+	public static  Boolean checkCountryCity(String country) {
 		if(!country.isEmpty() && country.length() > 3 && country.matches("^[a-zA-Z]+$")) 
 			return true;
 		return false;
 	}
 	
-	public  Boolean checkStreet(String street) {
+	public static  Boolean checkStreet(String street) {
 		
 		if(!street.isEmpty())
 			return true;
@@ -108,7 +108,7 @@ public class Validation {
 	 * @return Boolean
 	 * Apartment Number is optional
 	 */
-	public  Boolean checkApNr(String apNr) {
+	public static  Boolean checkApNr(String apNr) {
 		if(apNr.isEmpty())
 			return true;
 		else if(apNr.matches("^[0-9]{3}"))
@@ -123,8 +123,8 @@ public class Validation {
 	 * @return Boolean
 	 * zip code is mandatory
 	 */
-	public  Boolean checkZipCode(String zipCode) {
-		if(!zipCode.isEmpty() && zipCode.matches("^[0-9]{6}"))
+	public static  Boolean checkZipCode(String zipCode) {
+		if(!zipCode.isEmpty() && zipCode.matches("^[0-9]{5}"))
 			return true;
 		return false;
 	}
