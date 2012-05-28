@@ -106,7 +106,8 @@ public class ContactDataModel extends AbstractTableModel{
 	}
 
 	public void personAdded(int index) {
-		this.fireTableRowsInserted(0,0);
+		this.fireTableRowsInserted(index,index);
+		
 	}
 	
 	public void DeletePerson(int index){
@@ -118,6 +119,7 @@ public class ContactDataModel extends AbstractTableModel{
 	
 	public void personChanged(int index){
 		this.fireTableRowsUpdated(index, index);
+		this.fireTableDataChanged();
 	}
 	
 	

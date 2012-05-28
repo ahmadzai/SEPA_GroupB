@@ -214,5 +214,9 @@ public class MainController {
 		}
 		
 	}
+	public void showDetails(int index){
+		Person person=getPerson(index);
+		AddEditContactForm details=new AddEditContactForm(person,-1);
+	}
 }
 

@@ -100,20 +100,30 @@ public class AddEditContactForm {
 	private Person person=null;
 	private MainController controller;
 	private int index=0;
+	
 	public AddEditContactForm(Person person,int index){
 		this.person=person;
 		this.index=index;
-		
 		initialize();
+		if(index==-1){
+			btnSave.enable(false);
+			frame.setTitle("Details");
+			
+		}
+		else{
+			frame.setTitle("Edit Contact");
+			btnSave.setText("Edit");
+		}
+		
 		image = new ContactImage();
 		controller = new MainController();
 		frame.setVisible(true);
-		frame.setTitle("Edit Contact");
-		btnSave.setText("Edit");
+		
 		FillFormComponent();
 		
 		
 	}
+	
 	
 	public void FillFormComponent(){
 		txtFirstName.setText(person.getFirstName());
@@ -169,7 +179,7 @@ public class AddEditContactForm {
 		frame.setBounds(100, 100, 550, 550);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[118.00][179.00,grow][69.00,grow][152.00,center][18.00]", "[][][][][][][][][9.00][][][][][][][][40.00]"));
-		
+		frame.setResizable(false);
 		// helper classes
 		myMenu = new Menu(frame);
 		image = new ContactImage();
