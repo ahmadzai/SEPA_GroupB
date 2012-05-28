@@ -100,6 +100,7 @@ public class AddEditContactForm {
 	private Person person=null;
 	private MainController controller;
 	private int index=0;
+	private AddressBookMain addmain;
 	
 	public AddEditContactForm(Person person,int index){
 		this.person=person;
@@ -516,6 +517,10 @@ public class AddEditContactForm {
 				else if(btnSave.getText().equals("Edit")) {
 					controller.editPerson(index,txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), txtCountry.getText(), txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(), txtZipcode.getText(), imgPath, comboBox.getSelectedItem().toString(), txtrComents.getText());
 					controller.save();
+					addmain=new AddressBookMain();
+					addmain.setVisible(true);
+					frame.dispose();
+					
 				}
 			}
 		});

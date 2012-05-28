@@ -53,12 +53,12 @@ public class AddressBookMain extends javax.swing.JFrame {
         initComponents();
         
         
-        fillTableContact();
+        
     }
     
  
-    public void fillTableContact(){
-    	
+    public void exit(){
+    	this.dispose();
         
  
     
@@ -104,7 +104,7 @@ public class AddressBookMain extends javax.swing.JFrame {
         		if(tblContacts.getSelectedRow()>-1){
         		Object objIndex=tblContacts.getModel().getValueAt(tblContacts.getSelectedRow(), 0);
         		controller.editContact(Integer.parseInt(objIndex.toString())-1);
-        		
+        		exit();
         		}
         		else
         			JOptionPane.showMessageDialog(getParent(), "Please chose a record then press Edit!");
@@ -123,7 +123,7 @@ public class AddressBookMain extends javax.swing.JFrame {
           				
           				
           			
-          				fillTableContact();
+          				
           				
           				
         				//fillTableContact();
