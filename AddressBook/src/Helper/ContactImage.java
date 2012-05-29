@@ -132,5 +132,16 @@ public class ContactImage {
 		
 	}
 	
+	/**
+	 * Deleting contact image
+	 * @param path
+	 */
+	public static void deleteImage(String path) {
+		
+		File file = new File(path);
+		if(file.exists())
+			file.delete();
+		
+	}
 
 }

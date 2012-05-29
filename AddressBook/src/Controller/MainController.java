@@ -1,9 +1,12 @@
 package Controller;
 
 
+import java.awt.Image;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
+
+import javax.swing.ImageIcon;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -24,17 +27,18 @@ import GUI.AddressBookMain;
 import Helper.ContactDataModel;
 import Helper.ContactListModel;
 import Helper.FactoryImpl;
+import Helper.Printing;
 
 
 public class MainController {
 	private ContactCollection contactCollection;
-	private  ContactDataModel contactListModel;
+	private  ContactDataModel contactTableModel;
 	private String modelfile = "AddressBook.persons";
 	private ContactListModel contactlst;
 	
 	public MainController() {
 		contactCollection = load();
-		contactListModel = new ContactDataModel(contactCollection.getPersons());
+		contactTableModel = new ContactDataModel(contactCollection.getPersons());
 	
 	}
 
@@ -120,7 +124,7 @@ public class MainController {
 		person.setPostalCode(postalCode);
 		contactCollection.getPersons().add(person);
 		int index = contactCollection.getPersons().indexOf(person);
-		contactListModel.personAdded(index);
+		contactTableModel.personAdded(index);
 	}
 
 	/**
@@ -148,7 +152,7 @@ public class MainController {
 			person.setDateOfBirth(dateOfBirth);
 			person.setComents(comments);
 			person.setPostalCode(postalCode);
-			contactListModel.personChanged(index);
+			contactTableModel.personChanged(index);
 		}
 	}
 
@@ -160,7 +164,8 @@ public class MainController {
 	public void deletePerson(int index) {
 		
 		contactCollection.getPersons().remove(index);
-		contactListModel.DeletePerson(index);
+		contactTableModel.personDeleted(index);
+		
 		save();
 	}
 
@@ -184,7 +189,7 @@ public class MainController {
 	public void loadFromFile(String modelFile) {
 		this.setModelfile(modelFile);
 		contactCollection = load();
-		contactListModel.setData(contactCollection.getPersons());
+		contactTableModel.setPersons(contactCollection.getPersons());
 		
 	}
 	
@@ -205,21 +210,125 @@ public class MainController {
 	 * @return
 	 */
 	public ContactDataModel getTableModel() {
-		return contactListModel;
+		return contactTableModel;
 	}
 	
 	public void editContact(int index){
 		if(index>-1){
-			AddEditContactForm aded=new AddEditContactForm(getPerson(index), index);
+			String[] args = {"Edit Contact", Integer.toString(index)};
+			Person person = null;
+			if(contactCollection.getPersons().equals(contactTableModel.getPersonAt(index))) {
+				index = contactCollection.getPersons().indexOf(contactTableModel.getPersonAt(index));
+				person = contactCollection.getPersons().get(index);
+			}
+			person = contactTableModel.getPersonAt(index);
+			AddEditContactForm form = new AddEditContactForm(this, person, index, "Edit Person");
+			form.openNow();
 		}
 		
 	}
+	public void createEditPerson(Person person, int ind, String firstname, String lastName,String fax,
+			 String email,String mobileNr,String aprtNr,
+			 String phoneNr,String country,String city,
+			 String street,String dateOfBirth,String postalCode,
+			 String imgPath,String group, String comments) {
+if(person == null)
+{
+person = AddressBookFactory.eINSTANCE.createPerson();
+//System.out.println("We are here in newClassCreation");
+}
+person.setFirstName(firstname);
+person.setLastName(lastName);
+person.setDateOfBirth(dateOfBirth);
+
+person.setMobileNr(mobileNr);
+person.setPhoneNr(phoneNr);
+person.setFax(fax);
+person.setEmail(email);
+
+person.setCountry(country);
+person.setCity(city);
+
+person.setStreet(street);
+person.setApartNr(aprtNr);
+person.setPostalCode(postalCode);
+
+person.setComents(comments);
+person.setImage(imgPath);
+person.setGroup(group);
+
+if(ind == -1) {
+contactCollection.getPersons().add(person);
+int index = contactCollection.getPersons().indexOf(person);
+//contactTableModel.getRowCount();
+contactTableModel.personAdded(index);
+//contactTableModel.getRowCount();
+}
+if(ind != -1) {
+//contactCollection.getPersons()
+contactTableModel.personChanged(ind);
+//System.out.println("We are here in edit saving");
+}
+
+}
 	public void showDetails(int index){
 		Person person=getPerson(index);
-		AddEditContactForm details=new AddEditContactForm(person,-1);
+		//AddEditContactForm details=new AddEditContactForm(person,-1);
 	}
 	public void AddContact(){
-		AddEditContactForm.main(null);
+		AddEditContactForm addForm = new AddEditContactForm(this, "Add Contact");
+		addForm.openNow();
+	}
+	
+	
+	public void PrintPerson(Person person){
+		Printing printpage = new Printing();
+		//printpage.print();
+		
+		// Printing class will initialize here
+		printpage.setlblFirstName("First Name:");
+		//printpage.setFirstName(txtFirstName.getText());
+		printpage.setFirstName(person.getFirstName());
+		printpage.setlblLastName("Last Name:");
+		//printpage.setLastName(txtLastName.getText());
+		printpage.setLastName(person.getLastName());
+		printpage.setlblDate("Date Of Birth:");
+		printpage.setDate(person.getDateOfBirth());
+		printpage.setlblMobileNr("Mobile No:");
+		printpage.setMobileNr(person.getMobileNr());
+		
+		printpage.setlblPhoneNr("Phone No:");
+		printpage.setPhoneNr(person.getPhoneNr());
+		
+		printpage.setlblFaxNr("Fax:");
+		printpage.setFaxNr(person.getFax());
+		
+		printpage.setlblEmailAdd("Email:");
+		printpage.setEmailAdd(person.getEmail());
+		
+		printpage.setlblCountry("Country:");
+		printpage.setCountry(person.getCountry());
+		
+		printpage.setlblCity("City:");
+		printpage.setCity(person.getCity());
+		
+		printpage.setlblStreet("Street:");
+		printpage.setStreet(person.getStreet());
+		
+		printpage.setlblApNr("Apartement NO:");
+		printpage.setApNr(person.getApartNr());
+		
+		printpage.setlblZipCode("Zip Code:");
+		printpage.setZipCode(person.getPostalCode());
+		
+		printpage.setlblGroup("Group:");
+		printpage.setGroup(person.getGroup());
+		
+		printpage.setlblComents("Comments:");
+		printpage.setComents(person.getComents());
+		Image image = new ImageIcon(person.getImage()).getImage();
+		printpage.setImage(image);
+		printpage.print();
 	}
 }
 
