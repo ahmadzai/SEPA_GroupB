@@ -41,7 +41,7 @@ public class MainController {
 		contactTableModel = new ContactDataModel(contactCollection.getPersons());
 	
 	}
-
+	
 	private ResourceSet getRecourceSet() {
 		// Initialize the model
 		AddressBookPackage.eINSTANCE.eClass();
@@ -232,48 +232,48 @@ public class MainController {
 			 String phoneNr,String country,String city,
 			 String street,String dateOfBirth,String postalCode,
 			 String imgPath,String group, String comments) {
-if(person == null)
-{
-person = AddressBookFactory.eINSTANCE.createPerson();
-//System.out.println("We are here in newClassCreation");
-}
-person.setFirstName(firstname);
-person.setLastName(lastName);
-person.setDateOfBirth(dateOfBirth);
+				if(person == null){
+					person = AddressBookFactory.eINSTANCE.createPerson();
+					//	System.out.println("We are here in newClassCreation");
+				}
+				person.setFirstName(firstname);
+				person.setLastName(lastName);
+				person.setDateOfBirth(dateOfBirth);
 
-person.setMobileNr(mobileNr);
-person.setPhoneNr(phoneNr);
-person.setFax(fax);
-person.setEmail(email);
+				person.setMobileNr(mobileNr);
+				person.setPhoneNr(phoneNr);
+				person.setFax(fax);
+				person.setEmail(email);
 
-person.setCountry(country);
-person.setCity(city);
+				person.setCountry(country);
+				person.setCity(city);
 
-person.setStreet(street);
-person.setApartNr(aprtNr);
-person.setPostalCode(postalCode);
+				person.setStreet(street);
+				person.setApartNr(aprtNr);
+				person.setPostalCode(postalCode);
 
-person.setComents(comments);
-person.setImage(imgPath);
-person.setGroup(group);
+				person.setComents(comments);
+				person.setImage(imgPath);
+				person.setGroup(group);
 
-if(ind == -1) {
-contactCollection.getPersons().add(person);
-int index = contactCollection.getPersons().indexOf(person);
-//contactTableModel.getRowCount();
-contactTableModel.personAdded(index);
-//contactTableModel.getRowCount();
-}
-if(ind != -1) {
-//contactCollection.getPersons()
-contactTableModel.personChanged(ind);
-//System.out.println("We are here in edit saving");
-}
+				if(ind == -1) {
+					contactCollection.getPersons().add(person);
+					int index = contactCollection.getPersons().indexOf(person);
+					//contactTableModel.getRowCount();
+					contactTableModel.personAdded(index);
+					//	contactTableModel.getRowCount();
+				}
+				if(ind != -1) {
+					//	contactCollection.getPersons()
+					contactTableModel.personChanged(ind);
+					//	System.out.println("We are here in edit saving");
+				}
 
 }
 	public void showDetails(int index){
 		Person person=getPerson(index);
-		//AddEditContactForm details=new AddEditContactForm(person,-1);
+		AddEditContactForm details=new AddEditContactForm(this,person,index,"Contact Details");
+		details.openNow();
 	}
 	public void AddContact(){
 		AddEditContactForm addForm = new AddEditContactForm(this, "Add Contact");

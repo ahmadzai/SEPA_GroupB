@@ -3,6 +3,7 @@ package Helper;
 
 import java.awt.*;
 
+import javax.print.PrintException;
 import javax.swing.*;
 
 import GUI.AddEditContactForm;
@@ -51,7 +52,9 @@ public class Printing implements Printable, ActionListener{
 }
 
 */
-public class Printing implements Printable {
+public class Printing implements Printable,ActionListener {
+	
+	
 	private Component componentToBePrinted;
 	private AddEditContactForm contactform;
 
@@ -85,6 +88,23 @@ public class Printing implements Printable {
 	private String lblComents;
 	private Image image;
 	private Observer observer;
+	private JTable table;
+	public Printing(JTable table){
+		this.table=table;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	
+		try{
+			boolean complete=table.print();
+			
+		}catch(PrinterException pr){
+			
+		}
+	}
+	
 	  public String getFirstName() {
 		return firstName;
 	}
@@ -391,5 +411,6 @@ public class Printing implements Printable {
 		    RepaintManager currentManager = RepaintManager.currentManager(c);
 		    currentManager.setDoubleBufferingEnabled(true);
 	  }
+	
 	
 	}

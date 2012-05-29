@@ -131,15 +131,22 @@ public class AddEditContactForm {
 		this.controller = mainCtrl;
 		this.editPrintRow = index;
 		initialize();
+		if(title.equals("Contact Details")){
+			btnSave.enable(false);
+			
+		}
 		this.frame.setTitle(title);
+		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		image = new ContactImage();
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -443,6 +450,8 @@ public class AddEditContactForm {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				controller.PrintPerson(person);
 				// Printing class will initialize here
 				
 			}
