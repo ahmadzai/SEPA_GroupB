@@ -131,10 +131,7 @@ public class AddEditContactForm {
 		this.controller = mainCtrl;
 		this.editPrintRow = index;
 		initialize();
-		if(title.equals("Contact Details")){
-			btnSave.enable(false);
-			
-		}
+		
 		this.frame.setTitle(title);
 		
 	}
@@ -321,6 +318,7 @@ public class AddEditContactForm {
 		 * the path of image from Person class getImage() method and if it was
 		 * null than again it will show the defaultUser image
 		 */
+		
 		if(editPrintRow == -1) {
 			
 			imgFile = new File("images/defaultUser.png");
@@ -380,7 +378,8 @@ public class AddEditContactForm {
 						if(image.loadImageFile(selectedFile)) {
 							if(imgPath.equals("images/defaulUser.png"))
 									imgPath = "";
-							lblImage.setIcon(image.convertToIcon(imgPath,txtFirstName.getText().trim().toLowerCase()+"_"+txtLastName.getText().trim().toLowerCase()));
+							lblImage.setIcon(image.convertToIcon(imgPath,txtFirstName.getText().trim().toLowerCase().replaceAll("\\s","")
+                                    +"_"+txtLastName.getText().trim().toLowerCase().replaceAll("\\s","")));
 							imgPath = image.getImagePath();
 						}
 					}
@@ -403,24 +402,12 @@ public class AddEditContactForm {
 			public void actionPerformed(ActionEvent arg0) {
 				if(title.equals("Add Contact")) {
 					save();
-					/*controller.createEditPerson(person, editPrintRow, txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), 
-											txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), 
-											txtCountry.getText(), txtCity.getText(), 
-											txtStreet.getText(), txtDateOfBirth.getText(), txtZipcode.getText(), imgPath, 
-											comboBox.getSelectedItem().toString(), txtrComents.getText());*/
-					controller.save();
-					
-					
 				}
 				else if(title.equals("Edit Contact")) {
 					if(imgPath.equals("images/defaultUser.png"))
 						imgPath = "";
-					/*controller.createEditPerson(person, editPrintRow, txtFirstName.getText(), txtLastName.getText(), txtFax.getText(), 
-							txtEmail.getText(), txtMobileNr.getText(), txtApnr.getText(), txtPhoneNr.getText(), 
-							txtCountry.getText(), txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(), 
-							txtZipcode.getText(), imgPath, comboBox.getSelectedItem().toString(), txtrComents.getText());*/
-					save();
-					controller.save();
+					save();	
+				
 				}
 			}
 		});
@@ -451,7 +438,7 @@ public class AddEditContactForm {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				controller.PrintPerson(person);
+				controller.printPerson(person);
 				// Printing class will initialize here
 				
 			}
@@ -473,16 +460,30 @@ public class AddEditContactForm {
 				save();
 			}
 		});
-		
+		myMenu.getPrintItem().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+
+        			
+	        		
+ 
+        			controller.printPerson(person);
+        			
+        		}
+        		
+				
+			
+		});
+		myMenu.getPrintAll().setEnabled(false);
+		myMenu.getEdit().setEnabled(false);
 		
 		
 		
 		
 	}
 	
-	/**
-	 * Clear Labels which are for setting errors 
-	 */
 	public void clearErrorMessages() {
 		
 		lblFirstNameError.setText("");
@@ -499,10 +500,6 @@ public class AddEditContactForm {
 		lblZipError.setText("");
 	}
 	
-	
-	/**
-	 * Saves and Validates the Fields Data
-	 */
 	public void save() {
 		clearErrorMessages(); // just to clear the error messages
 		
@@ -534,23 +531,23 @@ public class AddEditContactForm {
 		}
 		if(!Validation.checkMobileNr(txtMobileNr.getText()) && !txtMobileNr.getText().isEmpty()){
 			
-			message +="<font color=\"red\">*</font> Mobile # is wrong (12 or 15 digit) <br>";
+			message +="<font color=\"red\">*</font> Mobile # is wrong (more than 6 digit) <br>";
 			lblMobileError.setText("*");
 			error = true;
 		}
 		if(!Validation.checkPhoneNr(txtPhoneNr.getText()) && !txtPhoneNr.getText().isEmpty()) {
-			message +="<font color=\"red\">*</font> Phone # is not correct (8 or 12 digit) <br>";
+			message +="<font color=\"red\">*</font> Phone # is not correct (more than 5 digit) <br>";
 			lblPhoneError.setText("*");
 			error = true;
 		}
 		if(!Validation.checkFax(txtFax.getText()) && !txtFax.getText().isEmpty()) {
-			message +="<font color=\"red\">*</font> Fax number is incorrect (12 digit) <br>";
+			message +="<font color=\"red\">*</font> Fax number is incorrect (more than 4 digit) <br>";
 			lblFaxError.setText("*");
 			error = true;
 			
 		}
 		if(!Validation.checkEmail(txtEmail.getText())) {
-			message +="<font color=\"red\">*</font> Invalid Email address <br>";
+			message +="<font color=\"red\">*</font> Correct Email address required <br>";
 			lblEmailError.setText("*");
 			error = true;
 		}
@@ -570,12 +567,13 @@ public class AddEditContactForm {
 			error = true;
 		}
 		if(!Validation.checkApNr(txtApnr.getText()) && !txtApnr.getText().isEmpty()) {
-			message +="<font color=\"red\">*</font> Apartement number (3 digit) <br>";
+			message +="<font color=\"red\">*</font> Apartement number (digit) <br>";
 			lblApNrError.setText("*");
 			error = true;
 		}
 		if(!Validation.checkZipCode(txtZipcode.getText())) {
-			message +="<font color=\"red\">*</font> Zip code is rquired (number) <br>";
+			//System.out.println(Validation.checkZipCode(txtZipcode.getText()));
+			message +="<font color=\"red\">*</font> Zip code is rquired (digit) <br>";
 			lblZipError.setText("*");
 			error = true;
 		}
@@ -593,14 +591,21 @@ public class AddEditContactForm {
 										txtCity.getText(), txtStreet.getText(), txtDateOfBirth.getText(), 
 										txtZipcode.getText(), imgPath, comboBox.getSelectedItem().toString(), txtrComents.getText());
 				
-				clear(); // clear the form
+				
+			// clear the form
+				controller.save();
+				if(frame.getTitle().equals("Edit Person") || frame.getTitle().equals("Contact Details")){
+					frame.dispose();
+				}
+				else
+					clear(); 
 			}
 		}
 		
 	}
 	
 	/**
-	 *  Clears all Fields in form
+	 * to Clear all form
 	 */
 	private void clear() {
 		txtFirstName.setText("");

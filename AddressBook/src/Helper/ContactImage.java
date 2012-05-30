@@ -22,6 +22,7 @@ public class ContactImage {
 	public ContactImage() {}
 	
 	/***
+	 * The method loads image 
 	 * @author wazir
 	 * @param imagePath
 	 */
@@ -56,7 +57,8 @@ public class ContactImage {
 				ImageIO.write(tmpImage, "png", new File(newPath));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				this.fileNewPath="";
+				
 			}
 			imgFile = new File(newPath);
 			try {
@@ -73,6 +75,12 @@ public class ContactImage {
 	
 	}
 	
+	/**
+	 * Delete the old image and save new image of person when edited 
+	 * @param oldName
+	 * @param newName
+	 * @return
+	 */
 	private String deleteOldImageAndGetNewPath(String oldName, String newName) {
 		File file = new File(oldName);
 		if(file.exists())
@@ -87,9 +95,19 @@ public class ContactImage {
 		return fileNewPath;
 	}
 	
+	/**
+	 * will give Image path when call
+	 * @return String
+	 */
 	public String getImagePath() {
 		return fileNewPath;
 	}
+	
+	/**
+	 * Method will get Image File and convert it to Icon
+	 * @param file
+	 * @return ImageIcon
+	 */
 	
 	public ImageIcon convertToIcon(File file) {
 		img = null;

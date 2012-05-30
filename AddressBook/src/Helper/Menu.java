@@ -4,12 +4,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import GUI.AddEditContactForm;
 public class Menu {
 	
 	private JMenuBar menuBar;
 	private JMenu mnFile, mnEdit, mnView, mnHelp;
-	private JMenuItem mntmSave, mntmPrint, mntmExit;
+	private JMenuItem mntmSave, mntmPrint, mntmExit, mntmPrintAll;
 	private JMenuItem mntmCopy, mntmCut, mntmPaste, mntmSearch;
 	private JMenuItem mntmComView, mntmClassicView, mntmFont;
 	private JMenuItem mntmHowTo, mntmAbout;
@@ -29,6 +28,21 @@ public class Menu {
 	
 	public JMenuItem getSave() {
 		return mntmSave;
+	}
+	
+	public JMenuItem getPrintItem() {
+    	return mntmPrint;
+    }
+	
+	public JMenuItem getPrintAll() {
+		return mntmPrintAll;
+	}
+	
+	public JMenuItem getSearchItem() {
+		return mntmSearch;
+	}
+	public JMenu getEdit(){
+		return mnEdit;
 	}
 	/**
 	 * @author wazir
@@ -57,6 +71,9 @@ public class Menu {
 		*/
 		mntmPrint = new JMenuItem("Print");
 		mnFile.add(mntmPrint);
+		
+		mntmPrintAll = new JMenuItem("Print All");
+		mnFile.add(mntmPrintAll);
 		
 		/**
 		 * this event is for printing code will added latter
@@ -155,6 +172,7 @@ public class Menu {
 		menuBar.add(mnView);
 		
 		mntmComView = new JMenuItem("Compact View");
+		mntmComView.setEnabled(false);
 		
 		/**
 		 * Event for changing print view
@@ -169,6 +187,7 @@ public class Menu {
 		});
 		
 		mntmClassicView = new JMenuItem("Classic View");
+		mntmClassicView.setEnabled(false);
 		
 		/***
 		 * Event for changing view
@@ -183,6 +202,7 @@ public class Menu {
 		});
 		
 		mntmFont = new JMenuItem("Change Font");
+		mntmFont.setEnabled(false);
 		
 		/***
 		 * event listener for changing font of the form
@@ -241,29 +261,8 @@ public class Menu {
 		 * This section where we check that from which form the Menu called
 		 * the we can decide that which menu item should be disable and which should be enable
 		 */
-		if(this.form.getTitle().equals("Login")) {
-			mntmSave.setEnabled(false);
-			mntmPrint.setEnabled(false);
-			
-			mntmCopy.setEnabled(false);
-			mntmCut.setEnabled(false);
-			mntmPaste.setEnabled(false);
-			mntmSearch.setEnabled(false);
-			
-			mntmComView.setEnabled(false);
-			mntmClassicView.setEnabled(false);
-			mntmFont.setEnabled(false);
-			
-		}
-		
-		if(this.form.getTitle().equals("Add Contact")) {
-			mntmPrint.setEnabled(false);
-			mntmComView.setEnabled(false);
-			mntmClassicView.setEnabled(false);
-		}
-		
-		
-		
+	    
+		//System.out.println("we are here in the Add Contact");
 		/***
 		 * The whole menubar will return here 
 		 */

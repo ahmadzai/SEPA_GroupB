@@ -19,6 +19,8 @@ import java.awt.Color;
 import java.io.File;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 
 public class LoginForm {
@@ -94,8 +96,23 @@ public class LoginForm {
 		pwdPassword.setPreferredSize(new Dimension(4, 20));
 		//pwdPassword.setText("Password");
 		frame.getContentPane().add(pwdPassword, "cell 3 3,grow");
-		
+		txtUserName.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				lblErrorMessage.setVisible(false);
+				
+			}
+		});
 		btnLogin = new JButton("Login");
+		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				LoginController lgCtr=new LoginController();
@@ -103,6 +120,12 @@ public class LoginForm {
 					AddressBookMain adrMain=new AddressBookMain();
 					adrMain.setVisible(true);
 					frame.dispose();
+					
+				}
+				else{
+					lblErrorMessage.setText("Invalid User Name or Password");
+					lblErrorMessage.setVisible(true);
+					lblErrorMessage.setForeground(Color.red);
 					
 				}
 			}

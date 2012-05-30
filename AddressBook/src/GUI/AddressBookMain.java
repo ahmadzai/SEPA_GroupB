@@ -1,8 +1,12 @@
 package GUI;
-import java.awt.Color;
+
+import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseMotionListener;
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.JMenuBar;
@@ -10,10 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
 import javax.swing.RowFilter;
-import javax.swing.RowSorter;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -34,7 +34,7 @@ import java.awt.event.KeyEvent;
  */
 
 /**
- * 
+ *
  * @author Administrator
  */
 public class AddressBookMain extends javax.swing.JFrame {
@@ -54,17 +54,14 @@ public class AddressBookMain extends javax.swing.JFrame {
        
        
     }
-    
     /**
-     *  The method return the selected index of JComboBox
-     * @return index
+     * Get Selected Index of of JComboBox
+     * @return Int
      */
-    
     public int getIndex(){
     	
 		return cmbSearch.getSelectedIndex()+1;
     }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,9 +71,29 @@ public class AddressBookMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
     	
-    	
     	Menu menu=new Menu(this);
     	JMenuBar menuBar=menu.createAppMenu();
+    	menu.getSave().setEnabled(false);
+    	menu.getPrintItem().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(tblContacts.getSelectedRow() != -1) {
+        			
+	        		Object objIndex=tblContacts.getModel().getValueAt(tblContacts.getSelectedRow(), 0);
+	        		int index=Integer.parseInt(objIndex.toString())-1;
+ 
+        			controller.printPerson(controller.getPerson(index));
+        			
+        		}
+        		else{
+        			JOptionPane.showMessageDialog(getParent(), "Please select a record then press print button!");
+        		}
+				
+			}
+		});
+    	
+    	
     	this.setJMenuBar(menuBar);
     	
 
@@ -121,7 +138,7 @@ public class AddressBookMain extends javax.swing.JFrame {
 					 int choice=JOptionPane.showConfirmDialog(getParent(), "Are you sure you want to delete this record?", "Delete", JOptionPane.YES_NO_OPTION);
 					 if(JOptionPane.YES_OPTION==choice){
         				
-          				controller.deletePerson(index-1);
+          				controller.deletePerson(index);
         				
         				
         				
@@ -149,21 +166,44 @@ public class AddressBookMain extends javax.swing.JFrame {
         tblContacts.setRowMargin(6);
         tblContacts.setFont(new Font("vardana", 0, 13));
         
-      
+        tblContacts.addMouseMotionListener(new MouseMotionListener() {
+			
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+	        		if(tblContacts.columnAtPoint(e.getPoint())==5){
+	        			tblContacts.setCursor(Cursor.getPredefinedCursor(HAND_CURSOR));
+	        		}
+	        		else
+	        			tblContacts.setCursor(Cursor.getDefaultCursor());
+	        		
+	        	
+				
+			}
+			
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
         
-       
-       
+      
         tblContacts.addMouseListener(new MouseAdapter() {
         	public void mouseClicked(MouseEvent e){
         		int colIndex=tblContacts.columnAtPoint(e.getPoint());
         		if(colIndex==5){
+        			
         			Object objIndex=tblContacts.getModel().getValueAt(tblContacts.getSelectedRow(), 0);
         			int index=Integer.parseInt(objIndex.toString())-1;
         			controller.showDetails(index);
         			
         		}
         		
+        		
         	}
+        	
 		});
         
         
@@ -184,7 +224,7 @@ public class AddressBookMain extends javax.swing.JFrame {
         		if(tblContacts.getSelectedRow()>-1){
         			Object objIndex=tblContacts.getModel().getValueAt(tblContacts.getSelectedRow(), 0);
             		int index=Integer.parseInt(objIndex.toString())-1;
-        			controller.PrintPerson(controller.getPerson(index));
+        			controller.printPerson(controller.getPerson(index));
         			
         		}
         		else{
@@ -305,20 +345,33 @@ public class AddressBookMain extends javax.swing.JFrame {
         btnSearch.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		//int x=JOptionPane.showConfirmDialog(getParent(), "Search Button");
-        		String text=txtSearch.getText();
-        		if(text==""){
-        			sorter.setRowFilter(null);
-        		}
-        		else{
-        		sorter.setRowFilter(
-                        RowFilter.regexFilter(text));
+        		if(!txtSearch.getText().isEmpty()) {
+        				sorter.setRowFilter(
+                        RowFilter.regexFilter(txtSearch.getText()));
         		
         		}
+        		else 
+        			JOptionPane.showMessageDialog(null, "Type in search box then click Search button");
         	}
         });
         
-        btnNext.enable(false);
-        btnPrevious.enable(false);
+        menu.getSearchItem().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if(!txtSearch.getText().isEmpty()) {
+    				sorter.setRowFilter(
+                    RowFilter.regexFilter(txtSearch.getText()));
+    		
+	    		}
+	    		else 
+	    			JOptionPane.showMessageDialog(null, "Type in search box then click Search button");
+					
+			}
+		});
+        
+        
         
      //   { "First Name","Last Name","Mobile","Email" }
         txtSearch.addKeyListener(new KeyAdapter() {
@@ -337,24 +390,20 @@ public class AddressBookMain extends javax.swing.JFrame {
         btnPrint.setText("Print");
         
         btnPrintAll = new JButton();
+        /**
+         * Button print all
+         */
         btnPrintAll.addActionListener(new Printing(tblContacts) {
+        	
+        });
+        /**
+         * Menu Print All 
+         */
+        menu.getPrintAll().addActionListener(new Printing(tblContacts) {
         	
         });
         btnPrintAll.setText("Print All");
 
-    //    jMenu1.setText("File");
-      //  jMenuBar1.add(jMenu1);
-        
-       // menuItem = new JMenuItem("New menu item");
-        //jMenuBar1.add(menuItem);
-
-        //jMenu2.setText("Edit");
-        //jMenuBar1.add(jMenu2);
-
-        //jMenu3.setText("Help");
-        //jMenuBar1.add(jMenu3);
-
-        //setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(
@@ -377,6 +426,7 @@ public class AddressBookMain extends javax.swing.JFrame {
         					.addComponent(pnlFunction, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
         			.addGap(22))
         );
+        tblContacts.getTableHeader().setPreferredSize(new Dimension(tblContacts.getTableHeader().getWidth(), 20));
         layout.setVerticalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(layout.createSequentialGroup()

@@ -128,7 +128,7 @@ public class ContactDataModel extends AbstractTableModel{
 			value = per.getEmail();
 			break;
 		case 5:
-			value = "Details";
+			value = "<html><font color='blue'><u>Details</u></font></html>";
 			default:
 				break;
 			
