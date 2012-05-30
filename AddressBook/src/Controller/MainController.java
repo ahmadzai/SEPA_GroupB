@@ -25,7 +25,7 @@ import AddressBook.impl.AddressBookPackageImpl;
 import GUI.AddEditContactForm;
 import GUI.AddressBookMain;
 import Helper.ContactDataModel;
-import Helper.ContactListModel;
+
 import Helper.FactoryImpl;
 import Helper.Printing;
 
@@ -34,7 +34,7 @@ public class MainController {
 	private ContactCollection contactCollection;
 	private  ContactDataModel contactTableModel;
 	private String modelfile = "AddressBook.persons";
-	private ContactListModel contactlst;
+	
 	
 	public MainController() {
 		contactCollection = load();

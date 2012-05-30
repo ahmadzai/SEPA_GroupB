@@ -63,8 +63,10 @@ public class LoginForm {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame("Login");
-		frame.setBounds(100, 100, 450, 380);
+		frame.setResizable(false);
+		frame.setBounds(150, 100, 450, 380);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[][40.00][][202.00][grow]", "[][][26.00][26.00][26.00][][][][]"));
 		

@@ -14,14 +14,14 @@ import java.security.NoSuchAlgorithmException;
 
 public class LoginController {
 	
-	private String key=null;
+	private static String key=null;
 	private String codedUserName=null;
 	private String codedPassword=null;
 	public LoginController() {
 		readFromFile();
 		// TODO Auto-generated constructor stub
 	}
-	public String  getKey(){
+	public static String  getKey(){
 		return key;
 	}
 	private void setKey(String key){
@@ -31,7 +31,7 @@ public class LoginController {
 	
 	public boolean validatLogin(String UserName,String Password){
 		if(codedUserName.equals(toSHA_256(UserName)) && codedPassword.equals(toSHA_256(Password))){
-			this.setKey(UserName+Password);
+			this.setKey(Password);
 			return true;
 		}
 		return false;

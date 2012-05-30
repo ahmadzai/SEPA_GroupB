@@ -1,5 +1,6 @@
 package GUI;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout.Alignment;
@@ -12,6 +13,7 @@ import javax.swing.RowFilter;
 import javax.swing.RowSorter;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -140,6 +142,9 @@ public class AddressBookMain extends javax.swing.JFrame {
         tblContacts = new javax.swing.JTable(model);
         tblContacts.revalidate();
         tblContacts.setRowSorter(sorter);
+        tblContacts.setRowMargin(6);
+        tblContacts.setFont(new Font("vardana", 0, 13));
+        
       
         
        
@@ -240,7 +245,7 @@ public class AddressBookMain extends javax.swing.JFrame {
 		
         tblContacts.setRowSelectionAllowed(true);
         tblContacts.setShowGrid(true);
-        tblContacts.setSelectionBackground(Color.blue);
+       
         jScrollPane1.setViewportView(tblContacts);
 
         javax.swing.GroupLayout gl_pnlTable = new javax.swing.GroupLayout(pnlTable);
@@ -303,7 +308,7 @@ public class AddressBookMain extends javax.swing.JFrame {
         		else{
         		sorter.setRowFilter(
                         RowFilter.regexFilter(text));
-        		System.out.println("I am here");
+        		
         		}
         	}
         });
@@ -314,7 +319,7 @@ public class AddressBookMain extends javax.swing.JFrame {
         txtSearch.addKeyListener(new KeyAdapter() {
         	@Override
         	public void keyTyped(KeyEvent e) {
-        		System.out.print(getIndex());
+        		
         		sorter.setRowFilter(RowFilter.regexFilter(txtSearch.getText(),getIndex()));
         		
         	}

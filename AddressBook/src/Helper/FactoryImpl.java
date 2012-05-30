@@ -6,17 +6,21 @@ import org.eclipse.emf.ecore.resource.impl.AESCipherImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-public class FactoryImpl extends XMIResourceFactoryImpl {
+import Controller.LoginController;
 
+public class FactoryImpl extends XMIResourceFactoryImpl {
+	
+	
 	@Override
 	public Resource createResource(URI uri) {
+		
 		XMIResourceFactoryImpl resFactory = new XMIResourceFactoryImpl();
 		XMIResource resource = (XMIResource) resFactory.createResource(uri);
 		try {
 			resource.getDefaultLoadOptions().put(Resource.OPTION_CIPHER,
-					new AESCipherImpl("12345"));
+					new AESCipherImpl(LoginController.getKey()));
 			resource.getDefaultSaveOptions().put(Resource.OPTION_CIPHER,
-					new AESCipherImpl("12345"));
+					new AESCipherImpl(LoginController.getKey()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
