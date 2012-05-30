@@ -480,6 +480,9 @@ public class AddEditContactForm {
 		
 	}
 	
+	/**
+	 * Clear Labels which are for setting errors 
+	 */
 	public void clearErrorMessages() {
 		
 		lblFirstNameError.setText("");
@@ -496,6 +499,10 @@ public class AddEditContactForm {
 		lblZipError.setText("");
 	}
 	
+	
+	/**
+	 * Saves and Validates the Fields Data
+	 */
 	public void save() {
 		clearErrorMessages(); // just to clear the error messages
 		
@@ -593,7 +600,7 @@ public class AddEditContactForm {
 	}
 	
 	/**
-	 * to Clear all form
+	 *  Clears all Fields in form
 	 */
 	private void clear() {
 		txtFirstName.setText("");

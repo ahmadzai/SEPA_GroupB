@@ -34,7 +34,7 @@ import java.awt.event.KeyEvent;
  */
 
 /**
- *
+ * 
  * @author Administrator
  */
 public class AddressBookMain extends javax.swing.JFrame {
@@ -56,8 +56,8 @@ public class AddressBookMain extends javax.swing.JFrame {
     }
     
     /**
-     * 
-     * @return The method return the selected index of JComboBox
+     *  The method return the selected index of JComboBox
+     * @return index
      */
     
     public int getIndex(){
@@ -73,6 +73,7 @@ public class AddressBookMain extends javax.swing.JFrame {
    // @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
+    	
     	
     	Menu menu=new Menu(this);
     	JMenuBar menuBar=menu.createAppMenu();
@@ -316,7 +317,8 @@ public class AddressBookMain extends javax.swing.JFrame {
         	}
         });
         
-        
+        btnNext.enable(false);
+        btnPrevious.enable(false);
         
      //   { "First Name","Last Name","Mobile","Email" }
         txtSearch.addKeyListener(new KeyAdapter() {
