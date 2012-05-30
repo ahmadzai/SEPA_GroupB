@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_8cbqAKpWEeGa9NwBbmRYkg">
+  <elementImport xmi:id="_8dBf4KpWEeGa9NwBbmRYkg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="_8dD8IKpWEeGa9NwBbmRYkg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+  </elementImport>
+  <elementImport xmi:id="_8dD8IapWEeGa9NwBbmRYkg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+  </elementImport>
+  <elementImport xmi:id="_8dD8IqpWEeGa9NwBbmRYkg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_DgY08KpXEeGa9NwBbmRYkg" name="Edit_Contact">
+    <node xmi:type="uml:InitialNode" xmi:id="_IjvaEKpXEeGa9NwBbmRYkg" name="Start" outgoing="_N3QiIKpXEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_K28y0KpXEeGa9NwBbmRYkg" name="Authenticate_User" outgoing="_Z33NQKpXEeGa9NwBbmRYkg" incoming="_N3QiIKpXEeGa9NwBbmRYkg _iQwK0KpXEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_YOusQKpXEeGa9NwBbmRYkg" name="Check Validation" outgoing="_iQwK0KpXEeGa9NwBbmRYkg _yS9qMKpXEeGa9NwBbmRYkg" incoming="_Z33NQKpXEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_sDcz8KpXEeGa9NwBbmRYkg" outgoing="_2dwPoKpXEeGa9NwBbmRYkg" incoming="_yS9qMKpXEeGa9NwBbmRYkg _E3k04KpYEeGa9NwBbmRYkg _t4BeAKpZEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_wBqV8KpXEeGa9NwBbmRYkg" name="Search_Contact" outgoing="_BKe4EKpYEeGa9NwBbmRYkg" incoming="_2dwPoKpXEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_8tdTIKpXEeGa9NwBbmRYkg" name="Check_Existance" outgoing="_E3k04KpYEeGa9NwBbmRYkg _v2nuIKpYEeGa9NwBbmRYkg _O_wJUKpZEeGa9NwBbmRYkg" incoming="_BKe4EKpYEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_SCbsoKpYEeGa9NwBbmRYkg" name="Edit_Contact" outgoing="_p66vQKpZEeGa9NwBbmRYkg" incoming="_yCODAKpYEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_mE4uUKpYEeGa9NwBbmRYkg" name="Save" outgoing="_7Ka9oKpYEeGa9NwBbmRYkg" incoming="_rkq7UKpZEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_t4AFUKpYEeGa9NwBbmRYkg" outgoing="_yCODAKpYEeGa9NwBbmRYkg" incoming="_v2nuIKpYEeGa9NwBbmRYkg _9Qc2AKpYEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_4NhHoKpYEeGa9NwBbmRYkg" outgoing="_9Qc2AKpYEeGa9NwBbmRYkg _HXpIcKpZEeGa9NwBbmRYkg" incoming="_7Ka9oKpYEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_DMyRkKpZEeGa9NwBbmRYkg" name="End/Stop" incoming="_HXpIcKpZEeGa9NwBbmRYkg _O_wJUKpZEeGa9NwBbmRYkg"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_m-3N0KpZEeGa9NwBbmRYkg" outgoing="_rkq7UKpZEeGa9NwBbmRYkg _t4BeAKpZEeGa9NwBbmRYkg" incoming="_p66vQKpZEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_N3QiIKpXEeGa9NwBbmRYkg" source="_IjvaEKpXEeGa9NwBbmRYkg" target="_K28y0KpXEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Z33NQKpXEeGa9NwBbmRYkg" source="_K28y0KpXEeGa9NwBbmRYkg" target="_YOusQKpXEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_iQwK0KpXEeGa9NwBbmRYkg" name="Try again >3" source="_YOusQKpXEeGa9NwBbmRYkg" target="_K28y0KpXEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_yS9qMKpXEeGa9NwBbmRYkg" source="_YOusQKpXEeGa9NwBbmRYkg" target="_sDcz8KpXEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_2dwPoKpXEeGa9NwBbmRYkg" source="_sDcz8KpXEeGa9NwBbmRYkg" target="_wBqV8KpXEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_BKe4EKpYEeGa9NwBbmRYkg" source="_wBqV8KpXEeGa9NwBbmRYkg" target="_8tdTIKpXEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_E3k04KpYEeGa9NwBbmRYkg" source="_8tdTIKpXEeGa9NwBbmRYkg" target="_sDcz8KpXEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_v2nuIKpYEeGa9NwBbmRYkg" name="Contact_Exist" source="_8tdTIKpXEeGa9NwBbmRYkg" target="_t4AFUKpYEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_yCODAKpYEeGa9NwBbmRYkg" source="_t4AFUKpYEeGa9NwBbmRYkg" target="_SCbsoKpYEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_7Ka9oKpYEeGa9NwBbmRYkg" name="Confirmation" source="_mE4uUKpYEeGa9NwBbmRYkg" target="_4NhHoKpYEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_9Qc2AKpYEeGa9NwBbmRYkg" name="Cancel" source="_4NhHoKpYEeGa9NwBbmRYkg" target="_t4AFUKpYEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_HXpIcKpZEeGa9NwBbmRYkg" name="Yes" source="_4NhHoKpYEeGa9NwBbmRYkg" target="_DMyRkKpZEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_O_wJUKpZEeGa9NwBbmRYkg" name="Cancel_Search" source="_8tdTIKpXEeGa9NwBbmRYkg" target="_DMyRkKpZEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_p66vQKpZEeGa9NwBbmRYkg" source="_SCbsoKpYEeGa9NwBbmRYkg" target="_m-3N0KpZEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_rkq7UKpZEeGa9NwBbmRYkg" source="_m-3N0KpZEeGa9NwBbmRYkg" target="_mE4uUKpYEeGa9NwBbmRYkg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_t4BeAKpZEeGa9NwBbmRYkg" name="Cancel Edit, Search again" source="_m-3N0KpZEeGa9NwBbmRYkg" target="_sDcz8KpXEeGa9NwBbmRYkg"/>
+  </packagedElement>
+</uml:Package>

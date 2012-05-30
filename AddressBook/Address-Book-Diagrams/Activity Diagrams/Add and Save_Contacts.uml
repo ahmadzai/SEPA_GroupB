@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_7cEP8JVfEeGM-sijAsftBg">
+  <elementImport xmi:id="_7cd4kJVfEeGM-sijAsftBg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="_7cd4kZVfEeGM-sijAsftBg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+  </elementImport>
+  <elementImport xmi:id="_7cd4kpVfEeGM-sijAsftBg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+  </elementImport>
+  <elementImport xmi:id="_7cd4k5VfEeGM-sijAsftBg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_9iOrMJVfEeGM-sijAsftBg" name="Activity">
+    <node xmi:type="uml:InitialNode" xmi:id="_-Dj2oJVfEeGM-sijAsftBg" name="Start" outgoing="_DHzzoJVgEeGM-sijAsftBg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_AHoAIJVgEeGM-sijAsftBg" name="Authentication" outgoing="_H1r4AJVgEeGM-sijAsftBg" incoming="_DHzzoJVgEeGM-sijAsftBg _I5ISAJVgEeGM-sijAsftBg"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_FAfzkJVgEeGM-sijAsftBg" name="Check_Validation" outgoing="_I5ISAJVgEeGM-sijAsftBg _ZaOFwJVgEeGM-sijAsftBg" incoming="_H1r4AJVgEeGM-sijAsftBg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_V5dUwJVgEeGM-sijAsftBg" name="Add_Contact" outgoing="_tbxIgJVgEeGM-sijAsftBg" incoming="_ZaOFwJVgEeGM-sijAsftBg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_dGpUMJVgEeGM-sijAsftBg" name="Save_Contact" outgoing="_wCsHcJVgEeGM-sijAsftBg" incoming="_bvK_AJ7kEeGFM9ORa2JDuQ"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_g8rxoJVgEeGM-sijAsftBg" name="Validate data" outgoing="_0g70YJVgEeGM-sijAsftBg _-d5MwJVgEeGM-sijAsftBg" incoming="_wCsHcJVgEeGM-sijAsftBg"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ypJzYJVgEeGM-sijAsftBg" name="Stop/End" incoming="_0g70YJVgEeGM-sijAsftBg"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_WmktgJ7kEeGFM9ORa2JDuQ" outgoing="_bvK_AJ7kEeGFM9ORa2JDuQ" incoming="_tbxIgJVgEeGM-sijAsftBg _-d5MwJVgEeGM-sijAsftBg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_DHzzoJVgEeGM-sijAsftBg" source="_-Dj2oJVfEeGM-sijAsftBg" target="_AHoAIJVgEeGM-sijAsftBg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_H1r4AJVgEeGM-sijAsftBg" source="_AHoAIJVgEeGM-sijAsftBg" target="_FAfzkJVgEeGM-sijAsftBg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_I5ISAJVgEeGM-sijAsftBg" name="Login Failed ..Break > 3" source="_FAfzkJVgEeGM-sijAsftBg" target="_AHoAIJVgEeGM-sijAsftBg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ZaOFwJVgEeGM-sijAsftBg" name="Successfully login" source="_FAfzkJVgEeGM-sijAsftBg" target="_V5dUwJVgEeGM-sijAsftBg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_tbxIgJVgEeGM-sijAsftBg" name="Data added" source="_V5dUwJVgEeGM-sijAsftBg" target="_WmktgJ7kEeGFM9ORa2JDuQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_wCsHcJVgEeGM-sijAsftBg" source="_dGpUMJVgEeGM-sijAsftBg" target="_g8rxoJVgEeGM-sijAsftBg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_0g70YJVgEeGM-sijAsftBg" name="Valid Data Exist" source="_g8rxoJVgEeGM-sijAsftBg" target="_ypJzYJVgEeGM-sijAsftBg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_-d5MwJVgEeGM-sijAsftBg" name="Invalid Data" source="_g8rxoJVgEeGM-sijAsftBg" target="_WmktgJ7kEeGFM9ORa2JDuQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_bvK_AJ7kEeGFM9ORa2JDuQ" source="_WmktgJ7kEeGFM9ORa2JDuQ" target="_dGpUMJVgEeGM-sijAsftBg"/>
+  </packagedElement>
+</uml:Package>
