@@ -10,7 +10,9 @@ import Controller.LoginController;
 
 public class FactoryImpl extends XMIResourceFactoryImpl {
 	
-	
+	/**
+	 * The method creates Decrypted contacts 
+	 */
 	@Override
 	public Resource createResource(URI uri) {
 		

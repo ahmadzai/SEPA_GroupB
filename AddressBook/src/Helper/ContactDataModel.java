@@ -21,31 +21,54 @@ public class ContactDataModel extends AbstractTableModel{
 								   "Details"};
 	private EList<Person> persons;
 	
+	/**
+	 * constructor Inistialize person
+	 * @param persons
+	 */
+	
 	public ContactDataModel(EList<Person> persons) {
 		this.persons = persons;
 	}
 	
+	/**
+	 * Method will set List of person 
+	 * @param eList
+	 */
 	public void setPersons(EList<Person> eList) {
 		persons = eList;
 		fireTableStructureChanged();
 	}
 	
+	/**
+	 * Method set person to end of Elist
+	 * @param eList
+	 */
 	public void setPerson(Person eList) {
 		int index = persons.size();
 		persons.add(index, eList);
 		fireTableStructureChanged();
 	}
-	
+	/**
+	 * Return number of columns
+	 */
 	@Override
+	
 	public int getColumnCount() {
 		// TODO Auto-generated method stub
 		return columns.length;
 	}
 
+	/**
+	 * Returns columns Name at Index
+	 */
 	public String getColumnName(int col) {
 		
 		return columns[col];
 	}
+	
+	/**
+	 * Return number of contacts or Row in Table
+	 */
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
@@ -53,20 +76,37 @@ public class ContactDataModel extends AbstractTableModel{
 		return persons.size();
 	}
 	
+	/**
+	 * Add Person to specified Index
+	 * @param index
+	 */
 	public void personAdded(int index) {
 		//System.out.println("ADDED AT: " + index + " of " + persons.size());
 		fireTableRowsInserted(index, index);
 		fireTableDataChanged();
 	}
-
+	
+	/**
+	 * Delete Person at specified Index
+	 * @param index
+	 */
 	public void personDeleted(int index) {
 		fireTableRowsDeleted(index, index);
 	}
-
+	
+	/**
+	 * Update Person at specified Index
+	 * @param index
+	 */
 	public void personChanged(int index) {
 		fireTableRowsUpdated(index, index);
 	}
+	
+	/**
+	 * get Value at specified Row Index and Column Index
+	 */
 	@Override
+	
 	public Object getValueAt(int rowIndex, int colIndex) {
 		// TODO Auto-generated method stub
 		Person per = persons.get(rowIndex);
@@ -104,7 +144,7 @@ public class ContactDataModel extends AbstractTableModel{
 	}
 	
 	/**
-	 * 
+	 * get person at specified Index
 	 * @param index
 	 * @return Person
 	 */

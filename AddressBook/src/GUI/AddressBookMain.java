@@ -51,17 +51,20 @@ public class AddressBookMain extends javax.swing.JFrame {
     	setTitle("Address Book");
     	setResizable(false);
         initComponents();
-        TableContact();
+       
        
     }
-    public void TableContact(){
-    	
-    	     	
-    }
+    
+    /**
+     * 
+     * @return The method return the selected index of JComboBox
+     */
+    
     public int getIndex(){
     	
 		return cmbSearch.getSelectedIndex()+1;
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

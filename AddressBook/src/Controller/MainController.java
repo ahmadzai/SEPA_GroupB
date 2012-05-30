@@ -30,18 +30,25 @@ import Helper.FactoryImpl;
 import Helper.Printing;
 
 
+
 public class MainController {
 	private ContactCollection contactCollection;
 	private  ContactDataModel contactTableModel;
 	private String modelfile = "AddressBook.persons";
 	
-	
+	/**
+	 * The Constructor will call Load() method and Assign contacts to the ContactCollection class object 
+	 */
 	public MainController() {
 		contactCollection = load();
 		contactTableModel = new ContactDataModel(contactCollection.getPersons());
 	
 	}
 	
+	/**
+	 * The method get the Recourses 
+	 * @return ResourceSet
+	 */
 	private ResourceSet getRecourceSet() {
 		// Initialize the model
 		AddressBookPackage.eINSTANCE.eClass();
@@ -55,6 +62,9 @@ public class MainController {
 		return new ResourceSetImpl();
 	} 
 	
+	/**
+	 * Method saves the contacts information to a file in Encrypted form
+	 */
 	public void save() {
 		AddressBookPackageImpl.init();
 		AddressBookFactory fact=AddressBookFactory.eINSTANCE;
@@ -81,6 +91,10 @@ public class MainController {
 		}
 	}
 
+	/**
+	 * The Method loads the List of contacts in file and Decrypted form
+	 * @return ContactCollection 
+	 */
 	private ContactCollection load() {
 		AddressBookPackageImpl.init();
 		ResourceSet resSet = getRecourceSet();
@@ -100,10 +114,22 @@ public class MainController {
 	}
 
 	/**
-	 * Create a new student
-	 * 
-	 * @param name
+	 * Create new Person
+	 * @param firstname
 	 * @param lastName
+	 * @param fax
+	 * @param email
+	 * @param mobileNr
+	 * @param aprtNr
+	 * @param phoneNr
+	 * @param country
+	 * @param city
+	 * @param street
+	 * @param dateOfBirth
+	 * @param postalCode
+	 * @param imgPath
+	 * @param group
+	 * @param comments
 	 */
 	public void createPerson(String firstname, String lastName,String fax,String email,String mobileNr,String aprtNr,String phoneNr,String country,String city,String street,String dateOfBirth,String postalCode,String imgPath,String group,String comments) {
 		Person person = AddressBookFactory.eINSTANCE.createPerson();
@@ -126,13 +152,24 @@ public class MainController {
 		int index = contactCollection.getPersons().indexOf(person);
 		contactTableModel.personAdded(index);
 	}
-
 	/**
-	 * Edit an existing student
-	 * 
+	 * Edit existing student
 	 * @param index
-	 * @param name
+	 * @param firstname
 	 * @param lastName
+	 * @param fax
+	 * @param email
+	 * @param mobileNr
+	 * @param aprtNr
+	 * @param phoneNr
+	 * @param country
+	 * @param city
+	 * @param street
+	 * @param dateOfBirth
+	 * @param postalCode
+	 * @param imgPath
+	 * @param group
+	 * @param comments
 	 */
 	public void editPerson(int index,String firstname, String lastName,String fax,String email,String mobileNr,String aprtNr,String phoneNr,String country,String city,String street,String dateOfBirth,String postalCode,String imgPath,String group,String comments) {
 		if(index != -1) {
@@ -170,10 +207,10 @@ public class MainController {
 	}
 
 	/**
-	 * Get the student at the given index
+	 * Get the Person at the given index
 	 * 
 	 * @param index
-	 * @return
+	 * @return Person
 	 */
 	public Person getPerson(int index) {
 		
@@ -182,7 +219,7 @@ public class MainController {
 	}
 	
 	/**
-	 * Load all students from the given file
+	 * Load all Person from the given file
 	 * 
 	 * @param modelFile
 	 */
@@ -200,6 +237,10 @@ public class MainController {
 		return modelfile;
 	}
 
+	/**
+	 * Set the modelfile
+	 * @param modelfile
+	 */
 	private void setModelfile(String modelfile) {
 		this.modelfile = modelfile;
 	}

@@ -17,18 +17,38 @@ public class LoginController {
 	private static String key=null;
 	private String codedUserName=null;
 	private String codedPassword=null;
+	
+	/**
+	 * Constructor will call method readFromFile
+	 */
 	public LoginController() {
 		readFromFile();
 		// TODO Auto-generated constructor stub
 	}
+	
+	/**
+	 * Property which will return the key 
+	 * @return String
+	 */
 	public static String  getKey(){
 		return key;
 	}
+	
+	/**
+	 * Method is  setting  key for login 
+	 * @param key
+	 */
 	private void setKey(String key){
 		this.key=key;
 	}
 	
-	
+	/**
+	 * The method will take userName and Password type of string and
+	 * will change it cipher then  will compare it with stored userName and password
+	 * @param UserName
+	 * @param Password
+	 * @return Boolean
+	 */
 	public boolean validatLogin(String UserName,String Password){
 		if(codedUserName.equals(toSHA_256(UserName)) && codedPassword.equals(toSHA_256(Password))){
 			this.setKey(Password);
@@ -37,6 +57,11 @@ public class LoginController {
 		return false;
 	}
 	
+	/**
+	 * The method will take userName or password then convert it to cipher base on SHA-256 Algorithm 
+	 * @param passName
+	 * @return String
+	 */
 	private String toSHA_256(String passName){
 		try {
 			MessageDigest md=MessageDigest.getInstance("SHA-256");
@@ -56,6 +81,10 @@ public class LoginController {
 		
 	}
 	
+	/**
+	 * This Method will read from the file the stored userName and password and assign it to
+	 *  codedUserName and codedPassword for further operation
+	 */
 	private void readFromFile(){
 		
 		try {
