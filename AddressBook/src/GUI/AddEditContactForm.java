@@ -133,6 +133,9 @@ public class AddEditContactForm {
 		initialize();
 		
 		this.frame.setTitle(title);
+		if(frame.getTitle().equals("Edit Person") || frame.getTitle().equals("Contact Details")){
+			btnSave.setText("Edit");
+		}
 		
 	}
 
@@ -337,7 +340,14 @@ public class AddEditContactForm {
 				imgPath = "images/defaultUser.png";
 			imgFile = new File(imgPath);
 			//System.out.print("The image path is : "+ imgPath);
+			File fil=new File(imgPath);
+			if(fil.exists())
 			lblImage.setIcon(image.convertToIcon(imgFile));
+			else{
+				imgPath="";
+				imgFile = new File("images/defaultUser.png");
+				lblImage.setIcon(image.convertToIcon(imgFile));
+			}
 			
 			txtFirstName.setText(person.getFirstName());
 			txtLastName.setText(person.getLastName());
@@ -583,7 +593,7 @@ public class AddEditContactForm {
 		
 		// now collecting all data in an ArrayList
 		if(!error) {
-			int conf = JOptionPane.showConfirmDialog(null, "Do you want to save!", "Confirm", JOptionPane.YES_NO_OPTION);
+			int conf = JOptionPane.showConfirmDialog(null, "Do you want to "+btnSave.getText()+" this record?", "Confirm", JOptionPane.YES_NO_OPTION);
 			if(conf == JOptionPane.OK_OPTION) {
 				controller.createEditPerson(person, editPrintRow, txtFirstName.getText(), txtLastName.getText(), 
 										txtFax.getText(), txtEmail.getText(), txtMobileNr.getText(), 

@@ -173,6 +173,7 @@ public class AddressBookMain extends javax.swing.JFrame {
 				// TODO Auto-generated method stub
 				
 	        		if(tblContacts.columnAtPoint(e.getPoint())==5){
+	        			tblContacts.convertColumnIndexToView(5);
 	        			tblContacts.setCursor(Cursor.getPredefinedCursor(HAND_CURSOR));
 	        		}
 	        		else
@@ -181,12 +182,14 @@ public class AddressBookMain extends javax.swing.JFrame {
 	        	
 				
 			}
-			
+
 			@Override
-			public void mouseDragged(MouseEvent e) {
+			public void mouseDragged(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				
 			}
+			
+			
 		});
         
       
