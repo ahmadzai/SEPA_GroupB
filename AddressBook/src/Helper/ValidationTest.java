@@ -1,5 +1,5 @@
 package Helper;
-/*
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -315,4 +315,4 @@ public class ValidationTest {
 		assertFalse(Validation.checkEmail("myemai#lid@cricbox.com.uk"));
 		assertTrue(Validation.checkEmail("email_address.own-special@company.business-place.country"));
 	}
-}*/
+}

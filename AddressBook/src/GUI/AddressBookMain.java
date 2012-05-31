@@ -280,7 +280,8 @@ public class AddressBookMain extends javax.swing.JFrame {
         pnlTable.setBorder(javax.swing.BorderFactory.createTitledBorder("Contacts List"));
         
        
-     
+     btnNext.setEnabled(false);
+     btnPrevious.setEnabled(false);
        
       //  tblContacts.setAutoCreateColumnsFromModel(true);
         tblContacts.getColumnModel().getColumn(0).setPreferredWidth(10);

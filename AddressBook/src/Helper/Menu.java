@@ -59,16 +59,17 @@ public class Menu {
 		 * the code for save menuItem will added here
 		 * but we will check that which form is this
 		 *
+		 */
 		mntmSave.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				//System.out.print("Acction taken");
+				JOptionPane.showMessageDialog(null, Help.about(), "About", JOptionPane.PLAIN_MESSAGE);
 				
 			}
 		});
-		*/
+		
 		mntmPrint = new JMenuItem("Print");
 		mnFile.add(mntmPrint);
 		
